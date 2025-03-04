@@ -3,7 +3,7 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
-import Footer from "./components/footer/footer";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
