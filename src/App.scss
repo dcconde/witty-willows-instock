@@ -1,0 +1,81 @@
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/mixins" as *;
+@use "./styles/partials/variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Titillium Web", monospace;
+
+  &--large {
+    @include text-style(0.9375rem, 1.625rem, $font-weight-regular);
+
+    @include tablet {
+      @include text-style(1rem, 1.75rem, $font-weight-regular);
+    }
+  }
+
+  &--medium {
+    @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
+
+    @include tablet {
+      @include text-style(0.875rem, 1.375rem, $font-weight-regular);
+    }
+  }
+
+  &--small {
+    @include text-style(0.6875rem, 1rem, $font-weight-regular);
+
+    @include tablet {
+      @include text-style(0.75rem, 1.125rem, $font-weight-regular);
+    }
+  }
+}
+
+h1 {
+  @include text-style(1.75rem, 2.25rem, $font-weight-bold);
+
+  @include tablet {
+    @include text-style(2rem, 2.5rem, $font-weight-bold);
+  }
+}
+
+h2 {
+  @include text-style(1.25rem, 1.75rem, $font-weight-bold);
+
+  @include tablet {
+    @include text-style(1.5rem, 2rem, $font-weight-bold);
+  }
+}
+
+h3 {
+  @include text-style(0.8125rem, 1.25rem, $font-weight-bold);
+
+  @include tablet {
+    @include text-style(0.875rem, 1.375rem, $font-weight-bold);
+  }
+}
+
+h4 {
+  @include text-style(0.6875rem, 1rem, $font-weight-regular);
+
+  @include tablet {
+    @include text-style(0.75rem, 1.125rem, $font-weight-regular);
+  }
+}
+
+label,
+link,
+button {
+  @include text-style(0.8125rem, 1.25rem, $font-weight-bold);
+
+  @include tablet {
+    @include text-style(0.875rem, 1.375rem, $font-weight-bold);
+  }
+}
