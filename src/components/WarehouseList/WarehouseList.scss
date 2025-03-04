@@ -1,0 +1,97 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.warehouse-list {
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__search {
+    position: relative;
+    margin-bottom: 1rem;
+
+    &-input {
+      font-family: "Titillium Web", monospace;
+      width: 100%;
+      padding: 0.625rem;
+      padding-left: 1rem;
+      border: 0.0625rem solid $secondary-accent-colour;
+      border-radius: 1.25rem;
+      font-size: 0.8125rem;
+
+      &:focus {
+        border-color: $primary-accent-colour;
+        outline: none;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      left: 86%;
+      top: 20%;
+    }
+  }
+
+  &__button {
+    font-family: "Titillium Web", monospace;
+    width: 100%;
+    background-color: $primary-accent-colour;
+    color: $primary-background-colour;
+    padding: 0.625rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: $font-weight-regular;
+    border: none;
+    border-radius: 1.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dark-background-colour;
+    }
+  }
+
+  &__item {
+    border-top: 0.0625rem solid $secondary-accent-colour;
+    padding: 1rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__section {
+    margin-bottom: 1rem;
+    font-size: 0.8125rem;
+    width: 45%;
+
+    &-title {
+      color: $secondary-text-colour;
+      text-transform: uppercase;
+    }
+  }
+
+  &__warehouse {
+    &-container {
+      display: flex;
+      align-items: center;
+    }
+
+    &-name {
+      color: $primary-accent-colour;
+    }
+
+    &-icon {
+      width: 1.25rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+}

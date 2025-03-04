@@ -38,18 +38,16 @@ function WarehouseList({ warehousesData }) {
               <div className="warehouse-list__info">
                 <div className="warehouse-list__section">
                   <h4 className="warehouse-list__section-title">Warehouse</h4>
-                  <h3 className="warehouse-list__warehouse-name">
-                    {warehouse_name}
-                  </h3>
-                  <img
-                    className="warehouse-list__chevron-icon"
-                    src={chevronIcon}
-                    alt="chevron icon"
-                  />
-                </div>
-                <div className="warehouse-list__section">
-                  <h4 className="warehouse-list__section-title">Address</h4>
-                  <p className="warehouse-list__address">{`${address}, ${city}, ${country}`}</p>
+                  <div className="warehouse-list__warehouse-container">
+                    <h3 className="warehouse-list__warehouse-name">
+                      {warehouse_name}
+                    </h3>
+                    <img
+                      className="warehouse-list__warehouse-icon"
+                      src={chevronIcon}
+                      alt="chevron icon"
+                    />
+                  </div>
                 </div>
                 <div className="warehouse-list__section">
                   <h4 className="warehouse-list__section-title">
@@ -58,23 +56,21 @@ function WarehouseList({ warehousesData }) {
                   <p className="warehouse-list__contact-name">{contact_name}</p>
                 </div>
                 <div className="warehouse-list__section">
-                  <h4 className="warehouse-list__section-title">
-                    Contact Email
-                  </h4>
-                  <p className="warehouse-list__contact-email">
-                    {contact_email}
-                  </p>
+                  <h4 className="warehouse-list__section-title">Address</h4>
+                  <p className="warehouse-list__address">{`${address}, ${city}, ${country}`}</p>
                 </div>
                 <div className="warehouse-list__section">
                   <h4 className="warehouse-list__section-title">
-                    Contact Phone
+                    Contact Information
                   </h4>
                   <p className="warehouse-list__contact-phone">
                     {contact_phone}
                   </p>
+                  <p className="warehouse-list__contact-email">
+                    {contact_email}
+                  </p>
                 </div>
               </div>
-
               <div className="warehouse-list__actions">
                 <img
                   className="warehouse-list__delete-icon"
