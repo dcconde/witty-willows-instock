@@ -1,27 +1,67 @@
 import "./WarehouseList.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
+import sortIcon from "../../assets/icons/sort-24px.svg";
+import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
-import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 
 function WarehouseList({ warehousesData }) {
   return (
     <section className="warehouse-list">
-      <h1 className="warehouse-list__title">Warehouses</h1>
-      <div className="warehouse-list__search">
-        <input
-          className="warehouse-list__search-input"
-          name="searchInput"
-          type="text"
-          placeholder="Search..."
-        />
-        <img
-          className="warehouse-list__search-icon"
-          src={searchIcon}
-          alt="search icon"
-        />
+      <div className="warehouse-list__top-container">
+        <h1 className="warehouse-list__title">Warehouses</h1>
+        <div className="warehouse-list__search">
+          <input
+            className="warehouse-list__search-input"
+            name="searchInput"
+            type="text"
+            placeholder="Search..."
+          />
+          <img
+            className="warehouse-list__search-icon"
+            src={searchIcon}
+            alt="search icon"
+          />
+        </div>
+        <button className="warehouse-list__button">+ Add New Warehouse</button>
       </div>
-      <button className="warehouse-list__button">+ Add New Warehouse</button>
+      <section className="warehouse-list__header">
+        <div className="warehouse-list__header-item">
+          <h4 className="warehouse-list__header-title">Warehouse</h4>
+          <img
+            className="warehouse-list__sort-icon"
+            src={sortIcon}
+            alt="sort icon"
+          />
+        </div>
+        <div className="warehouse-list__header-item">
+          <h4 className="warehouse-list__header-title">Address</h4>
+          <img
+            className="warehouse-list__sort-icon"
+            src={sortIcon}
+            alt="sort icon"
+          />
+        </div>
+        <div className="warehouse-list__header-item">
+          <h4 className="warehouse-list__header-title">Contact Name</h4>
+          <img
+            className="warehouse-list__sort-icon"
+            src={sortIcon}
+            alt="sort icon"
+          />
+        </div>
+        <div className="warehouse-list__header-item">
+          <h4 className="warehouse-list__header-title">Contact Information</h4>
+          <img
+            className="warehouse-list__sort-icon"
+            src={sortIcon}
+            alt="sort icon"
+          />
+        </div>
+        <div className="warehouse-list__header-item">
+          <h4 className="warehouse-list__header-title">Actions</h4>
+        </div>
+      </section>
       <ul className="warehouse-list__items">
         {warehousesData.map(
           ({
