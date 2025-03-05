@@ -23,7 +23,11 @@ function WarehouseList({ warehousesData }) {
             alt="search icon"
           />
         </div>
-        <button className="warehouse-list__button">+ Add New Warehouse</button>
+        <div className="warehouse-list__button-container">
+          <button className="warehouse-list__button">
+            + Add New Warehouse
+          </button>
+        </div>
       </div>
       <section className="warehouse-list__header">
         <div className="warehouse-list__header-item">
