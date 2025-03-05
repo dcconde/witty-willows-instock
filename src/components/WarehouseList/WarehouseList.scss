@@ -150,8 +150,26 @@
     }
 
     @include tablet {
-      flex: 1;
       margin: 0;
+      flex: 1;
+
+      &:nth-child(1) {
+        order: 0;
+        flex-grow: 1.4;
+      }
+
+      &:nth-child(2) {
+        order: 2;
+      }
+
+      &:nth-child(3) {
+        order: 1;
+      }
+
+      &:nth-child(4) {
+        order: 3;
+        flex-grow: 1.5;
+      }
     }
   }
 
@@ -182,7 +200,7 @@
 
   &__address {
     @include tablet {
-      width: 65%;
+      width: 76%;
     }
   }
 
