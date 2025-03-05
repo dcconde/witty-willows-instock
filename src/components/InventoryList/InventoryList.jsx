@@ -83,7 +83,10 @@ function InventoryList({ inventoriesData }) {
                     Inventory Item
                   </h4>
                   <div className="inventories-list__inventory-container">
-                    <Link to={"/"} className="inventories-list__link">
+                    <Link
+                      to={`/inventories/${id}`}
+                      className="inventories-list__link"
+                    >
                       <h3 className="inventories-list__inventory-name">
                         {item_name}
                       </h3>

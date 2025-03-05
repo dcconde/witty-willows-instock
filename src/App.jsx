@@ -9,9 +9,7 @@ import Header from "./components/Header/header";
 import WarehouseAddPage from "./pages/WarehouseAddPage/WarehouseAddPage";
 import WarehouseEditPage from "./pages/WarehouseEditPage/WarehouseEditPage";
 import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
-import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-// import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/header";
+import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 
 function App() {
   return (
@@ -22,10 +20,7 @@ function App() {
         <Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/deleteinventory" element={<DeleteInventory />} />
-        <Route
-          path="/inventoryitemdetails"
-          element={<InventoryItemDetails />}
-        />
+        <Route path="/inventories/:id" element={<InventoryItemDetailsPage />} />
         <Route
           path="/api/warehouses/:warehouseId/add"
           element={<WarehouseAddPage />}
