@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.header {
+
+    padding: 0px 16px;
+
+    @include tablet {
+        padding: 16px 24px;
+    }
+
+    @include desktop {
+        padding: 20px 72px;
+    }
+
+  &__content {
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-evenly;
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: $primary-background-colour;
+    font-size: 12px;
+
+    @include tablet {
+        font-size: 14px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      padding: 5px 50px;
+      border-radius: 20px;
+      text-decoration: none;
+      background-color: $primary-text-colour;
+
+      @include tablet {
+        padding: 5px 15px;
+      }
+    }
+  }
+}
