@@ -1,0 +1,66 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.deleteinventory {
+  min-height: 100vh;
+  position: relative;
+  background-color: $primary-background-colour;
+  padding: 2rem;
+
+  &__img {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__h1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: "Titillium Web";
+    color: $primary-text-colour;
+    line-height: 36px;
+  }
+
+  &__p {
+    margin-bottom: 2rem;
+    font-size: 12px;
+    font-family: "Titillium Web";
+    color: $primary-text-colour;
+  }
+
+  &__btn {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 25rem;
+  }
+
+  &__btn1,
+  &__btn2 {
+    padding: 6px 43px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: "Titillium Web";
+  }
+
+  &__btn1 {
+    background-color: $primary-background-colour;
+    color: $primary-text-colour;
+    border: 1px solid $secondary-accent-colour;
+  }
+
+  &__btn2 {
+    background-color: $unavailable-label-colour;
+    color: $primary-background-colour;
+  }
+}
