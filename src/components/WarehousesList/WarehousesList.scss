@@ -118,6 +118,10 @@
     border-top: 0.0625rem solid $secondary-accent-colour;
     padding: 0.625rem 1.5rem 1.5rem;
 
+    &:hover {
+      background-color: rgba($primary-accent-colour, 0.07);
+    }
+
     @include tablet {
       display: flex;
       border: none;
