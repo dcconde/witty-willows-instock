@@ -4,6 +4,7 @@ import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
+console.log(backendUrl);
 
 function WarehousePage() {
   const [warehousesData, setWarehousesData] = useState([]);
