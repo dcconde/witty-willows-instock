@@ -141,50 +141,54 @@
     }
   }
 
-  &__section {
-    @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
-    margin-bottom: 1rem;
-    width: 47%;
+  // &__section {
+  //   @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
+  //   margin-bottom: 1rem;
+  //   width: 47%;
 
-    &-title {
-      color: $secondary-text-colour;
-      text-transform: uppercase;
-      padding-bottom: 0.25rem;
-
-      @include tablet {
-        display: none;
-      }
-    }
+  &__section-title {
+    color: $secondary-text-colour;
+    text-transform: uppercase;
+    padding-bottom: 0.25rem;
 
     @include tablet {
-      margin: 0;
-      flex: 1;
-
-      &:nth-child(1) {
-        order: 0;
-        flex-grow: 1.4;
-      }
-
-      &:nth-child(2) {
-        order: 2;
-      }
-
-      &:nth-child(3) {
-        order: 1;
-      }
-
-      &:nth-child(4) {
-        order: 3;
-        flex-grow: 1.5;
-      }
+      display: none;
     }
 
     @include desktop {
-      &:nth-child(3) {
-        flex-grow: 1.2;
-      }
+      display: none;
     }
   }
+
+  // @include tablet {
+  //   margin: 0;
+  //   flex: 1;
+
+  //   &:nth-child(1) {
+  //     order: 0;
+  //     flex-grow: 1.4;
+  //   }
+
+  //   &:nth-child(2) {
+  //     order: 2;
+  //   }
+
+  //   &:nth-child(3) {
+  //     order: 1;
+  //   }
+
+  //   &:nth-child(4) {
+  //     order: 3;
+  //     flex-grow: 1.5;
+  //   }
+  // }
+
+  // @include desktop {
+  //   &:nth-child(3) {
+  //     flex-grow: 1.2;
+  //   }
+  // }
+  // }
 
   &__inventory {
     &-container {
@@ -201,37 +205,37 @@
     }
   }
 
-  &__item-category,
-  &__item-status,
-  &__item-qty,
-  &__item-warehouse {
-    @include tablet {
-      @include text-style(0.875rem, 1.375rem, $font-weight-regular);
-    }
-  }
+  // &__item-category,
+  // &__item-status,
+  // &__item-qty,
+  // &__item-warehouse {
+  //   @include tablet {
+  //     @include text-style(0.875rem, 1.375rem, $font-weight-regular);
+  //   }
+  // }
 
-  //   &__address {
-  //     @include tablet {
-  //       width: 76%;
-  //     }
+  // //   &__address {
+  // //     @include tablet {
+  // //       width: 76%;
+  // //     }
 
-  //     @include desktop {
-  //       width: 90%;
-  //     }
+  // //     @include desktop {
+  // //       width: 90%;
+  // //     }
+  // //   }
+
+  // &__actions {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   cursor: pointer;
+
+  //   @include tablet {
+  //     width: 10%;
   //   }
 
-  &__actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-
-    @include tablet {
-      width: 10%;
-    }
-
-    @include desktop {
-      width: 6%;
-    }
-  }
+  //   @include desktop {
+  //     width: 6%;
+  //   }
+  // }
 }
