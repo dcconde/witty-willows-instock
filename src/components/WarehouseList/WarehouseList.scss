@@ -104,6 +104,10 @@
         text-transform: uppercase;
       }
     }
+
+    @include desktop {
+      padding: 1rem 3rem;
+    }
   }
 
   &__sort-icon {
@@ -119,6 +123,10 @@
       border: none;
       border-bottom: 0.0625rem solid $secondary-accent-colour;
       padding: 1.125rem 2rem;
+    }
+
+    @include desktop {
+      padding: 1.125rem 3rem;
     }
   }
 
@@ -171,6 +179,12 @@
         flex-grow: 1.5;
       }
     }
+
+    @include desktop {
+      &:nth-child(3) {
+        flex-grow: 1.2;
+      }
+    }
   }
 
   &__warehouse {
@@ -202,6 +216,10 @@
     @include tablet {
       width: 76%;
     }
+
+    @include desktop {
+      width: 90%;
+    }
   }
 
   &__actions {
@@ -212,6 +230,10 @@
 
     @include tablet {
       width: 10%;
+    }
+
+    @include desktop {
+      width: 6%;
     }
   }
 }
