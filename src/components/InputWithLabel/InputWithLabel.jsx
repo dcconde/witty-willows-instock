@@ -10,6 +10,7 @@ const InputWithLabel = ({ handleOnChange, inputObj }) => {
 					type={inputObj.type}
 					className="input__input"
 					value={inputObj.value}
+					name={inputObj.name}
 					placeholder={inputObj.label}
 					onChange={handleOnChange}
 				/>

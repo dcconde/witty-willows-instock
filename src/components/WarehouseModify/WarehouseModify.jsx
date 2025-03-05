@@ -7,43 +7,61 @@ import "./WarehouseModify.scss";
 const WarehouseModify = () => {
 	const inputsStructure = [
 		{
+			name: "warehouse_name",
 			label: "Warehouse Name",
 			value: "",
 			type: "text",
 			category: "warehouse",
 		},
 		{
-			label: "Street Adress",
+			name: "address",
+			label: "Street Address",
 			value: "",
 			type: "text",
 			category: "warehouse",
 		},
-		{ label: "City", value: "", type: "text", category: "warehouse" },
 		{
+			name: "city",
+			label: "City",
+			value: "",
+			type: "text",
+			category: "warehouse",
+		},
+		{
+			name: "country",
 			label: "Country",
 			value: "",
 			type: "text",
 			category: "contact",
 		},
 		{
+			name: "contact_name",
 			label: "Contact Name",
 			value: "",
 			type: "text",
 			category: "contact",
 		},
 		{
+			name: "contact_position",
 			label: "Position",
 			value: "",
 			type: "text",
 			category: "contact",
 		},
 		{
+			name: "contact_phone",
 			label: "Phone Number",
 			value: "",
 			type: "text",
 			category: "contact",
 		},
-		{ label: "Email", value: "", type: "email", category: "warehouse" },
+		{
+			name: "contact_email",
+			label: "Email",
+			value: "",
+			type: "email",
+			category: "warehouse",
+		},
 	];
 	const [inputs, setInputs] = useState(inputsStructure);
 
@@ -52,11 +70,11 @@ const WarehouseModify = () => {
 		setInputs((pre) => {
 			let newInputs = [];
 			for (let input of pre) {
-				if (input.label === e.target.placeholder) {
+				if (input.name === e.target.name) {
 					newInputs.push({ ...input, ["value"]: e.target.value });
 				} else newInputs.push(input);
 			}
-			console.log(newInputs);
+			//console.log(newInputs);
 			return newInputs;
 		});
 	};
