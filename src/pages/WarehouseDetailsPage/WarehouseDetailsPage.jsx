@@ -37,9 +37,9 @@ function WarehouseDetailsPage() {
   }
 
   return (
-    <>
+    <main className="warehouse-details-page">
       <WarehouseDetails warehouseDetails={warehouseDetails} />
-    </>
+    </main>
   );
 }
 
