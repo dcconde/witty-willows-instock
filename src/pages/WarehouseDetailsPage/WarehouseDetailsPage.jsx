@@ -2,6 +2,7 @@ import "./WarehouseDetailsPage.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -35,7 +36,11 @@ function WarehouseDetailsPage() {
     return <p>Loading...</p>;
   }
 
-  return <>{/* <h2>{warehouseDetails.warehouse_name}</h2> */}</>;
+  return (
+    <>
+      <WarehouseDetails warehouseDetails={warehouseDetails} />
+    </>
+  );
 }
 
 export default WarehouseDetailsPage;

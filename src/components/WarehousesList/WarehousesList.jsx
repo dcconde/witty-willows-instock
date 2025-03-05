@@ -1,4 +1,5 @@
 import "./WarehousesList.scss";
+import { Link } from "react-router-dom";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
@@ -83,9 +84,14 @@ function WarehousesList({ warehousesData }) {
                 <div className="warehouses-list__section">
                   <h4 className="warehouses-list__section-title">Warehouse</h4>
                   <div className="warehouses-list__warehouse-container">
-                    <h3 className="warehouses-list__warehouse-name">
-                      {warehouse_name}
-                    </h3>
+                    <Link
+                      to={`/api/warehouses/${id}`}
+                      className="warehouses-list__link"
+                    >
+                      <h3 className="warehouses-list__warehouse-name">
+                        {warehouse_name}
+                      </h3>
+                    </Link>
                     <img
                       className="warehouses-list__warehouse-icon"
                       src={chevronIcon}
