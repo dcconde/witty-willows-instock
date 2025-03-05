@@ -1,10 +1,9 @@
 import "./WarehousesPage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import WarehouseList from "../../components/WarehouseList/WarehouseList";
+import WarehousesList from "../../components/WarehousesList/WarehousesList";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-console.log(backendUrl);
 
 function WarehousesPage() {
   const [warehousesData, setWarehousesData] = useState([]);
@@ -24,7 +23,7 @@ function WarehousesPage() {
 
   return (
     <>
-      <WarehouseList warehousesData={warehousesData} />
+      <WarehousesList warehousesData={warehousesData} />
     </>
   );
 }
