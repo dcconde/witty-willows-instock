@@ -24,13 +24,13 @@
     padding: 0 1.5rem;
 
     &-input {
+      @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
       font-family: "Titillium Web", monospace;
       width: 100%;
       padding: 0.5rem;
       padding-left: 1rem;
       border: 0.0625rem solid $secondary-accent-colour;
       border-radius: 1.25rem;
-      font-size: 0.8125rem;
 
       &:focus {
         border-color: $primary-accent-colour;
@@ -142,9 +142,8 @@
   }
 
   &__section {
+    @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
     margin-bottom: 1rem;
-    font-size: 0.8125rem;
-    line-height: 1.25rem;
     width: 47%;
 
     &-title {
@@ -207,8 +206,7 @@
   &__contact-email,
   &__contact-phone {
     @include tablet {
-      font-size: 0.875rem;
-      line-height: 1.375rem;
+      @include text-style(0.875rem, 1.375rem, $font-weight-regular);
     }
   }
 
