@@ -2,11 +2,16 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.card {
+  width: 100%;
+}
+
 .deleteinventory {
   min-height: 100vh;
   position: relative;
   background-color: $primary-background-colour;
   padding: 2rem;
+  width: 100%;
 
   &__img {
     position: absolute;
@@ -62,5 +67,44 @@
   &__btn2 {
     background-color: $unavailable-label-colour;
     color: $primary-background-colour;
+  }
+}
+
+@include tablet {
+  .card {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    background-color: $primary-background-colour;
+    box-shadow: 0px 2px 5px #13182c1a;
+    margin-bottom: 1rem;
+  }
+
+  .deleteinventory {
+    min-height: auto;
+    width: 80%;
+    margin: 0 auto;
+
+    &__p {
+      margin-bottom: 1.5rem;
+    }
+
+    &__btn {
+      margin-top: 0.2rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__btn1,
+    &__btn2 {
+      padding: 3px 17px;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@include desktop {
+  .card {
+    width: 40%;
   }
 }
