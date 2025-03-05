@@ -137,6 +137,7 @@ const WarehouseModify = () => {
 									<InputWithLabel
 										handleOnChange={handleOnChange}
 										inputObj={input}
+										className={input.errorInput ? "input__input--error" : ""}
 									>
 										{input.errorInput && <ErrorMessage />}
 									</InputWithLabel>
@@ -151,6 +152,7 @@ const WarehouseModify = () => {
 									<InputWithLabel
 										handleOnChange={handleOnChange}
 										inputObj={input}
+										className={input.errorInput ? "input__input--error" : ""}
 									>
 										{input.errorInput && <ErrorMessage />}
 									</InputWithLabel>
@@ -159,11 +161,19 @@ const WarehouseModify = () => {
 					</div>
 				</div>
 				<div className="warehouse-modify__button-wrapper">
-					<Button>
-						<p>Cancel</p>
+					<Button className="button--cancel">
+						<div className="button__text">
+							<p>Cancel</p>
+						</div>
 					</Button>
-					<Button type="submit" handleAddWarehouse={handleAddWarehouse}>
-						<p>+ Add Warehouse</p>
+					<Button
+						type="submit"
+						className="button--save"
+						handleAddWarehouse={handleAddWarehouse}
+					>
+						<div className="button__text">
+							<p>+ Add Warehouse</p>
+						</div>
 					</Button>
 				</div>
 			</form>

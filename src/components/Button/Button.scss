@@ -1,3 +1,34 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
+
+.button {
+	border: none;
+	border-radius: 5rem;
+	height: 2rem;
+
+	&__text {
+		margin-left: 0.8rem;
+		margin-right: 0.8rem;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+
+	&--save {
+		color: $primary-background-colour;
+		background-color: $primary-accent-colour;
+		&:hover {
+			background-color: $dark-background-colour;
+		}
+	}
+	&--cancel {
+		color: $secondary-text-colour;
+		background-color: $primary-background-colour;
+		border: 0.08rem solid $secondary-accent-colour;
+		&:hover {
+			color: $primary-accent-colour;
+			border: 0.08rem solid $primary-accent-colour;
+		}
+	}
+}
