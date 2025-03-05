@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
@@ -63,6 +64,9 @@ const WarehouseModify = () => {
 			category: "warehouse",
 		},
 	];
+
+	const { warehouseId } = useParams();
+	console.log(warehouseId);
 	const [inputs, setInputs] = useState(inputsStructure);
 
 	const handleOnChange = (e) => {

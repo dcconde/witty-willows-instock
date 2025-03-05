@@ -12,8 +12,14 @@ function App() {
 			<Routes>
 				<Route path="/" element={<WarehousePage />} />
 				<Route path="/inventory" element={<InventoryPage />} />
-				<Route path="/add" element={<WarehouseAddPage />}></Route>
-				<Route path="/edit" element={<WarehouseEditPage />}></Route>
+				<Route
+					path="/warehouse/:warehouseId/add"
+					element={<WarehouseAddPage />}
+				></Route>
+				<Route
+					path="/warehouse/:warehouseId/edit"
+					element={<WarehouseEditPage />}
+				></Route>
 				<></>
 			</Routes>
 		</BrowserRouter>
