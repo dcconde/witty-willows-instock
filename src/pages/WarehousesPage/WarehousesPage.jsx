@@ -1,4 +1,4 @@
-import "./WarehousePage.scss";
+import "./WarehousesPage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
@@ -6,7 +6,7 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 console.log(backendUrl);
 
-function WarehousePage() {
+function WarehousesPage() {
   const [warehousesData, setWarehousesData] = useState([]);
 
   const getWarehouses = async () => {
@@ -29,4 +29,4 @@ function WarehousePage() {
   );
 }
 
-export default WarehousePage;
+export default WarehousesPage;

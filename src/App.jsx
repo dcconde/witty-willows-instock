@@ -1,7 +1,7 @@
 import "./App.scss";
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import WarehousePage from "./pages/WarehousePage/WarehousePage";
+import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/header";
@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<WarehousePage />} />
+        <Route path="/" element={<WarehousesPage />} />
         <Route path="/inventory" element={<InventoryPage />} />
       </Routes>
       <Footer />
