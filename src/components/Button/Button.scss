@@ -5,14 +5,19 @@
 .button {
 	border: none;
 	border-radius: 5rem;
-	height: 2rem;
-
-	&__text {
-		margin-left: 0.8rem;
-		margin-right: 0.8rem;
+	height: 2.4rem;
+	width: 50%;
+	cursor: pointer;
+	@include tablet {
+		width: auto;
+		padding-left: 0.8rem;
+		padding-right: 0.8rem;
 	}
-	&:hover {
-		cursor: pointer;
+	&__text {
+		font-family: "Titillium Web", monospace;
+		font-weight: $font-weight-regular;
+		margin-left: 0.5rem;
+		margin-right: 0.8rem;
 	}
 
 	&--save {
