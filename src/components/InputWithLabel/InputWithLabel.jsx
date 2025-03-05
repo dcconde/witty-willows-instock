@@ -1,7 +1,7 @@
 import React from "react";
 import "./InputWithLabel.scss";
 
-const InputWithLabel = ({ handleOnChange, inputObj }) => {
+const InputWithLabel = ({ handleOnChange, inputObj, children }) => {
 	return (
 		<div className="input">
 			<label className="input__label">
@@ -15,7 +15,7 @@ const InputWithLabel = ({ handleOnChange, inputObj }) => {
 					onChange={handleOnChange}
 				/>
 			</label>
-			<p className="input__error-message"></p>
+			{children}
 		</div>
 	);
 };

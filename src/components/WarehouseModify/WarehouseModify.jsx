@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+
 import "./WarehouseModify.scss";
 
 const WarehouseModify = () => {
@@ -13,6 +15,7 @@ const WarehouseModify = () => {
 			value: "",
 			type: "text",
 			category: "warehouse",
+			errorInput: false,
 		},
 		{
 			name: "address",
@@ -20,6 +23,7 @@ const WarehouseModify = () => {
 			value: "",
 			type: "text",
 			category: "warehouse",
+			errorInput: false,
 		},
 		{
 			name: "city",
@@ -27,13 +31,15 @@ const WarehouseModify = () => {
 			value: "",
 			type: "text",
 			category: "warehouse",
+			errorInput: false,
 		},
 		{
 			name: "country",
 			label: "Country",
 			value: "",
 			type: "text",
-			category: "contact",
+			category: "warehouse",
+			errorInput: false,
 		},
 		{
 			name: "contact_name",
@@ -41,6 +47,7 @@ const WarehouseModify = () => {
 			value: "",
 			type: "text",
 			category: "contact",
+			errorInput: false,
 		},
 		{
 			name: "contact_position",
@@ -48,6 +55,7 @@ const WarehouseModify = () => {
 			value: "",
 			type: "text",
 			category: "contact",
+			errorInput: false,
 		},
 		{
 			name: "contact_phone",
@@ -55,27 +63,33 @@ const WarehouseModify = () => {
 			value: "",
 			type: "text",
 			category: "contact",
+			errorInput: false,
 		},
 		{
 			name: "contact_email",
 			label: "Email",
 			value: "",
-			type: "email",
-			category: "warehouse",
+			type: "text",
+			category: "contact",
+			errorInput: false,
 		},
 	];
 
-	const { warehouseId } = useParams();
-	console.log(warehouseId);
+	//const { warehouseId } = useParams();
+	//console.log(warehouseId);
+
 	const [inputs, setInputs] = useState(inputsStructure);
 
 	const handleOnChange = (e) => {
-		console.log(e.target.value);
 		setInputs((pre) => {
 			let newInputs = [];
 			for (let input of pre) {
 				if (input.name === e.target.name) {
-					newInputs.push({ ...input, ["value"]: e.target.value });
+					newInputs.push({
+						...input,
+						value: e.target.value,
+						errorInput: false,
+					});
 				} else newInputs.push(input);
 			}
 			//console.log(newInputs);
@@ -83,17 +97,37 @@ const WarehouseModify = () => {
 		});
 	};
 
-	const handleCancel = () => {};
+	//check valid email
 
-	const handleAddWarehouse = () => {};
+	//check valid phone number
+
+	const setInvalidInputs = () => {
+		setInputs(
+			inputs?.map((input) => {
+				if (!input.value.trim()) {
+					input.errorInput = true;
+				}
+				return input;
+			})
+		);
+	};
+
+	const handleAddWarehouse = (e) => {
+		e.preventDefault();
+		setInvalidInputs();
+		console.log(inputs);
+	};
+
+	const handleCancel = () => {};
 
 	return (
 		<main className="warehouse-modify">
+			{console.log(inputs)}
 			<div className="warehouse-modify__title">
-				<img src={arrowBackIcon} alt="arrowBackIcon" />
+				<img src={arrowBackIcon} alt="arrow back icon" />
 				<h1>Add New Warehouse</h1>
 			</div>
-			<form className="warehouse-modify__form">
+			<form className="warehouse-modify__form" onSubmit={handleAddWarehouse}>
 				<div className="warehouse-modify__main-wrapper">
 					<div className="warehouse-modify__detail-wrapper">
 						{inputs
@@ -103,7 +137,9 @@ const WarehouseModify = () => {
 									<InputWithLabel
 										handleOnChange={handleOnChange}
 										inputObj={input}
-									/>
+									>
+										{input.errorInput && <ErrorMessage />}
+									</InputWithLabel>
 								</div>
 							))}
 					</div>
@@ -115,7 +151,9 @@ const WarehouseModify = () => {
 									<InputWithLabel
 										handleOnChange={handleOnChange}
 										inputObj={input}
-									/>
+									>
+										{input.errorInput && <ErrorMessage />}
+									</InputWithLabel>
 								</div>
 							))}
 					</div>
@@ -124,7 +162,7 @@ const WarehouseModify = () => {
 					<Button>
 						<p>Cancel</p>
 					</Button>
-					<Button type="submit">
+					<Button type="submit" handleAddWarehouse={handleAddWarehouse}>
 						<p>+ Add Warehouse</p>
 					</Button>
 				</div>
