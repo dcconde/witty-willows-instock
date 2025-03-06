@@ -1,12 +1,20 @@
 import "./WarehousesList.scss";
 import { Link } from "react-router-dom";
 import searchIcon from "../../assets/icons/search-24px.svg";
-import sortIcon from "../../assets/icons/sort-24px.svg";
+import TableHeader from "../TableHeader/TableHeader";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 
 function WarehousesList({ warehousesData }) {
+  const headerItems = [
+    "Warehouse",
+    "Address",
+    "Contact Name",
+    "Contact Information",
+    "Actions",
+  ];
+
   return (
     <section className="warehouses-list">
       <div className="warehouses-list__top-container">
@@ -30,43 +38,7 @@ function WarehousesList({ warehousesData }) {
           </button>
         </div>
       </div>
-      <section className="warehouses-list__header">
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Warehouse</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Address</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Contact Name</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Contact Information</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Actions</h4>
-        </div>
-      </section>
+      <TableHeader headerItems={headerItems} />
       <ul className="warehouses-list__items">
         {warehousesData.map(
           ({

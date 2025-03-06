@@ -1,7 +1,7 @@
 import "./WarehouseDetails.scss";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import whiteEditIcon from "../../assets/icons/edit-white-24px.svg";
-import sortIcon from "../../assets/icons/sort-24px.svg";
+import TableHeader from "../TableHeader/TableHeader";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
@@ -19,6 +19,14 @@ function WarehouseDetails({
   },
   inventoriesData,
 }) {
+  const headerItems = [
+    "Inventory Item",
+    "Category",
+    "Status",
+    "Quantity",
+    "Actions",
+  ];
+
   return (
     <section className="warehouse-details">
       <div className="warehouse-details__top-container">
@@ -61,43 +69,7 @@ function WarehouseDetails({
           </div>
         </div>
       </div>
-      <section className="warehouse-details__header">
-        <div className="warehouse-details__header-item">
-          <h4 className="warehouse-details__header-title">Inventory Item</h4>
-          <img
-            className="warehouse-details__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouse-details__header-item">
-          <h4 className="warehouse-details__header-title">Category</h4>
-          <img
-            className="warehouse-details__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouse-details__header-item">
-          <h4 className="warehouse-details__header-title">Status</h4>
-          <img
-            className="warehouse-details__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouse-details__header-item">
-          <h4 className="warehouse-details__header-title">Quanity</h4>
-          <img
-            className="warehouse-details__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouse-details__header-item">
-          <h4 className="warehouse-details__header-title">Actions</h4>
-        </div>
-      </section>
+      <TableHeader headerItems={headerItems} />
       <ul className="warehouse-details__items">
         {inventoriesData.map(
           ({ id, item_name, category, status, quantity }) => (

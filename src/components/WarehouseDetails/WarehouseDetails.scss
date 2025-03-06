@@ -114,37 +114,6 @@
     }
   }
 
-  &__header {
-    display: none;
-
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.625rem 2rem;
-      background-color: $light-background-colour;
-
-      &-item {
-        display: flex;
-        gap: 0.375rem;
-      }
-
-      &-title {
-        color: $secondary-text-colour;
-        font-weight: $font-weight-bold;
-        text-transform: uppercase;
-      }
-    }
-
-    @include desktop {
-      padding: 1rem 3rem;
-    }
-  }
-
-  &__sort-icon {
-    width: 1rem;
-    height: 1rem;
-  }
-
   &__item {
     border-top: 0.0625rem solid $secondary-accent-colour;
     padding: 0.625rem 1.5rem 1.5rem;
