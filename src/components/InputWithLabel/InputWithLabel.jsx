@@ -7,7 +7,7 @@ const InputWithLabel = ({ handleOnChange, inputObj, className, children }) => {
 			<label className="input__label">
 				<p>{inputObj.label}</p>
 				<input
-					type={inputObj.type}
+					type="text"
 					className={`input__input ${className}`}
 					value={inputObj.value}
 					name={inputObj.name}
