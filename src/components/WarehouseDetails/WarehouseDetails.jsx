@@ -1,4 +1,5 @@
 import "./WarehouseDetails.scss";
+import { Link } from "react-router-dom";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import whiteEditIcon from "../../assets/icons/edit-white-24px.svg";
 import TableHeader from "../TableHeader/TableHeader";
@@ -30,11 +31,13 @@ function WarehouseDetails({
   return (
     <section className="warehouse-details">
       <div className="warehouse-details__top-container">
-        <img
-          className="warehouse-details__arrow-icon"
-          src={arrowBackIcon}
-          alt="arrow back icon"
-        />
+        <Link to="/" className="warehouse-details__link">
+          <img
+            className="warehouse-details__arrow-icon"
+            src={arrowBackIcon}
+            alt="arrow back icon"
+          />
+        </Link>
         <h1 className="warehouse-details__title">{warehouse_name}</h1>
         <div className="warehouse-details__icon-container">
           <img
