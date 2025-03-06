@@ -11,7 +11,8 @@ import "./WarehouseModify.scss";
 
 const { VITE_SERVER_URL, VITE_PORT } = import.meta.env;
 
-const WarehouseModify = ({ pageTitle }) => {
+const WarehouseModify = ({ pageTitle, endingPath }) => {
+	const navigate = useNavigate();
 	const inputsStructure = [
 		{
 			name: "warehouse_name",
@@ -157,6 +158,7 @@ const WarehouseModify = ({ pageTitle }) => {
 
 			//check status code see if POST was successful
 			if (res.status === 201) {
+				//show success toast
 				toast.success("Warehouse added successfully!", {
 					position: "top-right",
 					autoClose: 3000,
@@ -166,15 +168,20 @@ const WarehouseModify = ({ pageTitle }) => {
 				console.log("Unexpected response. Status:", res.status);
 			}
 		} catch (err) {
+			//show error toast
 			toast.error("Adding was unsuccessful", {
 				position: "top-right",
 				autoClose: 3000,
 			});
 			console.error("Post request failed:", err.message);
+		} finally {
+			navigate(endingPath);
 		}
 	};
 
-	const handleCancel = () => {};
+	const handleCancel = () => {
+		navigate(endingPath);
+	};
 
 	return (
 		<main className="warehouse-modify">
@@ -233,16 +240,16 @@ const WarehouseModify = ({ pageTitle }) => {
 					</div>
 				</div>
 				<div className="warehouse-modify__button-wrapper">
-					<Button className="button--cancel">
+					<Button
+						type="button"
+						className="button--cancel"
+						handleClick={handleCancel}
+					>
 						<div className="button__text">
 							<p>Cancel</p>
 						</div>
 					</Button>
-					<Button
-						type="submit"
-						className="button--save"
-						handleAddWarehouse={handleAddWarehouse}
-					>
+					<Button type="submit" className="button--save">
 						<div className="button__text">
 							<p>+ Add Warehouse</p>
 						</div>
