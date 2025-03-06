@@ -11,6 +11,7 @@ import InventoryItemDetails from "./components/InventoryItemDetails/InventoryIte
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import Footer from "./components/Footer/Footer";
 
+
 function App() {
   return (
     <BrowserRouter>
