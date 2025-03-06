@@ -21,13 +21,13 @@ function App() {
 				<Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
 				<Route path="/inventory" element={<InventoryPage />} />
 				<Route path="/deleteinventory" element={<DeleteInventory />} />
-        <Route path="/editinventoryitem" element={<EditInventoryItem />} />
+				<Route path="/editinventoryitem" element={<EditInventoryItem />} />
 				<Route
 					path="/inventoryitemdetails"
 					element={<InventoryItemDetails />}
 				/>
 				<Route
-					path="/api/warehouses/:warehouseId/add"
+					path="/api/warehouses/add"
 					element={<WarehouseAddPage />}
 				></Route>
 				<Route

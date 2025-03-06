@@ -4,8 +4,11 @@ import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { postRequest } from "../../../utility/axiosCalls";
 
 import "./WarehouseModify.scss";
+
+const { VITE_SERVER_URL, VITE_PORT } = import.meta.env;
 
 const WarehouseModify = ({ pageTitle }) => {
 	const inputsStructure = [
@@ -130,7 +133,7 @@ const WarehouseModify = ({ pageTitle }) => {
 		}, {});
 	};
 
-	const handleAddWarehouse = (e) => {
+	const handleAddWarehouse = async (e) => {
 		e.preventDefault();
 		const validInputs = areInvalidInputs();
 		//console.log(validInputs);
@@ -140,8 +143,13 @@ const WarehouseModify = ({ pageTitle }) => {
 		}
 		//create an object
 		const warehouse = createWarehouseObj();
-		console.log(warehouse);
 		//axios.post to server
+		await postRequest(
+			VITE_SERVER_URL,
+			VITE_PORT,
+			"/api/warehouses/add",
+			warehouse
+		);
 	};
 
 	const handleCancel = () => {};
