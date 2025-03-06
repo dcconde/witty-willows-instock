@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./InventoryList.scss";
-import SearchBar from "../SearchBar/SearchBar";
+import searchIcon from "../../assets/icons/search-24px.svg";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
@@ -11,7 +11,19 @@ function InventoryList({ inventoriesData }) {
     <section className="inventories-list">
       <div className="inventories-list__top-container">
         <h1 className="inventories-list__title">Inventory</h1>
-        <SearchBar />
+        <div className="inventories-list__search">
+          <input
+            type="text"
+            name="searchInput"
+            className="inventories-list__search-input"
+            placeholder="Search..."
+          />
+          <img
+            src={searchIcon}
+            alt="search icon"
+            className="inventories-list__search-icon"
+          />
+        </div>
         <div className="inventories-list__btn-container">
           <button className="inventories-list__btn">+ Add New Item</button>
         </div>

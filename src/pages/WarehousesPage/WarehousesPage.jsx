@@ -22,9 +22,9 @@ function WarehousesPage() {
   }, []);
 
   return (
-    <main className="warehouses-page">
+    <>
       <WarehousesList warehousesData={warehousesData} />
-    </main>
+    </>
   );
 }
 

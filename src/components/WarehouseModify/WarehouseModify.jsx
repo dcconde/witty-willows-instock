@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import { postRequest } from "../../../utility/axiosCalls";
 
 import "./WarehouseModify.scss";
 
-const { VITE_SERVER_URL, VITE_PORT } = import.meta.env;
-
-const WarehouseModify = ({ pageTitle, endingPath }) => {
-	const navigate = useNavigate();
+const WarehouseModify = ({ pageTitle }) => {
 	const inputsStructure = [
 		{
 			name: "warehouse_name",
@@ -135,9 +130,8 @@ const WarehouseModify = ({ pageTitle, endingPath }) => {
 		}, {});
 	};
 
-	const handleAddWarehouse = async (e) => {
+	const handleAddWarehouse = (e) => {
 		e.preventDefault();
-
 		const validInputs = areInvalidInputs();
 		//console.log(validInputs);
 		if (!validInputs) {
@@ -146,42 +140,11 @@ const WarehouseModify = ({ pageTitle, endingPath }) => {
 		}
 		//create an object
 		const warehouse = createWarehouseObj();
-
+		console.log(warehouse);
 		//axios.post to server
-		try {
-			const res = await postRequest(
-				VITE_SERVER_URL,
-				VITE_PORT,
-				"/api/warehouses/add",
-				warehouse
-			);
-
-			//check status code see if POST was successful
-			if (res.status === 201) {
-				//show success toast
-				toast.success("Warehouse added successfully!", {
-					position: "top-right",
-					autoClose: 3000,
-				});
-				console.log("Post successful:", res.data);
-			} else {
-				console.log("Unexpected response. Status:", res.status);
-			}
-		} catch (err) {
-			//show error toast
-			toast.error("Adding was unsuccessful", {
-				position: "top-right",
-				autoClose: 3000,
-			});
-			console.error("Post request failed:", err.message);
-		} finally {
-			navigate(endingPath);
-		}
 	};
 
-	const handleCancel = () => {
-		navigate(endingPath);
-	};
+	const handleCancel = () => {};
 
 	return (
 		<main className="warehouse-modify">
@@ -240,16 +203,16 @@ const WarehouseModify = ({ pageTitle, endingPath }) => {
 					</div>
 				</div>
 				<div className="warehouse-modify__button-wrapper">
-					<Button
-						type="button"
-						className="button--cancel"
-						handleClick={handleCancel}
-					>
+					<Button className="button--cancel">
 						<div className="button__text">
 							<p>Cancel</p>
 						</div>
 					</Button>
-					<Button type="submit" className="button--save">
+					<Button
+						type="submit"
+						className="button--save"
+						handleAddWarehouse={handleAddWarehouse}
+					>
 						<div className="button__text">
 							<p>+ Add Warehouse</p>
 						</div>
