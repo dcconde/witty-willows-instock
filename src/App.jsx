@@ -8,6 +8,7 @@ import WarehouseEditPage from "./pages/WarehouseEditPage/WarehouseEditPage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/header";
 
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
 				<Route path="/inventory" element={<InventoryPage />} />
 				<Route path="/deleteinventory" element={<DeleteInventory />} />
+        <Route path="/editinventoryitem" element={<EditInventoryItem />} />
 				<Route
 					path="/inventoryitemdetails"
 					element={<InventoryItemDetails />}
