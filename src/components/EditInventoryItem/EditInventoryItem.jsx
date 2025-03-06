@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./EditInventoryItem.scss";
 import BackIcon from "../../assets/icons/arrow-back-24px.svg";
 
 function EditInventoryItem({
   inventoryItemDetails: {
+    id,
     item_name,
     description,
     category,
@@ -15,11 +17,13 @@ function EditInventoryItem({
   return (
     <section className="edit-inventory">
       <div className="edit-inventory__header">
-        <img
-          src={BackIcon}
-          alt="Back"
-          className="edit-inventory__header-back"
-        />
+        <Link to={`/inventory/${id}`}>
+          <img
+            src={BackIcon}
+            alt="Back"
+            className="edit-inventory__header-back"
+          />
+        </Link>
         <h1 className="edit-inventory__title">Edit Inventory Item</h1>
       </div>
 
