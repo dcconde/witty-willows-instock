@@ -1,5 +1,5 @@
 import "./InventoryList.scss";
-import searchIcon from "../../assets/icons/search-24px.svg";
+import SearchBar from "../SearchBar/SearchBar";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
@@ -8,19 +8,7 @@ function InventoryList({ inventoriesData }) {
   return (
     <section className="inventories-list">
       <h1 className="inventories-list__title">Inventory</h1>
-      <div className="inventories-list__search">
-        <input
-          type="text"
-          name="searchInput"
-          className="inventories-list__search-input"
-          placeholder="Search..."
-        />
-        <img
-          src={searchIcon}
-          alt="search icon"
-          className="inventories-list__search-icon"
-        />
-      </div>
+      <SearchBar />
       <button className="inventories-list__btn">+ Add New Item</button>
       <ul className="inventories-list__list">
         {inventoriesData.map(

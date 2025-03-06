@@ -1,6 +1,6 @@
 import "./WarehousesList.scss";
 import { Link } from "react-router-dom";
-import searchIcon from "../../assets/icons/search-24px.svg";
+import SearchBar from "../SearchBar/SearchBar";
 import TableHeader from "../TableHeader/TableHeader";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
@@ -19,19 +19,7 @@ function WarehousesList({ warehousesData }) {
     <section className="warehouses-list">
       <div className="warehouses-list__top-container">
         <h1 className="warehouses-list__title">Warehouses</h1>
-        <div className="warehouses-list__search">
-          <input
-            className="warehouses-list__search-input"
-            name="searchInput"
-            type="text"
-            placeholder="Search..."
-          />
-          <img
-            className="warehouses-list__search-icon"
-            src={searchIcon}
-            alt="search icon"
-          />
-        </div>
+        <SearchBar />
         <div className="warehouses-list__button-container">
           <button className="warehouses-list__button">
             + Add New Warehouse
