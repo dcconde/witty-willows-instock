@@ -1,13 +1,9 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = ({ type, className, handleClick = () => {}, children }) => {
+const Button = ({ type, className, children }) => {
 	return (
-		<button
-			type={type || "button"}
-			className={`button ${className || ""}`}
-			onClick={handleClick}
-		>
+		<button type={type || ""} className={`button ${className || ""}`}>
 			{children}
 		</button>
 	);

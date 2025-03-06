@@ -1,7 +1,6 @@
 import "./App.scss";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
@@ -42,23 +41,19 @@ import Footer from "./components/Footer/Footer";
 function App() {
 	return (
 		<BrowserRouter>
-			<ToastContainer />
 			<Header />
 			<Routes>
 				<Route path="/" element={<WarehousesPage />} />
-				<Route
-					path="/api/warehouses/:id/inventories"
-					element={<WarehouseDetailsPage />}
-				/>
+				<Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
 				<Route path="/inventory" element={<InventoryPage />} />
 				<Route path="/deleteinventory" element={<DeleteInventory />} />
-				<Route path="/editinventoryitem" element={<EditInventoryItem />} />
+        <Route path="/editinventoryitem" element={<EditInventoryItem />} />
 				<Route
 					path="/inventoryitemdetails"
 					element={<InventoryItemDetails />}
 				/>
 				<Route
-					path="/api/warehouses/add"
+					path="/api/warehouses/:warehouseId/add"
 					element={<WarehouseAddPage />}
 				></Route>
 				<Route
