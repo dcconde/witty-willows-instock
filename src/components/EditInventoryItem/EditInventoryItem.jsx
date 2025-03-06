@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./EditInventoryItem.scss";
 import BackIcon from "../../assets/icons/arrow-back-24px.svg";
+import axios from "axios";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const categories = ["Electronics", "Gear", "Apparel", "Accesories", "Health"];
 const warehouses = [
   "Manhattan",
@@ -40,7 +42,17 @@ function EditInventoryItem({
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  // const handleSubmit
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("form submitted!");
+    console.log(formData);
+    const response = await axios.put(
+      `${backendUrl}/api/inventories/${id}`,
+      formData
+    );
+    console.log(response);
+  };
+
   return (
     <section className="edit-inventory">
       <div className="edit-inventory__header">
@@ -54,10 +66,7 @@ function EditInventoryItem({
         <h1 className="edit-inventory__title">Edit Inventory Item</h1>
       </div>
 
-      <form
-        className="edit-inventory__form"
-        onSubmit={(e) => e.preventDefault()}
-      >
+      <form className="edit-inventory__form" onSubmit={handleSubmit}>
         <div className="edit-inventory__section">
           <h2 className="edit-inventory__section-title">Item Details</h2>
 
@@ -66,6 +75,7 @@ function EditInventoryItem({
               Item Name
             </label>
             <input
+              name="item_name"
               type="text"
               id="itemName"
               className="edit-inventory__input"
@@ -80,6 +90,7 @@ function EditInventoryItem({
               Description
             </label>
             <textarea
+              name="description"
               id="description"
               className="edit-inventory__input edit-inventory__input--textarea"
               rows="4"
@@ -94,6 +105,7 @@ function EditInventoryItem({
               Category
             </label>
             <select
+              name="category"
               id="category"
               className="edit-inventory__input"
               defaultValue={formData.category}
@@ -142,6 +154,7 @@ function EditInventoryItem({
               Warehouse
             </label>
             <select
+              name="warehouse"
               id="warehouse"
               className="edit-inventory__input"
               defaultValue={formData.warehouse_name}
@@ -155,22 +168,21 @@ function EditInventoryItem({
             </select>
           </div>
         </div>
+        <div className="edit-inventory__buttons">
+          <button
+            type="button"
+            className="edit-inventory__button edit-inventory__button--cancel"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="edit-inventory__button edit-inventory__button--save"
+          >
+            Save
+          </button>
+        </div>
       </form>
-
-      <div className="edit-inventory__buttons">
-        <button
-          type="button"
-          className="edit-inventory__button edit-inventory__button--cancel"
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="edit-inventory__button edit-inventory__button--save"
-        >
-          Save
-        </button>
-      </div>
     </section>
   );
 }

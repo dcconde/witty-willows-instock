@@ -142,26 +142,26 @@
     }
   }
 
-  // &__section {
-  //   @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
-  //   margin-bottom: 1rem;
-  //   width: 10%;
-  // }
+  &__section {
+    @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
+    margin-bottom: 1rem;
+    width: 10%;
+    flex-shrink: 0;
 
-  &__section-title {
-    color: $secondary-text-colour;
-    text-transform: uppercase;
-    padding-bottom: 0.25rem;
+    &-title {
+      color: $secondary-text-colour;
+      text-transform: uppercase;
+      padding-bottom: 0.25rem;
 
-    @include tablet {
-      display: none;
-    }
+      @include tablet {
+        display: none;
+      }
 
-    @include desktop {
-      display: none;
+      @include desktop {
+        display: none;
+      }
     }
   }
-
   // @include tablet {
   //   margin: 0;
   //   flex: 1;
