@@ -1,5 +1,4 @@
 import "./App.scss";
-import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,7 +20,10 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<WarehousesPage />} />
-				<Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
+				<Route
+					path="/api/warehouses/:id/inventories"
+					element={<WarehouseDetailsPage />}
+				/>
 				<Route path="/inventory" element={<InventoryPage />} />
 				<Route path="/deleteinventory" element={<DeleteInventory />} />
 				<Route path="/editinventoryitem" element={<EditInventoryItem />} />
