@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import EditInventoryItem from "../../components/EditInventoryItem/EditInventoryItem";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 function EditInventoryItemPage() {
   const { id } = useParams();
   const [inventoryItemDetails, setInventoryItemDetails] = useState(null);

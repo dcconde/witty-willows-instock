@@ -84,7 +84,7 @@ function InventoryList({ inventoriesData }) {
                   </h4>
                   <div className="inventories-list__inventory-container">
                     <Link
-                      to={`/inventories/${id}`}
+                      to={`/inventory/${id}`}
                       className="inventories-list__link"
                     >
                       <h3 className="inventories-list__inventory-name">
@@ -123,11 +123,13 @@ function InventoryList({ inventoriesData }) {
                     alt="delete icon"
                     className="inventories-list__delete-icon"
                   />
-                  <img
-                    src={editIcon}
-                    alt="edit icon"
-                    className="inventories-list__edit-icon"
-                  />
+                  <Link to={`/inventory/${id}/edit`}>
+                    <img
+                      src={editIcon}
+                      alt="edit icon"
+                      className="inventories-list__edit-icon"
+                    />
+                  </Link>
                 </div>
               </div>
             </li>

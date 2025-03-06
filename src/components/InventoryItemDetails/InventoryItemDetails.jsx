@@ -5,6 +5,7 @@ import Edit from "../../assets/icons/edit-white-24px.svg";
 
 function InventoryItemDetails({
   inventoryItemDetails: {
+    id,
     item_name,
     description,
     category,
@@ -20,10 +21,12 @@ function InventoryItemDetails({
           <img src={Back} alt="Back" className="item-details__header-back" />
         </Link>
         <h1 className="item-details__header-title">{item_name}</h1>
-        <button className="item-details__header-button">
-          <img src={Edit} alt="Edit" className="item-details__header-edit" />
-          <p>Edit</p>
-        </button>
+        <Link to={`/inventory/${id}/edit`}>
+          <button className="item-details__header-button">
+            <img src={Edit} alt="Edit" className="item-details__header-edit" />
+            <p>Edit</p>
+          </button>
+        </Link>
       </div>
 
       <div className="item-details__body">

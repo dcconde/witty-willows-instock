@@ -2,7 +2,16 @@ import React from "react";
 import "./EditInventoryItem.scss";
 import BackIcon from "../../assets/icons/arrow-back-24px.svg";
 
-function EditInventoryItem() {
+function EditInventoryItem({
+  inventoryItemDetails: {
+    item_name,
+    description,
+    category,
+    status,
+    quantity,
+    warehouse_name,
+  },
+}) {
   return (
     <section className="edit-inventory">
       <div className="edit-inventory__header">
@@ -30,7 +39,7 @@ function EditInventoryItem() {
               id="itemName"
               className="edit-inventory__input"
               placeholder="Item Name"
-              defaultValue="Television"
+              defaultValue={item_name}
             />
           </div>
 
@@ -43,7 +52,7 @@ function EditInventoryItem() {
               className="edit-inventory__input edit-inventory__input--textarea"
               rows="4"
               placeholder="Enter item description"
-              defaultValue='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
+              defaultValue={description}
             />
           </div>
 
