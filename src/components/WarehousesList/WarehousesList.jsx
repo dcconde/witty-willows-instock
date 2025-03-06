@@ -1,72 +1,32 @@
 import "./WarehousesList.scss";
 import { Link } from "react-router-dom";
-import searchIcon from "../../assets/icons/search-24px.svg";
-import sortIcon from "../../assets/icons/sort-24px.svg";
+import SearchBar from "../SearchBar/SearchBar";
+import TableHeader from "../TableHeader/TableHeader";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 
 function WarehousesList({ warehousesData }) {
+  const headerItems = [
+    "Warehouse",
+    "Address",
+    "Contact Name",
+    "Contact Information",
+    "Actions",
+  ];
+
   return (
     <section className="warehouses-list">
       <div className="warehouses-list__top-container">
         <h1 className="warehouses-list__title">Warehouses</h1>
-        <div className="warehouses-list__search">
-          <input
-            className="warehouses-list__search-input"
-            name="searchInput"
-            type="text"
-            placeholder="Search..."
-          />
-          <img
-            className="warehouses-list__search-icon"
-            src={searchIcon}
-            alt="search icon"
-          />
-        </div>
+        <SearchBar />
         <div className="warehouses-list__button-container">
           <button className="warehouses-list__button">
             + Add New Warehouse
           </button>
         </div>
       </div>
-      <section className="warehouses-list__header">
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Warehouse</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Address</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Contact Name</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Contact Information</h4>
-          <img
-            className="warehouses-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="warehouses-list__header-item">
-          <h4 className="warehouses-list__header-title">Actions</h4>
-        </div>
-      </section>
+      <TableHeader headerItems={headerItems} />
       <ul className="warehouses-list__items">
         {warehousesData.map(
           ({
@@ -85,7 +45,7 @@ function WarehousesList({ warehousesData }) {
                   <h4 className="warehouses-list__section-title">Warehouse</h4>
                   <div className="warehouses-list__warehouse-container">
                     <Link
-                      to={`/api/warehouses/${id}`}
+                      to={`/api/warehouses/${id}/inventories`}
                       className="warehouses-list__link"
                     >
                       <h3 className="warehouses-list__warehouse-name">

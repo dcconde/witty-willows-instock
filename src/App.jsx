@@ -1,5 +1,4 @@
 import "./App.scss";
-import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
@@ -13,31 +12,34 @@ import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem"
 import Footer from "./components/Footer/Footer";
 
 function App() {
-	return (
-		<BrowserRouter>
-			<Header />
-			<Routes>
-				<Route path="/" element={<WarehousesPage />} />
-				<Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
-				<Route path="/inventory" element={<InventoryPage />} />
-				<Route path="/deleteinventory" element={<DeleteInventory />} />
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<WarehousesPage />} />
+        <Route
+          path="/api/warehouses/:id/inventories"
+          element={<WarehouseDetailsPage />}
+        />
+        <Route path="/inventory" element={<InventoryPage />} />
+        <Route path="/deleteinventory" element={<DeleteInventory />} />
         <Route path="/editinventoryitem" element={<EditInventoryItem />} />
-				<Route
-					path="/inventoryitemdetails"
-					element={<InventoryItemDetails />}
-				/>
-				<Route
-					path="/api/warehouses/:warehouseId/add"
-					element={<WarehouseAddPage />}
-				></Route>
-				<Route
-					path="/api/warehouses/:warehouseId/edit"
-					element={<WarehouseEditPage />}
-				></Route>
-			</Routes>
-			<Footer />
-		</BrowserRouter>
-	);
+        <Route
+          path="/inventoryitemdetails"
+          element={<InventoryItemDetails />}
+        />
+        <Route
+          path="/api/warehouses/:warehouseId/add"
+          element={<WarehouseAddPage />}
+        ></Route>
+        <Route
+          path="/api/warehouses/:warehouseId/edit"
+          element={<WarehouseEditPage />}
+        ></Route>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
 export default App;
