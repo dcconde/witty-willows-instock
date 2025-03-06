@@ -3,9 +3,13 @@ import WarehouseModify from "../../components/WarehouseModify/WarehouseModify";
 import "./WarehouseAddPage";
 
 const WarehouseAddPage = () => {
+	const pathToWarehousesPage = "/";
 	return (
 		<main>
-			<WarehouseModify pageTitle="Add New Warehouse" />
+			<WarehouseModify
+				pageTitle="Add New Warehouse"
+				endingPath={pathToWarehousesPage}
+			/>
 		</main>
 	);
 };
