@@ -1,0 +1,39 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.button {
+	border: none;
+	border-radius: 5rem;
+	height: 2.4rem;
+	width: 50%;
+	cursor: pointer;
+	@include tablet {
+		width: auto;
+		padding-left: 0.8rem;
+		padding-right: 0.8rem;
+	}
+	&__text {
+		font-family: "Titillium Web", monospace;
+		font-weight: $font-weight-regular;
+		margin-left: 0.5rem;
+		margin-right: 0.8rem;
+	}
+
+	&--save {
+		color: $primary-background-colour;
+		background-color: $primary-accent-colour;
+		&:hover {
+			background-color: $dark-background-colour;
+		}
+	}
+	&--cancel {
+		color: $secondary-text-colour;
+		background-color: $primary-background-colour;
+		border: 0.08rem solid $secondary-accent-colour;
+		&:hover {
+			color: $primary-accent-colour;
+			border: 0.08rem solid $primary-accent-colour;
+		}
+	}
+}
