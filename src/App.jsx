@@ -15,7 +15,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<WarehousesPage />} />
-        <Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
+        <Route
+          path="/api/warehouses/:id/inventories"
+          element={<WarehouseDetailsPage />}
+        />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route
           path="/api/warehouses/:warehouseId/add"

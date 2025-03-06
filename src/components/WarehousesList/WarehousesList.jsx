@@ -85,7 +85,7 @@ function WarehousesList({ warehousesData }) {
                   <h4 className="warehouses-list__section-title">Warehouse</h4>
                   <div className="warehouses-list__warehouse-container">
                     <Link
-                      to={`/api/warehouses/${id}`}
+                      to={`/api/warehouses/${id}/inventories`}
                       className="warehouses-list__link"
                     >
                       <h3 className="warehouses-list__warehouse-name">

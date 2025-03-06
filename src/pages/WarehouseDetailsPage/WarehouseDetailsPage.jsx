@@ -9,6 +9,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 function WarehouseDetailsPage() {
   const { id } = useParams();
   const [warehouseDetails, setWarehouseDetails] = useState(null);
+  const [inventoriesData, setInventoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getWarehouseById = async () => {
@@ -20,9 +21,21 @@ function WarehouseDetailsPage() {
     }
   };
 
+  const getInventoriesByWarehouseId = async () => {
+    try {
+      const response = await axios.get(
+        `${backendUrl}/api/warehouses/${id}/inventories`
+      );
+      setInventoriesData(response.data);
+    } catch (err) {
+      console.error("Error getting inventories for warehouse", err);
+    }
+  };
+
   useEffect(() => {
     if (id) {
       getWarehouseById();
+      getInventoriesByWarehouseId();
     }
   }, [id]);
 
@@ -38,7 +51,10 @@ function WarehouseDetailsPage() {
 
   return (
     <main className="warehouse-details-page">
-      <WarehouseDetails warehouseDetails={warehouseDetails} />
+      <WarehouseDetails
+        warehouseDetails={warehouseDetails}
+        inventoriesData={inventoriesData}
+      />
     </main>
   );
 }
