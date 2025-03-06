@@ -7,6 +7,8 @@
   border-radius: 1.25rem;
   display: inline-flex;
   align-items: center;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
 
   &.in-stock {
     background-color: rgba($available-label-colour, 0.07);
