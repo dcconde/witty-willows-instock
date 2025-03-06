@@ -4,6 +4,7 @@ import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import whiteEditIcon from "../../assets/icons/edit-white-24px.svg";
 import TableHeader from "../TableHeader/TableHeader";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
+import StatusTags from "../StatusTags/StatusTags";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 
@@ -95,9 +96,7 @@ function WarehouseDetails({
                 </div>
                 <div className="warehouse-details__section">
                   <h4 className="warehouse-details__section-title">Status</h4>
-                  <p className="warehouse-details__inventory-status">
-                    {status}
-                  </p>
+                  <StatusTags status={status} />
                 </div>
                 <div className="warehouse-details__section">
                   <h4 className="warehouse-details__section-title">Category</h4>

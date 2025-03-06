@@ -1,0 +1,24 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.status-tag {
+  height: 1.5rem;
+  padding: 0 0.5rem;
+  border-radius: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+
+  &.in-stock {
+    background-color: rgba($available-label-colour, 0.07);
+    color: $available-label-colour;
+  }
+
+  &.out-of-stock {
+    background-color: rgba($unavailable-label-colour, 0.07);
+    color: $unavailable-label-colour;
+  }
+
+  @include tablet {
+    height: 1.625rem;
+  }
+}
