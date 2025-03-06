@@ -5,7 +5,7 @@ import "./WarehouseAddPage";
 const WarehouseAddPage = () => {
 	return (
 		<main>
-			<WarehouseModify></WarehouseModify>
+			<WarehouseModify pageTitle="Add New Warehouse" />
 		</main>
 	);
 };

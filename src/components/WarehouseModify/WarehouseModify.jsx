@@ -7,7 +7,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 import "./WarehouseModify.scss";
 
-const WarehouseModify = () => {
+const WarehouseModify = ({ pageTitle }) => {
 	const inputsStructure = [
 		{
 			name: "warehouse_name",
@@ -125,7 +125,7 @@ const WarehouseModify = () => {
 			{console.log(inputs)}
 			<div className="warehouse-modify__title">
 				<img src={arrowBackIcon} alt="arrow back icon" />
-				<h1>Add New Warehouse</h1>
+				<h1>{pageTitle}</h1>
 			</div>
 			<form className="warehouse-modify__form" onSubmit={handleAddWarehouse}>
 				<div className="warehouse-modify__main-wrapper">

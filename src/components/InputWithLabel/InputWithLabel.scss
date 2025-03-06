@@ -3,7 +3,8 @@
 @use "../../styles/partials/fonts" as *;
 
 .input {
-	&__label.p {
+	&__label p {
+		font-family: "Titillium Web", monospace;
 	}
 	&__input {
 		@include text-style(0.8125rem, 1.25rem, $font-weight-regular);

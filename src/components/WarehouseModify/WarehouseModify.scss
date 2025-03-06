@@ -1,3 +1,19 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
+
+.warehouse-modify {
+	&__main-wrapper {
+		//border: 2px solid purple;
+
+		display: flex;
+		flex-direction: column;
+		@include tablet {
+			flex-direction: row;
+		}
+	}
+	&__detail-wrapper {
+		//border: 2px solid purple;
+		width: 100%;
+	}
+}
