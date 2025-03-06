@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./EditInventoryItem.scss";
 import BackIcon from "../../assets/icons/arrow-back-24px.svg";
 
+const categories = ["Electronics", "Apparel", "Gear"];
+
 function EditInventoryItem({
   inventoryItemDetails: {
     id,
@@ -64,10 +66,16 @@ function EditInventoryItem({
             <label htmlFor="category" className="edit-inventory__label">
               Category
             </label>
-            <select id="category" className="edit-inventory__input">
-              <option value="Electronics">Electronics</option>
-              <option value="Appliances">Appliances</option>
-              <option value="Furniture">Furniture</option>
+            <select
+              id="category"
+              className="edit-inventory__input"
+              defaultValue={category}
+            >
+              {categories.map((cat) => {
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>;
+              })}
             </select>
           </div>
         </div>
@@ -99,9 +107,9 @@ function EditInventoryItem({
               Warehouse
             </label>
             <select id="warehouse" className="edit-inventory__input">
-              <option value="Manhattan">Manhattan</option>
-              <option value="Brooklyn">Brooklyn</option>
-              <option value="Queens">Queens</option>
+              {/* {category.map((category) => {
+                <option value={category}>{category}</option>;
+              })} */}
             </select>
           </div>
         </div>
