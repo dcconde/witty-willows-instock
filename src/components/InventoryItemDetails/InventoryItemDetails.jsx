@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./InventoryItemDetails.scss";
 import Back from "../../assets/icons/arrow-back-24px.svg";
 import Edit from "../../assets/icons/edit-white-24px.svg";
@@ -15,7 +16,9 @@ function InventoryItemDetails({
   return (
     <section className="item-details">
       <div className="item-details__header">
-        <img src={Back} alt="Back" className="item-details__header-back" />
+        <Link to={"/inventory"}>
+          <img src={Back} alt="Back" className="item-details__header-back" />
+        </Link>
         <h1 className="item-details__header-title">{item_name}</h1>
         <button className="item-details__header-button">
           <img src={Edit} alt="Edit" className="item-details__header-edit" />

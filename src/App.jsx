@@ -8,7 +8,6 @@ import Header from "./components/Header/header";
 import WarehouseAddPage from "./pages/WarehouseAddPage/WarehouseAddPage";
 import WarehouseEditPage from "./pages/WarehouseEditPage/WarehouseEditPage";
 import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
-<<<<<<< HEAD
 import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 
 function App() {
@@ -33,38 +32,6 @@ function App() {
       <footer />
     </BrowserRouter>
   );
-=======
-import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
-import Footer from "./components/Footer/Footer";
-
-function App() {
-	return (
-		<BrowserRouter>
-			<Header />
-			<Routes>
-				<Route path="/" element={<WarehousesPage />} />
-				<Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
-				<Route path="/inventory" element={<InventoryPage />} />
-				<Route path="/deleteinventory" element={<DeleteInventory />} />
-        <Route path="/editinventoryitem" element={<EditInventoryItem />} />
-				<Route
-					path="/inventoryitemdetails"
-					element={<InventoryItemDetails />}
-				/>
-				<Route
-					path="/api/warehouses/:warehouseId/add"
-					element={<WarehouseAddPage />}
-				></Route>
-				<Route
-					path="/api/warehouses/:warehouseId/edit"
-					element={<WarehouseEditPage />}
-				></Route>
-			</Routes>
-			<Footer />
-		</BrowserRouter>
-	);
->>>>>>> develop
 }
 
 export default App;
