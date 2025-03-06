@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
@@ -157,19 +157,19 @@ const WarehouseModify = ({ pageTitle }) => {
 
 			//check status code see if POST was successful
 			if (res.status === 201) {
-				toast.success("Item added successfully!", {
+				toast.success("Warehouse added successfully!", {
 					position: "top-right",
 					autoClose: 3000,
 				});
 				console.log("Post successful:", res.data);
 			} else {
 				console.log("Unexpected response. Status:", res.status);
-				toast.error("Adding was unsuccessful", {
-					position: "top-right",
-					autoClose: 3000,
-				});
 			}
 		} catch (err) {
+			toast.error("Adding was unsuccessful", {
+				position: "top-right",
+				autoClose: 3000,
+			});
 			console.error("Post request failed:", err.message);
 		}
 	};
