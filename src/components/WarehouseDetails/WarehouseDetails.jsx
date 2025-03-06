@@ -37,23 +37,23 @@ function WarehouseDetails({
           <p className="warehouse-details__edit-text">Edit</p>
         </div>
       </div>
-      <div className="warehouse-details__contact-info">
-        <div className="warehouse-details__section">
-          <h4 className="warehouse-details__section-title">
+      <div className="warehouse-details__contact">
+        <div className="warehouse-details__address-info">
+          <h4 className="warehouse-details__address-title">
             Warehouse Address:
           </h4>
           <p className="warehouse-details__address">{`${address}, ${city}, ${country}`}</p>
         </div>
         <div className="warehouse-details__bottom-container">
-          <div className="warehouse-details__section">
-            <h4 className="warehouse-details__section-title">Contact Name:</h4>
-            <p className="warehouse-details__contact-name">{contact_name}</p>
-            <p className="warehouse-details__contact-position">
+          <div className="warehouse-details__person-info">
+            <h4 className="warehouse-details__person-title">Contact Name:</h4>
+            <p className="warehouse-details__person-name">{contact_name}</p>
+            <p className="warehouse-details__person-position">
               {contact_position}
             </p>
           </div>
-          <div className="warehouse-details__section">
-            <h4 className="warehouse-details__section-title">
+          <div className="warehouse-details__contact-info">
+            <h4 className="warehouse-details__contact-title">
               Contact Information:
             </h4>
             <p className="warehouse-details__contact-phone">{contact_phone}</p>
@@ -108,9 +108,9 @@ function WarehouseDetails({
                     Inventory Item
                   </h4>
                   <div className="warehouse-details__inventory-container">
-                    <p className="warehouse-details__inventory-name">
+                    <h3 className="warehouse-details__inventory-name">
                       {item_name}
-                    </p>
+                    </h3>
                     <img
                       className="warehouse-details__inventory-icon"
                       src={chevronIcon}
