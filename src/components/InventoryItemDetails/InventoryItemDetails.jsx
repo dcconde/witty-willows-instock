@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./InventoryItemDetails.scss";
 import Back from "../../assets/icons/arrow-back-24px.svg";
 import Edit from "../../assets/icons/edit-white-24px.svg";
+import StatusTags from "../StatusTags/StatusTags";
 
 function InventoryItemDetails({
   inventoryItemDetails: {
@@ -42,7 +43,7 @@ function InventoryItemDetails({
           <div className="item-details__body-section item-details__body-section--status">
             <div className="item-details__status-group">
               <h4 className="item-details__label">Status:</h4>
-              <p className="item-details__text">{status}</p>
+              <StatusTags status={status} />
             </div>
             <div className="item-details__quantity-group">
               <h4 className="item-details__label">Quantity:</h4>
