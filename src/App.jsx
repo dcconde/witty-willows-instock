@@ -1,6 +1,8 @@
 import "./App.scss";
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
@@ -15,6 +17,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
 	return (
 		<BrowserRouter>
+			<ToastContainer />
 			<Header />
 			<Routes>
 				<Route path="/" element={<WarehousesPage />} />

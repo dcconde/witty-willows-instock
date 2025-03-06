@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
@@ -135,6 +136,7 @@ const WarehouseModify = ({ pageTitle }) => {
 
 	const handleAddWarehouse = async (e) => {
 		e.preventDefault();
+
 		const validInputs = areInvalidInputs();
 		//console.log(validInputs);
 		if (!validInputs) {
@@ -143,13 +145,33 @@ const WarehouseModify = ({ pageTitle }) => {
 		}
 		//create an object
 		const warehouse = createWarehouseObj();
+
 		//axios.post to server
-		await postRequest(
-			VITE_SERVER_URL,
-			VITE_PORT,
-			"/api/warehouses/add",
-			warehouse
-		);
+		try {
+			const res = await postRequest(
+				VITE_SERVER_URL,
+				VITE_PORT,
+				"/api/warehouses/add",
+				warehouse
+			);
+
+			//check status code see if POST was successful
+			if (res.status === 201) {
+				toast.success("Item added successfully!", {
+					position: "top-right",
+					autoClose: 3000,
+				});
+				console.log("Post successful:", res.data);
+			} else {
+				console.log("Unexpected response. Status:", res.status);
+				toast.error("Adding was unsuccessful", {
+					position: "top-right",
+					autoClose: 3000,
+				});
+			}
+		} catch (err) {
+			console.error("Post request failed:", err.message);
+		}
 	};
 
 	const handleCancel = () => {};
