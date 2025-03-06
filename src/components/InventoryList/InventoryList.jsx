@@ -5,6 +5,7 @@ import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
+import StatusTags from "../StatusTags/StatusTags";
 
 function InventoryList({ inventoriesData }) {
   return (
@@ -92,7 +93,7 @@ function InventoryList({ inventoriesData }) {
                 </div>
                 <div className="inventories-list__section">
                   <h4 className="inventories-list__section-title">Status</h4>
-                  <p className="inventories-list__item-status">{status}</p>
+                  <StatusTags status={status} />
                 </div>
                 <div className="inventories-list__section">
                   <h4 className="inventories-list__section-title">QTY</h4>

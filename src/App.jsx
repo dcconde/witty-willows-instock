@@ -9,30 +9,9 @@ import WarehouseEditPage from "./pages/WarehouseEditPage/WarehouseEditPage";
 import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
 import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
+import footer from "./components/footer/footer";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<WarehousesPage />} />
-        <Route path="/api/warehouses/:id" element={<WarehouseDetailsPage />} />
-        <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/deleteinventory" element={<DeleteInventory />} />
-        <Route path="/inventory/:id" element={<InventoryItemDetailsPage />} />
-        <Route path="/inventory/:id/edit" element={<EditInventoryItemPage />} />
-        <Route
-          path="/api/warehouses/:warehouseId/add"
-          element={<WarehouseAddPage />}
-        />
-        <Route
-          path="/api/warehouses/:warehouseId/edit"
-          element={<WarehouseEditPage />}
-        />
-      </Routes>
-      <footer />
-    </BrowserRouter>
-  );
   return (
     <BrowserRouter>
       <Header />
@@ -44,11 +23,8 @@ function App() {
         />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/deleteinventory" element={<DeleteInventory />} />
-        <Route path="/editinventoryitem" element={<EditInventoryItem />} />
-        <Route
-          path="/inventoryitemdetails"
-          element={<InventoryItemDetails />}
-        />
+        <Route path="/inventory/:id" element={<InventoryItemDetailsPage />} />
+        <Route path="/inventory/:id/edit" element={<EditInventoryItemPage />} />
         <Route
           path="/api/warehouses/:warehouseId/add"
           element={<WarehouseAddPage />}
@@ -58,7 +34,7 @@ function App() {
           element={<WarehouseEditPage />}
         ></Route>
       </Routes>
-      <Footer />
+      <footer />
     </BrowserRouter>
   );
 }

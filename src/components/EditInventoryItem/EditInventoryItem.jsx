@@ -1,9 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./EditInventoryItem.scss";
 import BackIcon from "../../assets/icons/arrow-back-24px.svg";
 
-const categories = ["Electronics", "Apparel", "Gear"];
+const categories = ["Electronics", "Gear", "Apparel", "Accesories", "Health"];
+const warehouses = [
+  "Manhattan",
+  "Washington",
+  "Jersey",
+  "SF",
+  "Santa Monica",
+  "Seattle",
+  "Miami",
+  "Boston",
+];
 
 function EditInventoryItem({
   inventoryItemDetails: {
@@ -16,6 +27,20 @@ function EditInventoryItem({
     warehouse_name,
   },
 }) {
+  const [formData, setFormData] = useState({
+    item_name: item_name || "",
+    description: description || "",
+    category: category || "",
+    status: status || "",
+    quantity: quantity || "",
+    warehouse_name: warehouse_name || "",
+  });
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  // const handleSubmit
   return (
     <section className="edit-inventory">
       <div className="edit-inventory__header">
@@ -45,7 +70,8 @@ function EditInventoryItem({
               id="itemName"
               className="edit-inventory__input"
               placeholder="Item Name"
-              defaultValue={item_name}
+              defaultValue={formData.item_name}
+              onChange={handleChange}
             />
           </div>
 
@@ -58,7 +84,8 @@ function EditInventoryItem({
               className="edit-inventory__input edit-inventory__input--textarea"
               rows="4"
               placeholder="Enter item description"
-              defaultValue={description}
+              defaultValue={formData.description}
+              onChange={handleChange}
             />
           </div>
 
@@ -69,13 +96,14 @@ function EditInventoryItem({
             <select
               id="category"
               className="edit-inventory__input"
-              defaultValue={category}
+              defaultValue={formData.category}
+              onChange={handleChange}
             >
-              {categories.map((cat) => {
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>;
-              })}
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -90,13 +118,20 @@ function EditInventoryItem({
                 <input
                   type="radio"
                   name="status"
-                  value="inStock"
-                  defaultChecked
+                  value="In Stock"
+                  checked={formData.status === "In Stock"}
+                  onChange={handleChange}
                 />
                 <span>In stock</span>
               </label>
               <label className="edit-inventory__radio-label">
-                <input type="radio" name="status" value="outOfStock" />
+                <input
+                  type="radio"
+                  name="status"
+                  value="Out Of Stock"
+                  checked={formData.status === "Out Of Stock"}
+                  onChange={handleChange}
+                />
                 <span>Out of stock</span>
               </label>
             </div>
@@ -106,10 +141,17 @@ function EditInventoryItem({
             <label htmlFor="warehouse" className="edit-inventory__label">
               Warehouse
             </label>
-            <select id="warehouse" className="edit-inventory__input">
-              {/* {category.map((category) => {
-                <option value={category}>{category}</option>;
-              })} */}
+            <select
+              id="warehouse"
+              className="edit-inventory__input"
+              defaultValue={formData.warehouse_name}
+              onChange={handleChange}
+            >
+              {warehouses.map((warehouse) => (
+                <option key={warehouse} value={warehouse}>
+                  {warehouse}{" "}
+                </option>
+              ))}
             </select>
           </div>
         </div>
