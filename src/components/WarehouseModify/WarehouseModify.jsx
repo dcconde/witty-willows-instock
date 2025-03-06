@@ -77,23 +77,6 @@ const WarehouseModify = ({ pageTitle }) => {
 
 	const [inputs, setInputs] = useState(inputsStructure);
 
-	// const handleOnChange = (e) => {
-	// 	setInputs((pre) => {
-	// 		let newInputs = [];
-	// 		for (let input of pre) {
-	// 			if (input.name === e.target.name) {
-	// 				newInputs.push({
-	// 					...input,
-	// 					value: e.target.value,
-	// 					isEmpty: false,
-	// 				});
-	// 			} else newInputs.push(input);
-	// 		}
-
-	// 		return newInputs;
-	// 	});
-	// };
-
 	const handleOnChange = (e) => {
 		setInputs((pre) =>
 			pre.map((input) => {
@@ -110,35 +93,55 @@ const WarehouseModify = ({ pageTitle }) => {
 
 	//check valid email
 	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-	const isValidEmail = (email) => emailRegex.test(email);
-
 	//check valid phone number
 	const phoneRegex =
 		/^\+?(\d{1,3})?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+
+	const isValidEmail = (email) => emailRegex.test(email);
 	const isValidPhone = (phone) => phoneRegex.test(phone);
 
-	const setInvalidInputs = () => {
+	const areInvalidInputs = () => {
+		let validInputs = true;
 		setInputs(
 			inputs?.map((input) => {
 				let trimmedInput = input.value.trim();
 				if (!trimmedInput) {
 					input.isEmpty = true;
+					validInputs = false;
 				}
 				if (input.type === "email" && !isValidEmail(trimmedInput)) {
 					input.badEmail = true;
+					validInputs = false;
 				}
 				if (input.type === "tel" && !isValidPhone(trimmedInput)) {
 					input.badPhone = true;
+					validInputs = false;
 				}
 				return input;
 			})
 		);
+		return validInputs;
+	};
+
+	const createWarehouseObj = () => {
+		return inputs.reduce((total, item) => {
+			total[item.name] = item.value.trim();
+			return total;
+		}, {});
 	};
 
 	const handleAddWarehouse = (e) => {
 		e.preventDefault();
-		setInvalidInputs();
-		console.log(inputs);
+		const validInputs = areInvalidInputs();
+		//console.log(validInputs);
+		if (!validInputs) {
+			console.log("User entered invalid input(s).");
+			return;
+		}
+		//create an object
+		const warehouse = createWarehouseObj();
+		console.log(warehouse);
+		//axios.post to server
 	};
 
 	const handleCancel = () => {};
