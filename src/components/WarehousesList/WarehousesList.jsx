@@ -29,7 +29,7 @@ function WarehousesList({ warehousesData }) {
     setClickWarehouseid(id);
     setClickWarehouseName(name);
   }
-  const pathToAddNewWarehouse = "/api/warehouses/add";
+  const pathToAddNewWarehouse = "/api/warehouses";
   const nav = useNavigate();
   const handleClick = () => nav(pathToAddNewWarehouse);
 
