@@ -5,7 +5,7 @@ import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import { postOrPutRequest } from "../../../utility/axiosCalls";
+import { postOrPutRequest } from "../../utils/axiosCalls";
 
 import "./WarehouseModify.scss";
 

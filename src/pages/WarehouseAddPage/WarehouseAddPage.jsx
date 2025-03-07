@@ -1,6 +1,6 @@
 import React from "react";
 import WarehouseModify from "../../components/WarehouseModify/WarehouseModify";
-import "./WarehouseAddPage";
+import "./WarehouseAddPage.scss";
 
 const WarehouseAddPage = () => {
 	const pathToWarehousesPage = "/";
