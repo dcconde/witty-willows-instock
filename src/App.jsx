@@ -25,7 +25,7 @@ function App() {
 					element={<WarehouseDetailsPage />}
 				/>
 				<Route path="/inventory" element={<InventoryPage />} />
-				<Route path="/deleteinventory" element={<DeleteInventory />} />
+				<Route path="/deleteinventory/:id" element={<DeleteInventory />} />
 				<Route path="/editinventoryitem" element={<EditInventoryItem />} />
 				<Route
 					path="/inventoryitemdetails"
