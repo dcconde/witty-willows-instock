@@ -23,6 +23,11 @@
       padding: 2rem 2rem 1.125rem;
       flex-grow: 2;
     }
+
+    @include desktop {
+      padding: 2rem 2.5rem 1.25rem;
+      flex-grow: 2.6;
+    }
   }
 
   &__button {
@@ -42,6 +47,11 @@
       @include tablet {
         flex-grow: 1;
         padding: 2rem 2rem 1.375rem 1rem;
+      }
+
+      @include desktop {
+        width: 12%;
+        padding-right: 2.5rem;
       }
     }
 
@@ -71,7 +81,7 @@
     }
 
     @include desktop {
-      padding: 1.125rem 3rem;
+      padding: 1rem 2.5rem;
     }
   }
 
@@ -126,8 +136,20 @@
     }
 
     @include desktop {
+      &:nth-child(1) {
+        flex-grow: 1.55;
+      }
+
+      &:nth-child(2) {
+        flex-grow: 1.25;
+      }
+
       &:nth-child(3) {
-        flex-grow: 1.2;
+        flex-grow: 1.85;
+      }
+
+      &:nth-child(4) {
+        flex-grow: 1.5;
       }
     }
   }
@@ -169,10 +191,6 @@
     width: 74%;
 
     @include tablet {
-      width: 90%;
-    }
-
-    @include desktop {
       width: 90%;
     }
   }

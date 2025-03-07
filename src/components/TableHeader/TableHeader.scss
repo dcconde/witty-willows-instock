@@ -45,6 +45,26 @@
   }
 
   @include desktop {
-    padding: 1rem 3rem;
+    padding: 0.625rem 2.5rem;
+
+    &__item {
+      flex-basis: 0.875rem;
+
+      &:nth-child(1) {
+        flex-grow: 0.9;
+      }
+
+      &:nth-child(2) {
+        flex-grow: 1;
+      }
+
+      &:nth-child(3) {
+        flex-grow: 0.7;
+      }
+
+      &:nth-child(4) {
+        flex-grow: 0.85;
+      }
+    }
   }
 }
