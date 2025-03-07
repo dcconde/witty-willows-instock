@@ -73,7 +73,10 @@ function WarehouseDetails({
           </div>
         </div>
       </div>
-      <TableHeader headerItems={headerItems} />
+      <TableHeader
+        headerItems={headerItems}
+        itemName="table-header__item table-header__item--warehouse-details"
+      />
       <ul className="warehouse-details__items">
         {inventoriesData.map(
           ({ id, item_name, category, status, quantity }) => (
