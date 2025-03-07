@@ -72,17 +72,12 @@
 
   &__bottom-container {
     display: flex;
-    justify-content: space-between;
-  }
-
-  &__address-info,
-  &__person-info,
-  &__contact-info {
-    @include text-style(0.875rem, 1.375rem, $font-weight-regular);
-    padding: 1rem 0.8125rem;
+    gap: 2.5rem;
+    padding: 1rem 1.5rem;
   }
 
   &__address-info {
+    padding: 1rem 1.5rem 1.25rem;
     flex-grow: 1;
 
     @include tablet {
@@ -129,7 +124,7 @@
 
   &__item {
     border-top: 0.0625rem solid $secondary-accent-colour;
-    padding: 0.625rem 1.5rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem;
     list-style-type: none;
 
     &:hover {
@@ -166,6 +161,7 @@
 
     &-title {
       color: $secondary-text-colour;
+      font-weight: $font-weight-bold;
       text-transform: uppercase;
       padding-bottom: 0.25rem;
 
@@ -233,6 +229,10 @@
     @include desktop {
       width: 8%;
     }
+  }
+
+  @include tablet {
+    width: 92%;
   }
 
   @include desktop {

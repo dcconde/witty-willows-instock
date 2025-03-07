@@ -2,6 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .status-tag {
+  @include text-style(0.6875rem, 1rem, $font-weight-regular);
   height: 1.5rem;
   padding: 0 0.5rem;
   border-radius: 1.25rem;
