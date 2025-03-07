@@ -2,8 +2,21 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
+Link {
+  text-decoration: none;
+}
+
 .inventories-list {
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 0.125rem 0.3125rem #13182c1a;
   border-radius: 0.1875rem;
+  background-color: $primary-background-colour;
+  margin-top: 2.5rem;
+
+  @include desktop {
+    width: 80%;
+  }
 
   &__top-container {
     @include tablet {
@@ -96,6 +109,15 @@
       &-item {
         display: flex;
         gap: 0.375rem;
+        width: 100%;
+
+        // @include tablet {
+        //   width: 15%;
+        // }
+
+        // @include desktop {
+        //   width: 10%;
+        // }
       }
 
       &-title {
@@ -117,6 +139,11 @@
   &__item {
     border-top: 0.0625rem solid $secondary-accent-colour;
     padding: 0.625rem 1.5rem 1.5rem;
+    list-style-type: none;
+
+    &:hover {
+      background-color: rgba($primary-accent-colour, 0.07);
+    }
 
     @include tablet {
       display: flex;
@@ -141,54 +168,87 @@
     }
   }
 
-  // &__section {
-  //   @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
-  //   margin-bottom: 1rem;
-  //   width: 47%;
+  &__section {
+    @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
+    margin-bottom: 1rem;
+    width: 50%;
 
-  &__section-title {
-    color: $secondary-text-colour;
-    text-transform: uppercase;
-    padding-bottom: 0.25rem;
+    &:nth-child(1) {
+      order: 0;
+    }
+
+    &:nth-child(2) {
+      order: 2;
+    }
+
+    &:nth-child(3) {
+      order: 1;
+    }
+
+    &:nth-child(4) {
+      order: 3;
+    }
+
+    &:nth-child(5) {
+      order: 4;
+    }
+
+    &:nth-child(6) {
+      order: 5;
+    }
 
     @include tablet {
-      display: none;
+      margin: 0;
+      flex: 1;
+      width: 15%;
+
+      &:nth-child(1) {
+        order: 0;
+      }
+
+      &:nth-child(2) {
+        order: 1;
+      }
+
+      &:nth-child(3) {
+        order: 2;
+      }
+
+      &:nth-child(4) {
+        order: 3;
+      }
+
+      &:nth-child(5) {
+        order: 4;
+      }
+
+      &:nth-child(6) {
+        order: 5;
+      }
     }
 
     @include desktop {
-      display: none;
+      width: 15%;
+    }
+
+    &-title {
+      color: $secondary-text-colour;
+      text-transform: uppercase;
+      padding-bottom: 0.25rem;
+
+      @include tablet {
+        display: none;
+      }
+
+      @include desktop {
+        display: none;
+      }
     }
   }
 
-  // @include tablet {
-  //   margin: 0;
-  //   flex: 1;
-
-  //   &:nth-child(1) {
-  //     order: 0;
-  //     flex-grow: 1.4;
-  //   }
-
-  //   &:nth-child(2) {
-  //     order: 2;
-  //   }
-
-  //   &:nth-child(3) {
-  //     order: 1;
-  //   }
-
-  //   &:nth-child(4) {
-  //     order: 3;
-  //     flex-grow: 1.5;
-  //   }
-  // }
-
-  // @include desktop {
-  //   &:nth-child(3) {
-  //     flex-grow: 1.2;
-  //   }
-  // }
-  // }
+  &__link {
+    text-decoration: none;
+  }
 
   &__inventory {
     &-container {
@@ -220,22 +280,21 @@
   // //     }
 
   // //     @include desktop {
-  // //       width: 90%;
+  // //       width: 80%;
   // //     }
   // //   }
 
-  // &__actions {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-  //   cursor: pointer;
+  &__actions {
+    display: flex;
+    gap: 1.5rem;
+    cursor: pointer;
 
-  //   @include tablet {
-  //     width: 10%;
-  //   }
+    @include tablet {
+      width: 15%;
+    }
 
-  //   @include desktop {
-  //     width: 6%;
-  //   }
-  // }
+    @include desktop {
+      width: 15%;
+    }
+  }
 }

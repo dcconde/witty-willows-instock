@@ -1,46 +1,59 @@
+import { Link } from "react-router-dom";
 import "./InventoryItemDetails.scss";
 import Back from "../../assets/icons/arrow-back-24px.svg";
 import Edit from "../../assets/icons/edit-white-24px.svg";
+import StatusTags from "../StatusTags/StatusTags";
 
-function InventoryItemDetails() {
+function InventoryItemDetails({
+  inventoryItemDetails: {
+    id,
+    item_name,
+    description,
+    category,
+    status,
+    quantity,
+    warehouse_name,
+  },
+}) {
   return (
-    <section className="itemdetails">
-      <div className="itemdetails__header">
-        <img src={Back} alt="Back" className="itemdetails__header-back" />
-        <h1 className="itemdetails__header-title">Television</h1>
-        <button className="itemdetails__header-button">
-          <img src={Edit} alt="Edit" className="itemdetails__header-edit" />
-          <p>Edit</p>
-        </button>
+    <section className="item-details">
+      <div className="item-details__header">
+        <Link to={"/inventory"}>
+          <img src={Back} alt="Back" className="item-details__header-back" />
+        </Link>
+        <h1 className="item-details__header-title">{item_name}</h1>
+        <Link to={`/inventory/${id}/edit`}>
+          <button className="item-details__header-button">
+            <img src={Edit} alt="Edit" className="item-details__header-edit" />
+            <p>Edit</p>
+          </button>
+        </Link>
       </div>
 
-      <div className="itemdetails__body">
-        <div className="itemdetails__body-left">
-          <div className="itemdetails__body-section">
-            <h4 className="itemdetails__label">Item Description:</h4>
-            <p className="itemdetails__text">
-              This 50", 4K LED TV provides a crystal-clear picture and vivid
-              colors.
-            </p>
-            <h4 className="itemdetails__label">Category:</h4>
-            <p className="itemdetails__text">Electronics</p>
+      <div className="item-details__body">
+        <div className="item-details__body-left">
+          <div className="item-details__body-section">
+            <h4 className="item-details__label">Item Description:</h4>
+            <p className="item-details__text">{description}</p>
+            <h4 className="item-details__label">Category:</h4>
+            <p className="item-details__text">{category}</p>
           </div>
         </div>
-        <div className="itemdetails__body-right">
-          <div className="itemdetails__body-section itemdetails__body-section--status">
-            <div className="itemdetails__status-group">
-              <h4 className="itemdetails__label">Status:</h4>
-              <p className="itemdetails__text">IN STOCK</p>
+        <div className="item-details__body-right">
+          <div className="item-details__body-section item-details__body-section--status">
+            <div className="item-details__status-group">
+              <h4 className="item-details__label">Status:</h4>
+              <StatusTags status={status} />
             </div>
-            <div className="itemdetails__quantity-group">
-              <h4 className="itemdetails__label">Quantity:</h4>
-              <p className="itemdetails__text">500</p>
+            <div className="item-details__quantity-group">
+              <h4 className="item-details__label">Quantity:</h4>
+              <p className="item-details__text">{quantity} </p>
             </div>
           </div>
 
-          <div className="itemdetails__body-section itemdetails__body-section--warehouse">
-            <h4 className="itemdetails__label">Warehouse:</h4>
-            <p className="itemdetails__text">Manhattan</p>
+          <div className="item-details__body-section item-details__body-section--warehouse">
+            <h4 className="item-details__label">Warehouse:</h4>
+            <p className="item-details__text">{warehouse_name}</p>
           </div>
         </div>
       </div>
