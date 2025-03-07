@@ -9,6 +9,8 @@ const WarehouseAddPage = () => {
 			<WarehouseModify
 				pageTitle="Add New Warehouse"
 				endingPath={pathToWarehousesPage}
+				formSubmitBtnText="+ Add Warehouse"
+				requestType="post"
 			/>
 		</main>
 	);

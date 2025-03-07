@@ -5,13 +5,18 @@ import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import { postRequest } from "../../../utility/axiosCalls";
+import { postOrPutRequest } from "../../../utility/axiosCalls";
 
 import "./WarehouseModify.scss";
 
 const { VITE_SERVER_URL, VITE_PORT } = import.meta.env;
 
-const WarehouseModify = ({ pageTitle, endingPath }) => {
+const WarehouseModify = ({
+	pageTitle,
+	endingPath,
+	formSubmitBtnText,
+	requestType,
+}) => {
 	const navigate = useNavigate();
 	const inputsStructure = [
 		{
@@ -149,10 +154,9 @@ const WarehouseModify = ({ pageTitle, endingPath }) => {
 
 		//axios.post to server
 		try {
-			const res = await postRequest(
-				VITE_SERVER_URL,
-				VITE_PORT,
-				"/api/warehouses/add",
+			const res = await postOrPutRequest(
+				requestType,
+				`${VITE_SERVER_URL}:${VITE_PORT}/api/warehouses/add`,
 				warehouse
 			);
 
@@ -251,7 +255,7 @@ const WarehouseModify = ({ pageTitle, endingPath }) => {
 					</Button>
 					<Button type="submit" className="button--save">
 						<div className="button__text">
-							<p>+ Add Warehouse</p>
+							<p>{formSubmitBtnText}</p>
 						</div>
 					</Button>
 				</div>

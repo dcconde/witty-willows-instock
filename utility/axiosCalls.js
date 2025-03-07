@@ -1,22 +1,21 @@
 import axios from "axios";
 
+//switch
+
 // POST request
-export const postRequest = async (url, port, path, obj) => {
+export const postOrPutRequest = async (requestType, link, obj) => {
 	try {
-		const res = await axios.post(`${url}:${port}${path}`, obj);
+		let res;
+		if (requestType === "post") {
+			res = await axios.post(link, obj);
+		}
+		if (requestType === "put") {
+			res = await axios.put(link, obj);
+		}
 		return { data: res.data, status: res.status };
 	} catch (err) {
-		console.log("Post request failed:", err);
+		console.log(`${requestType} request failed:`, err.message);
 	}
 };
-
-// export const postRequest = (url, path, obj) => {
-// 	try {
-// 		const res = axios.post(`${url}${path}`, obj);
-// 		return res.data;
-// 	} catch (err) {
-// 		console.log("Post request failed:", err.message);
-// 	}
-// };
 
 //PUT request
