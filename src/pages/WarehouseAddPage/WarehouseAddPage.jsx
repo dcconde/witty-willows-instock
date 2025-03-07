@@ -6,7 +6,7 @@ const { VITE_SERVER_URL, VITE_PORT } = import.meta.env;
 
 const WarehouseAddPage = () => {
 	const pathToWarehousesPage = "/";
-	const requestUrl = `${VITE_SERVER_URL}:${VITE_PORT}/api/warehouses/add`;
+	const requestUrl = `${VITE_SERVER_URL}:${VITE_PORT}/api/warehouses`;
 	return (
 		<main>
 			<WarehouseModify

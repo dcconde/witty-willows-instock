@@ -21,10 +21,10 @@ const WarehouseModify = ({
 	const toastifyMsgs = {
 		post: {
 			success: `Warehouse created successfully!`,
-			error: "Changes saved!",
+			error: `Failed to create warehouse`,
 		},
 		put: {
-			success: `Failed to add warehouse`,
+			success: "Changes saved!",
 			error: `Failed to save changes`,
 		},
 	};
@@ -170,7 +170,7 @@ const WarehouseModify = ({
 			const res = await httpRequest(requestType, requestUrl, warehouse);
 
 			//check status code see if POST was successful
-			if (res.status === 201) {
+			if (res.status >= 200 && res.status < 300) {
 				//show success toast
 				toast.success(
 					requestType === "post"
@@ -206,24 +206,27 @@ const WarehouseModify = ({
 		navigate(exitPath);
 	};
 
+	//fetch warehouse info if edit warehouse.
+	const fetchWarehouse = async () => {
+		try {
+			const res = await httpRequest("get", warehouseByIdUrl);
+			//console.log(res.data);
+			setInputs(
+				inputs.map((input) => ({
+					...input,
+					value: res.data[input.name] || "",
+				}))
+			);
+			console.log(inputs);
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
+
 	useEffect(() => {
 		console.log(inputs);
 		if (!warehouseByIdUrl) return;
-		const fetchWarehouse = async () => {
-			try {
-				const res = await httpRequest("get", warehouseByIdUrl);
-				//console.log(res.data);
-				setInputs(
-					inputs.map((input) => ({
-						...input,
-						value: res.data[input.name] || "",
-					}))
-				);
-				console.log(inputs);
-			} catch (err) {
-				console.error(err.message);
-			}
-		};
+
 		fetchWarehouse();
 	}, []);
 
