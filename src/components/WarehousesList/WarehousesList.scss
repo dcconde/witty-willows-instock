@@ -4,7 +4,9 @@
 
 .warehouses-list {
   width: 90%;
-  margin: 0 auto;
+  margin: 2rem auto;
+  margin-top: 2.5rem;
+  background-color: $primary-background-colour;
   box-shadow: 0 0.125rem 0.3125rem #13182c1a;
   border-radius: 0.1875rem;
 
@@ -134,7 +136,6 @@
     &:hover {
       color: $primary-accent-colour;
       text-decoration: underline;
-
     }
   }
 

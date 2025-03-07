@@ -8,9 +8,8 @@
   margin-top: 2.5rem;
   padding: 1rem;
   background-color: $primary-background-colour;
-  border-radius: 8px;
-  font-family: "Titillium Web";
-  box-shadow: 0px 2px 5px #13182c1a;
+  border-radius: 0.1875rem;
+  box-shadow: 0 0.125rem 0.3125rem #13182c1a;
 
   &__header {
     width: 100%;
@@ -61,9 +60,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
-    &--radio-group {
-    }
   }
 
   &__label {
