@@ -10,6 +10,7 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 
 function WarehouseDetails({
   warehouseDetails: {
+    id,
     warehouse_name,
     address,
     city,
@@ -40,14 +41,19 @@ function WarehouseDetails({
           />
         </Link>
         <h1 className="warehouse-details__title">{warehouse_name}</h1>
-        <div className="warehouse-details__icon-container">
-          <img
-            className="warehouse-details__edit-icon warehouse-details__edit-icon--white"
-            src={whiteEditIcon}
-            alt="white edit icon"
-          />
-          <p className="warehouse-details__edit-text">Edit</p>
-        </div>
+        <Link
+          to={`/api/warehouses/${id}/edit`}
+          className="warehouse-details__link"
+        >
+          <div className="warehouse-details__icon-container">
+            <img
+              className="warehouse-details__edit-icon warehouse-details__edit-icon--white"
+              src={whiteEditIcon}
+              alt="white edit icon"
+            />
+            <p className="warehouse-details__edit-text">Edit</p>
+          </div>
+        </Link>
       </div>
       <div className="warehouse-details__contact">
         <div className="warehouse-details__address-info">
