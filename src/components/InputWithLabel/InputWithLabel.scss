@@ -5,21 +5,25 @@
 .input {
 	&__label p {
 		font-family: "Titillium Web", monospace;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: $primary-text-colour;
+		padding: 0.3rem;
 	}
 	&__input {
 		@include text-style(0.8125rem, 1.25rem, $font-weight-regular);
 		font-family: "Titillium Web", monospace;
-		border: 0.08rem solid $secondary-accent-colour;
+		border: 0.09rem solid $secondary-accent-colour;
 		border-radius: 1.25rem;
 		//max-height: 1.8rem;
 		width: 100%;
 		padding: 0.5rem 1rem 0.5rem 1rem;
 		&:focus {
 			outline: none;
-			border: 0.0625rem solid $primary-accent-colour;
+			border: 0.09rem solid $primary-accent-colour;
 		}
 		&--error {
-			border: 0.0625rem solid $unavailable-label-colour;
+			border: 0.09rem solid $unavailable-label-colour;
 		}
 	}
 }

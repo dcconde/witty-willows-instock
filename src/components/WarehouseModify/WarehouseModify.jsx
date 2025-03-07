@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import InputWithLabel from "../InputWithLabel/InputWithLabel";
+import WarehouseModifyDetails from "../WarehouseModifyDetails/WarehouseModifyDetails";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { httpRequest } from "../../utils/axiosCalls";
 
 import "./WarehouseModify.scss";
@@ -15,7 +14,7 @@ const WarehouseModify = ({
 	formSubmitBtnText,
 	requestType,
 	requestUrl,
-	warehouseByIdUrl,
+	initialFetchDataUrl,
 }) => {
 	const navigate = useNavigate();
 	const toastifyMsgs = {
@@ -209,7 +208,7 @@ const WarehouseModify = ({
 	//fetch warehouse info if edit warehouse.
 	const fetchWarehouse = async () => {
 		try {
-			const res = await httpRequest("get", warehouseByIdUrl);
+			const res = await httpRequest("get", initialFetchDataUrl);
 			//console.log(res.data);
 			setInputs(
 				inputs.map((input) => ({
@@ -225,7 +224,7 @@ const WarehouseModify = ({
 
 	useEffect(() => {
 		console.log(inputs);
-		if (!warehouseByIdUrl) return;
+		if (!initialFetchDataUrl) return;
 
 		fetchWarehouse();
 	}, []);
@@ -233,76 +232,49 @@ const WarehouseModify = ({
 	return (
 		<main className="warehouse-modify">
 			{/* {console.log("renders...........", inputs)} */}
-			<div className="warehouse-modify__title">
-				<img src={arrowBackIcon} alt="arrow back icon" />
+			<div className="warehouse-modify__header">
+				<img
+					className="warehouse-modify__arrow-back-icon"
+					src={arrowBackIcon}
+					alt="arrow back icon"
+					onClick={handleCancel}
+				/>
 				<h1>{pageTitle}</h1>
 			</div>
-			<form className="warehouse-modify__form" onSubmit={handleAddWarehouse}>
-				<div className="warehouse-modify__main-wrapper">
-					<div className="warehouse-modify__detail-wrapper">
-						{inputs
-							.filter((input) => input.category === "warehouse")
-							.map((input, i) => (
-								<div key={i}>
-									<InputWithLabel
-										handleOnChange={handleOnChange}
-										inputObj={input}
-										className={input.isEmpty ? "input__input--error" : ""}
-									>
-										{input.isEmpty && (
-											<ErrorMessage message="This field is required" />
-										)}
-										{input.badEmail && (
-											<ErrorMessage message="Please enter a valid email" />
-										)}
-										{input.badPhone && (
-											<ErrorMessage message="Please enter a valid phone number" />
-										)}
-									</InputWithLabel>
-								</div>
-							))}
+			<div className="warehouse-modify__form-wrapper">
+				<form className="warehouse-modify__form" onSubmit={handleAddWarehouse}>
+					<div className="warehouse-modify__fields-wrapper">
+						<WarehouseModifyDetails
+							title="Warehouse Details"
+							filterKeyWord="warehouse"
+							inputs={inputs}
+							handleOnChange={handleOnChange}
+						/>
+						<WarehouseModifyDetails
+							title="Contact Details"
+							filterKeyWord="contact"
+							inputs={inputs}
+							handleOnChange={handleOnChange}
+						/>
 					</div>
-					<div className="warehouse-modify__detail-wrapper">
-						{inputs
-							.filter((input) => input.category === "contact")
-							.map((input, i) => (
-								<div key={i}>
-									<InputWithLabel
-										handleOnChange={handleOnChange}
-										inputObj={input}
-										className={input.isEmpty ? "input__input--error" : ""}
-									>
-										{input.isEmpty && (
-											<ErrorMessage message="This field is required" />
-										)}
-										{input.badEmail && (
-											<ErrorMessage message="Please enter a valid email" />
-										)}
-										{input.badPhone && (
-											<ErrorMessage message="Please enter a valid phone number" />
-										)}
-									</InputWithLabel>
-								</div>
-							))}
+					<div className="warehouse-modify__button-wrapper">
+						<Button
+							type="button"
+							className="button--cancel"
+							handleClick={handleCancel}
+						>
+							<div className="button__text">
+								<p>Cancel</p>
+							</div>
+						</Button>
+						<Button type="submit" className="button--save">
+							<div className="button__text">
+								<p>{formSubmitBtnText}</p>
+							</div>
+						</Button>
 					</div>
-				</div>
-				<div className="warehouse-modify__button-wrapper">
-					<Button
-						type="button"
-						className="button--cancel"
-						handleClick={handleCancel}
-					>
-						<div className="button__text">
-							<p>Cancel</p>
-						</div>
-					</Button>
-					<Button type="submit" className="button--save">
-						<div className="button__text">
-							<p>{formSubmitBtnText}</p>
-						</div>
-					</Button>
-				</div>
-			</form>
+				</form>
+			</div>
 		</main>
 	);
 };
