@@ -11,6 +11,8 @@ const WarehouseAddPage = () => {
 		<main>
 			<WarehouseModify
 				pageTitle="Add New Warehouse"
+				sectionLeftTitle="Warehouse Details"
+				sectionRightTitle="Contact Details"
 				exitPath={pathToWarehousesPage}
 				formSubmitBtnText="+ Add Warehouse"
 				requestType="post"
