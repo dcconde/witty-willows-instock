@@ -1,3 +1,17 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
+
+.warehouse-modify-details {
+	width: 100%;
+	border-top: 0.09rem solid $secondary-accent-colour;
+	padding: 1.5rem;
+	// padding-bottom: 2rem;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		margin-top: 1.2rem;
+	}
+}

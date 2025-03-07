@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import WarehouseModifyDetails from "../WarehouseModifyDetails/WarehouseModifyDetails";
-import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { httpRequest } from "../../utils/axiosCalls";
 
 import "./WarehouseModify.scss";
@@ -245,13 +243,15 @@ const WarehouseModify = ({
 			</div>
 			<div className="warehouse-modify__form-wrapper">
 				<form className="warehouse-modify__form" onSubmit={handleAddWarehouse}>
-					<div className="warehouse-modify__main-wrapper">
+					<div className="warehouse-modify__fields-wrapper">
 						<WarehouseModifyDetails
+							title="Warehouse Details"
 							filterKeyWord="warehouse"
 							inputs={inputs}
 							handleOnChange={handleOnChange}
 						/>
 						<WarehouseModifyDetails
+							title="Contact Details"
 							filterKeyWord="contact"
 							inputs={inputs}
 							handleOnChange={handleOnChange}
