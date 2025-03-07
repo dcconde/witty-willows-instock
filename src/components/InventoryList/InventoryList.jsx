@@ -12,9 +12,12 @@ function InventoryList({ inventoriesData }) {
       <div className="inventories-list__top-container">
         <h1 className="inventories-list__title">Inventory</h1>
         <SearchBar />
-        <div className="inventories-list__btn-container">
+        <Link
+          to="/addinventoryitem"
+          className="inventories-list__btn-container"
+        >
           <button className="inventories-list__btn">+ Add New Item</button>
-        </div>
+        </Link>
       </div>
       <section className="inventories-list__header">
         <div className="inventories-list__header-item">

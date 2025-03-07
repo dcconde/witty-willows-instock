@@ -10,6 +10,7 @@ import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import Footer from "./components/Footer/Footer";
+import InventoryAddPage from "./pages/InventoryAddPage/InventoryAddPage";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/deleteinventory" element={<DeleteInventory />} />
         <Route path="/editinventoryitem" element={<EditInventoryItem />} />
+        <Route path="/addinventoryitem"  element={<InventoryAddPage />} />
         <Route
           path="/inventoryitemdetails"
           element={<InventoryItemDetails />}

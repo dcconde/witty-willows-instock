@@ -103,6 +103,7 @@ function WarehousesList({ warehousesData }) {
                   onClick={() => {
                     handleShowModule();
                     handleDeleteClickWarehouse(warehouse_name, id);
+                    setShowModule(true);
                   }}
                 >
                   <img
@@ -126,6 +127,7 @@ function WarehousesList({ warehousesData }) {
           <DeleteWarehouse
             warehouseName={clickWarehouseName}
             warehouseId={clickWarehouseid}
+            setShowModule={setShowModule}
           />,
           document.body
         )}

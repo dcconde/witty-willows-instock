@@ -3,19 +3,73 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/global" as *;
 
+
+
 .deletewarehouse {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  flex-direction: column;
+  z-index: 1;
   background-color: $primary-background-colour;
-  padding: 2rem;
+  padding: 1rem;
+
+  @include tablet {
+    width: 85%;
+    top: 150px;
+    left: 80px;
+    right: 80px;
+    height: auto;
+    box-shadow: 200px 200px 200px #13182c1a;
+  }
 
   &__img {
+    display: flex;
+    align-self: flex-end;
+  }
+
+  &__content {
+    width: 90%;
+  }
+
+  &__title {
+    margin: 15px 0px;
+  }
+
+  &__description {
+    font-size: 13px;
+
+    @include tablet {
+        font-size: 16px;
+    }
+  }
+
+  &__buttons {
+   margin-top :250px;
+   display: flex;
+   justify-content: space-evenly;
+
+   @include tablet {
+    justify-content: flex-end;
+   }
+  }
+
+  &__btn {
+    padding: 5px 40px;
+    border: 1px solid $secondary-accent-colour;
+    border-radius: 40px;
+
+    @include tablet {
+        padding: 10px 20px;
+        gap: 90px;
+    }
+  }
+
+  &__btn--delete {
+    background-color: $unavailable-label-colour;
   }
 }
+

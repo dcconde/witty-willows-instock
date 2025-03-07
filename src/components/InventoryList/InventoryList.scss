@@ -146,6 +146,10 @@
   //   margin-bottom: 1rem;
   //   width: 47%;
 
+  &__section {
+    flex: 1;
+  }
+
   &__section-title {
     color: $secondary-text-colour;
     text-transform: uppercase;
