@@ -17,7 +17,7 @@
   }
 
   &__title {
-    padding: 2rem 1.5rem 1.375rem;
+    padding: 2.5rem 1.5rem 1.125rem;
 
     @include tablet {
       flex-grow: 3;
@@ -29,14 +29,14 @@
     width: 100%;
     background-color: $primary-accent-colour;
     color: $primary-background-colour;
-    padding: 0.5rem 1.5rem;
+    padding: 0.625rem 1.5rem;
     font-weight: $font-weight-regular;
     border: none;
     border-radius: 1.25rem;
     cursor: pointer;
 
     &-container {
-      padding: 1rem 1.5rem 1.5rem;
+      padding: 1.125rem 1.5rem 1.625rem;
 
       @include tablet {
         flex-grow: 1;
@@ -55,7 +55,7 @@
 
   &__item {
     border-top: 0.0625rem solid $secondary-accent-colour;
-    padding: 0.625rem 1rem 1.5rem;
+    padding: 1.125rem 1.5rem 1.75rem;
     list-style-type: none;
 
     &:hover {
@@ -87,13 +87,14 @@
 
   &__section {
     @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     width: 47%;
 
     &-title {
       color: $secondary-text-colour;
+      font-weight: $font-weight-bold;
       text-transform: uppercase;
-      padding-bottom: 0.25rem;
+      padding-bottom: 0.5rem;
 
       @include tablet {
         display: none;
@@ -164,6 +165,8 @@
   }
 
   &__address {
+    width: 74%;
+
     @include tablet {
       width: 76%;
     }
