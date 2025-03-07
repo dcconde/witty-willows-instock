@@ -14,31 +14,29 @@ import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryIt
 import footer from "./components/footer/footer";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<WarehousesPage />} />
-        <Route
-          path="/api/warehouses/:id/inventories"
-          element={<WarehouseDetailsPage />}
-        />
-        <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/inventory/:id/delete" element={<DeleteInventory />} />
-        <Route path="/inventory/:id" element={<InventoryItemDetailsPage />} />
-        <Route path="/inventory/:id/edit" element={<EditInventoryItemPage />} />
-        <Route
-          path="/api/warehouses/:warehouseId/add"
-          element={<WarehouseAddPage />}
-        ></Route>
-        <Route
-          path="/api/warehouses/:warehouseId/edit"
-          element={<WarehouseEditPage />}
-        ></Route>
-      </Routes>
-      <footer />
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<ToastContainer />
+			<Header />
+			<Routes>
+				<Route path="/" element={<WarehousesPage />} />
+				<Route
+					path="/api/warehouses/:id/inventories"
+					element={<WarehouseDetailsPage />}
+				/>
+				<Route path="/inventory" element={<InventoryPage />} />
+				<Route path="/inventory/:id/delete" element={<DeleteInventory />} />
+				<Route path="/inventory/:id" element={<InventoryItemDetailsPage />} />
+				<Route path="/inventory/:id/edit" element={<EditInventoryItemPage />} />
+				<Route path="/api/warehouses" element={<WarehouseAddPage />}></Route>
+				<Route
+					path="/api/warehouses/:warehouseId/edit"
+					element={<WarehouseEditPage />}
+				></Route>
+			</Routes>
+			<footer />
+		</BrowserRouter>
+	);
 }
 
 export default App;
