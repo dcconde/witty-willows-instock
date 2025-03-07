@@ -3,63 +3,90 @@
 @use "../../styles/partials/global" as *;
 
 .header {
-  @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
+  @include text-style(0.8125rem, 1.25rem, $font-weight-bold);
+  display: flex;
+  row-gap: 0.125rem;
+  flex-direction: column;
+  padding-top: 1.5rem;
 
-  &__logo {
-    display: flex;
-    justify-content: center;
-    padding: 1.5rem 0;
+  &__logo-link {
+    margin: 0 auto 1rem;
   }
 
-  &__nav {
+  &__nav-list {
     display: flex;
-    justify-content: space-between;
+    padding: 0 0.5rem;
   }
 
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2rem;
+  &__logo-link,
+  &__nav-list {
+    @include tablet {
+      margin: 0;
+      padding: 0;
+      gap: 0.625rem;
+    }
+  }
 
-    &-link {
-      text-decoration: none;
+  &__nav-item {
+    width: 100%;
+    text-align: center;
+    list-style-type: none;
+  }
+
+  &__nav-link {
+    width: 90%;
+    padding: 0.5rem;
+    display: inline-block;
+    color: $secondary-accent-colour;
+    text-decoration: none;
+
+    &:hover {
       color: $primary-background-colour;
+      text-decoration: underline;
+    }
 
-      &:hover {
-        text-decoration: underline;
+    &--warehouses {
+      &.active {
+        background-color: $primary-text-colour;
+        border-radius: 1.25rem;
+        color: $primary-background-colour;
       }
 
-      &:active {
-        padding: 0.3125rem 3.125rem;
-        border-radius: 1.25rem;
-        text-decoration: none;
-        background-color: $primary-text-colour;
-
-        @include tablet {
-          padding: 0.3125rem 0.9375rem;
-        }
+      &:hover {
+        color: $primary-background-colour;
+        text-decoration: underline;
       }
     }
 
-    // @include tablet {
-    //   display: flex;
-    //   align-items: center;
-    //   gap: 1.25rem;
-    // }
-    // }
+    &--inventory {
+      &.active {
+        background-color: $primary-text-colour;
+        border-radius: 1.25rem;
+        color: $primary-background-colour;
+      }
 
-    // @include tablet {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   align-items: center;
-    // }
+      &:hover {
+        color: $primary-background-colour;
+        text-decoration: underline;
+      }
+    }
 
-    // @include tablet {
-    //   padding: 1rem 1.5rem;
-    // }
+    @include tablet {
+      width: 100%;
+      padding: 0.5rem 1rem;
+    }
+  }
 
-    // @include desktop {
-    //   padding: 1.25rem 4.5rem;
-    // }
+  @include tablet {
+    @include text-style(0.875rem, 1.375rem, $font-weight-bold);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem 0 2rem;
+  }
+
+  @include desktop {
+    margin: 0 auto;
+    width: 85%;
   }
 }
