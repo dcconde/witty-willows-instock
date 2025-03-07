@@ -78,6 +78,10 @@
       border: none;
       border-bottom: 0.0625rem solid $secondary-accent-colour;
       padding: 1rem 2rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
     @include desktop {

@@ -51,6 +51,10 @@
     }
   }
 
+  &__edit-icon--white {
+    width: 1.25rem;
+  }
+
   &__edit-text {
     display: none;
     color: $primary-background-colour;
@@ -142,7 +146,7 @@
 
   &__address {
     @include tablet {
-      width: 60%;
+      width: 9.375rem;
     }
   }
 
@@ -160,6 +164,10 @@
       border: none;
       border-bottom: 0.0625rem solid $secondary-accent-colour;
       padding: 1rem 2rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
     @include desktop {
