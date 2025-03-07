@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import Button from "../Button/Button";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import { postOrPutRequest } from "../../utils/axiosCalls";
+import { httpRequest } from "../../utils/axiosCalls";
 
 import "./WarehouseModify.scss";
 
-const { VITE_SERVER_URL, VITE_PORT } = import.meta.env;
-
 const WarehouseModify = ({
 	pageTitle,
-	endingPath,
+	exitPath,
 	formSubmitBtnText,
 	requestType,
+	requestUrl,
+	warehouseByIdUrl,
 }) => {
 	const navigate = useNavigate();
+	const toastifyMsgs = {
+		post: {
+			success: `Warehouse created successfully!`,
+			error: "Changes saved!",
+		},
+		put: {
+			success: `Failed to add warehouse`,
+			error: `Failed to save changes`,
+		},
+	};
+
 	const inputsStructure = [
 		{
 			name: "warehouse_name",
@@ -91,10 +102,12 @@ const WarehouseModify = ({
 		setInputs((pre) =>
 			pre.map((input) => {
 				if (input.name === e.target.name) {
-					input.value = e.target.value;
-					input.isEmpty = false;
-					if (input.badEmail) input.badEmail = false;
-					if (input.badPhone) input.badPhone = false;
+					let newInput = { ...input };
+					newInput.value = e.target.value;
+					newInput.isEmpty = false;
+					if (input.badEmail) newInput.badEmail = false;
+					if (input.badPhone) newInput.badPhone = false;
+					return newInput;
 				}
 				return input;
 			})
@@ -152,40 +165,67 @@ const WarehouseModify = ({
 		//create an object
 		const warehouse = createWarehouseObj();
 
-		//axios.post to server
+		//axios request to server
 		try {
-			const res = await postOrPutRequest(
-				requestType,
-				`${VITE_SERVER_URL}:${VITE_PORT}/api/warehouses/add`,
-				warehouse
-			);
+			const res = await httpRequest(requestType, requestUrl, warehouse);
 
 			//check status code see if POST was successful
 			if (res.status === 201) {
 				//show success toast
-				toast.success("Warehouse added successfully!", {
-					position: "top-right",
-					autoClose: 3000,
-				});
+				toast.success(
+					requestType === "post"
+						? toastifyMsgs.post.success
+						: toastifyMsgs.put.success,
+					{
+						position: "top-right",
+						autoClose: 3000,
+					}
+				);
 				console.log("Post successful:", res.data);
 			} else {
 				console.log("Unexpected response. Status:", res.status);
 			}
 		} catch (err) {
 			//show error toast
-			toast.error("Adding was unsuccessful", {
-				position: "top-right",
-				autoClose: 3000,
-			});
+			toast.error(
+				requestType === "post"
+					? toastifyMsgs.post.error
+					: toastifyMsgs.put.error,
+				{
+					position: "top-right",
+					autoClose: 3000,
+				}
+			);
 			console.error("Post request failed:", err.message);
 		} finally {
-			navigate(endingPath);
+			navigate(exitPath);
 		}
 	};
 
 	const handleCancel = () => {
-		navigate(endingPath);
+		navigate(exitPath);
 	};
+
+	useEffect(() => {
+		console.log(inputs);
+		if (!warehouseByIdUrl) return;
+		const fetchWarehouse = async () => {
+			try {
+				const res = await httpRequest("get", warehouseByIdUrl);
+				//console.log(res.data);
+				setInputs(
+					inputs.map((input) => ({
+						...input,
+						value: res.data[input.name] || "",
+					}))
+				);
+				console.log(inputs);
+			} catch (err) {
+				console.error(err.message);
+			}
+		};
+		fetchWarehouse();
+	}, []);
 
 	return (
 		<main className="warehouse-modify">
