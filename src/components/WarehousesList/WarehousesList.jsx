@@ -5,6 +5,9 @@ import TableHeader from "../TableHeader/TableHeader";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import { createPortal } from "react-dom";
+import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
+import { useState } from "react";
 
 function WarehousesList({ warehousesData }) {
   const headerItems = [
@@ -14,7 +17,19 @@ function WarehousesList({ warehousesData }) {
     "Contact Information",
     "Actions",
   ];
-  const pathToAddNewWarehouse = "/api/warehouses/add";
+  const [showModule, setShowModule] = useState(false);
+  const [clickWarehouseid, setClickWarehouseid] = useState(null);
+  const [clickWarehouseName, setClickWarehouseName] = useState(null);
+
+  function handleShowModule() {
+    setShowModule(true);
+  }
+
+  function handleDeleteClickWarehouse(name, id) {
+    setClickWarehouseid(id);
+    setClickWarehouseName(name);
+  }
+  const pathToAddNewWarehouse = "/api/warehouses";
   const nav = useNavigate();
   const handleClick = () => nav(pathToAddNewWarehouse);
 
@@ -90,11 +105,19 @@ function WarehousesList({ warehousesData }) {
                 </div>
               </div>
               <div className="warehouses-list__actions">
-                <img
-                  className="warehouses-list__delete-icon"
-                  src={deleteIcon}
-                  alt="delete icon"
-                />
+                <button
+                  onClick={() => {
+                    handleShowModule();
+                    handleDeleteClickWarehouse(warehouse_name, id);
+                    setShowModule(true);
+                  }}
+                >
+                  <img
+                    className="warehouses-list__delete-icon"
+                    src={deleteIcon}
+                    alt="delete icon"
+                  />
+                </button>
                 <img
                   className="warehouses-list__edit-icon"
                   src={editIcon}
@@ -105,6 +128,15 @@ function WarehousesList({ warehousesData }) {
           )
         )}
       </ul>
+      {showModule &&
+        createPortal(
+          <DeleteWarehouse
+            warehouseName={clickWarehouseName}
+            warehouseId={clickWarehouseid}
+            setShowModule={setShowModule}
+          />,
+          document.body
+        )}
     </section>
   );
 }

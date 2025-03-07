@@ -3,155 +3,156 @@
 @use "../../styles/partials/variables" as *;
 
 .edit-inventory {
-  width: 90%;
-  margin: 2rem auto;
-  margin-top: 2.5rem;
-  padding: 1rem;
-  background-color: $primary-background-colour;
-  border-radius: 0.1875rem;
-  box-shadow: 0 0.125rem 0.3125rem #13182c1a;
+	width: 90%;
+	margin: 2rem auto;
+	margin-top: 2.5rem;
+	padding: 1rem;
+	background-color: $primary-background-colour;
+	border-radius: 0.1875rem;
+	box-shadow: 0 0.125rem 0.3125rem #13182c1a;
 
-  &__header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid $secondary-accent-colour;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
+	&__header {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid $secondary-accent-colour;
+		padding-bottom: 1rem;
+		margin-bottom: 2rem;
 
-    &-back {
-      width: 24px;
-      height: 24px;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
-  }
+		&-back {
+			width: 24px;
+			height: 24px;
+			margin-right: 1rem;
+			cursor: pointer;
+		}
+	}
 
-  &__title {
-    margin: 0;
-    font-size: 1.5rem;
-    color: $primary-text-colour;
-  }
+	&__title {
+		margin: 0;
+		font-size: 1.5rem;
+		color: $primary-text-colour;
+	}
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0 0.5rem;
-  }
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding: 0 0.5rem;
+	}
 
-  &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-bottom: 0;
-    border-bottom: 1px solid $secondary-accent-colour;
+	&__section {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		padding-bottom: 0;
+		border-bottom: 1px solid $secondary-accent-colour;
 
-    &-title {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: $primary-text-colour;
-      padding-bottom: 0.5rem;
-    }
-  }
+		&-title {
+			margin: 0;
+			font-size: 1.1rem;
+			font-weight: bold;
+			color: $primary-text-colour;
+			padding-bottom: 0.5rem;
+		}
+	}
 
-  &__field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 
-  &__label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: $primary-text-colour;
-  }
+		&__label {
+			font-size: 0.875rem;
+			font-weight: 600;
+			color: $primary-text-colour;
+		}
 
-  &__input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid $secondary-accent-colour;
-    border-radius: 20px;
-    color: $primary-text-colour;
-    font-family: inherit;
+		&__input {
+			padding: 0.5rem;
+			font-size: 1rem;
+			border: 1px solid $secondary-accent-colour;
+			border-radius: 20px;
+			color: $primary-text-colour;
+			font-family: inherit;
 
-    &--textarea {
-      resize: vertical;
-    }
-  }
+			&--textarea {
+				resize: vertical;
+			}
+		}
 
-  &__radios {
-    display: flex;
-    gap: 1rem;
-  }
+		&__radios {
+			display: flex;
+			gap: 1rem;
+		}
 
-  &__radio-label {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+		&__radio-label {
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
 
-    input[type="radio"] {
-      accent-color: $primary-accent-colour;
-    }
-  }
+			input[type="radio"] {
+				accent-color: $primary-accent-colour;
+			}
+		}
 
-  &__buttons {
-    background-color: $light-background-colour;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
+		&__buttons {
+			background-color: $light-background-colour;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 2rem;
 
-    @include tablet {
-    }
-    @include desktop {
-    }
-  }
+			@include tablet {
+			}
+			@include desktop {
+			}
+		}
 
-  &__button {
-    border: none;
-    border-radius: 1.25rem;
-    width: 45%;
-    padding: 0.75rem 2.5rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-family: inherit;
+		&__button {
+			border: none;
+			border-radius: 1.25rem;
+			width: 45%;
+			padding: 0.75rem 2.5rem;
+			font-size: 0.9rem;
+			cursor: pointer;
+			font-family: inherit;
 
-    &--cancel {
-      background-color: $primary-background-colour;
-      color: $primary-text-colour;
-      border: 1px solid $secondary-accent-colour;
-    }
+			&--cancel {
+				background-color: $primary-background-colour;
+				color: $primary-text-colour;
+				border: 1px solid $secondary-accent-colour;
+			}
 
-    &--save {
-      background-color: $primary-accent-colour;
-      color: $primary-background-colour;
-    }
-  }
-}
+			&--save {
+				background-color: $primary-accent-colour;
+				color: $primary-background-colour;
+			}
+		}
+	}
 
-@include tablet {
-  .edit-inventory__form {
-    flex-direction: row;
-    gap: 2rem;
+	@include tablet {
+		.edit-inventory__form {
+			flex-direction: row;
+			gap: 2rem;
 
-    .edit-inventory__section {
-      flex: 1;
-      border-bottom: 0;
-      &:first-child {
-        border-right: 1px solid $secondary-accent-colour;
-        padding-right: 2rem;
-      }
-      &:last-child {
-        padding-left: 2rem;
-      }
-    }
-  }
-}
+			.edit-inventory__section {
+				flex: 1;
+				border-bottom: 0;
+				&:first-child {
+					border-right: 1px solid $secondary-accent-colour;
+					padding-right: 2rem;
+				}
+				&:last-child {
+					padding-left: 2rem;
+				}
+			}
+		}
+	}
 
-@include desktop {
-  .edit-inventory {
-    width: 80%;
-  }
+	@include desktop {
+		.edit-inventory {
+			width: 80%;
+		}
+	}
 }
