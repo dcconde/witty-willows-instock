@@ -5,16 +5,30 @@ import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
+import StatusTags from "../StatusTags/StatusTags";
+import TableHeader from "../TableHeader/TableHeader";
 
 function InventoryList({ inventoriesData }) {
+  const headerItems = [
+    "Inventory item",
+    "Category",
+    "Status",
+    "Qty",
+    "Warehouse",
+    "Actions",
+  ];
+
   return (
     <section className="inventories-list">
       <div className="inventories-list__top-container">
         <h1 className="inventories-list__title">Inventory</h1>
         <SearchBar />
-        <div className="inventories-list__btn-container">
+        <Link
+          to="/addinventoryitem"
+          className="inventories-list__btn-container"
+        >
           <button className="inventories-list__btn">+ Add New Item</button>
-        </div>
+        </Link>
       </div>
       <section className="inventories-list__header">
         <div className="inventories-list__header-item">
@@ -71,7 +85,10 @@ function InventoryList({ inventoriesData }) {
                     Inventory Item
                   </h4>
                   <div className="inventories-list__inventory-container">
-                    <Link to={"/"} className="inventories-list__link">
+                    <Link
+                      to={`/inventory/${id}`}
+                      className="inventories-list__link"
+                    >
                       <h3 className="inventories-list__inventory-name">
                         {item_name}
                       </h3>
@@ -89,7 +106,7 @@ function InventoryList({ inventoriesData }) {
                 </div>
                 <div className="inventories-list__section">
                   <h4 className="inventories-list__section-title">Status</h4>
-                  <p className="inventories-list__item-status">{status}</p>
+                  <StatusTags status={status} />
                 </div>
                 <div className="inventories-list__section">
                   <h4 className="inventories-list__section-title">QTY</h4>
@@ -103,16 +120,22 @@ function InventoryList({ inventoriesData }) {
                 </div>
                 <div className="inventories-list__section">
                   <h4 className="inventories-list__section-title">Actions</h4>
-                  <img
-                    src={deleteIcon}
-                    alt="delete icon"
-                    className="inventories-list__delete-icon"
-                  />
-                  <img
-                    src={editIcon}
-                    alt="edit icon"
-                    className="inventories-list__edit-icon"
-                  />
+                  <div className="inventories-list__actions">
+                    <Link to={`/inventory/${id}/delete`}>
+                      <img
+                        src={deleteIcon}
+                        alt="delete icon"
+                        className="inventories-list__delete-icon"
+                      />
+                    </Link>
+                    <Link to={`/inventory/${id}/edit`}>
+                      <img
+                        src={editIcon}
+                        alt="edit icon"
+                        className="inventories-list__edit-icon"
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </li>

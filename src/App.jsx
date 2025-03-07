@@ -9,40 +9,38 @@ import Header from "./components/Header/header";
 import WarehouseAddPage from "./pages/WarehouseAddPage/WarehouseAddPage";
 import WarehouseEditPage from "./pages/WarehouseEditPage/WarehouseEditPage";
 import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
-import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
-import Footer from "./components/Footer/Footer";
+
+import InventoryAddPage from "./pages/InventoryAddPage/InventoryAddPage";
+
+import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
+import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
+import footer from "./components/footer/footer";
 
 function App() {
-	return (
-		<BrowserRouter>
-			<ToastContainer />
-			<Header />
-			<Routes>
-				<Route path="/" element={<WarehousesPage />} />
-				<Route
-					path="/api/warehouses/:id/inventories"
-					element={<WarehouseDetailsPage />}
-				/>
-				<Route path="/inventory" element={<InventoryPage />} />
-				<Route path="/deleteinventory/:id" element={<DeleteInventory />} />
-				<Route path="/editinventoryitem" element={<EditInventoryItem />} />
-				<Route
-					path="/inventoryitemdetails"
-					element={<InventoryItemDetails />}
-				/>
-				<Route
-					path="/api/warehouses/add"
-					element={<WarehouseAddPage />}
-				></Route>
-				<Route
-					path="/api/warehouses/:warehouseId/edit"
-					element={<WarehouseEditPage />}
-				></Route>
-			</Routes>
-			<Footer />
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <ToastContainer />
+      <Header />
+      <Routes>
+        <Route path="/" element={<WarehousesPage />} />
+        <Route
+          path="/api/warehouses/:id/inventories"
+          element={<WarehouseDetailsPage />}
+        />
+        <Route path="/inventory" element={<InventoryPage />} />
+        <Route path="/inventory/:id/delete" element={<DeleteInventory />} />
+        <Route path="/inventory/:id" element={<InventoryItemDetailsPage />} />
+        <Route path="/inventory/:id/edit" element={<EditInventoryItemPage />} />
+        <Route path="/api/warehouses" element={<WarehouseAddPage />}></Route>
+        <Route path="/addinventoryitem" element={<InventoryAddPage />} />
+        <Route
+          path="/api/warehouses/:warehouseId/edit"
+          element={<WarehouseEditPage />}
+        ></Route>
+      </Routes>
+      <footer />
+    </BrowserRouter>
+  );
 }
 
 export default App;
