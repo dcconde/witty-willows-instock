@@ -3,64 +3,63 @@
 @use "../../styles/partials/global" as *;
 
 .header {
-
-    padding: 0px 16px;
-
-    @include tablet {
-        padding: 16px 24px;
-    }
-
-    @include desktop {
-        padding: 20px 72px;
-    }
-
-  &__content {
-    @include tablet {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-  }
+  @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
 
   &__logo {
     display: flex;
     justify-content: center;
-    margin: 16px 0px;
+    padding: 1.5rem 0;
   }
 
   &__nav {
     display: flex;
-    justify-content: space-evenly;
-
-    @include tablet {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
+    justify-content: space-between;
   }
 
-  &__nav-link {
-    text-decoration: none;
-    color: $primary-background-colour;
-    font-size: 12px;
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
 
-    @include tablet {
-        font-size: 14px;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:active {
-      padding: 5px 50px;
-      border-radius: 20px;
+    &-link {
       text-decoration: none;
-      background-color: $primary-text-colour;
+      color: $primary-background-colour;
 
-      @include tablet {
-        padding: 5px 15px;
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:active {
+        padding: 0.3125rem 3.125rem;
+        border-radius: 1.25rem;
+        text-decoration: none;
+        background-color: $primary-text-colour;
+
+        @include tablet {
+          padding: 0.3125rem 0.9375rem;
+        }
       }
     }
+
+    // @include tablet {
+    //   display: flex;
+    //   align-items: center;
+    //   gap: 1.25rem;
+    // }
+    // }
+
+    // @include tablet {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   align-items: center;
+    // }
+
+    // @include tablet {
+    //   padding: 1rem 1.5rem;
+    // }
+
+    // @include desktop {
+    //   padding: 1.25rem 4.5rem;
+    // }
   }
 }
