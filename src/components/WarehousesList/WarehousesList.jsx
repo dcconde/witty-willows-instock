@@ -1,5 +1,5 @@
 import "./WarehousesList.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import TableHeader from "../TableHeader/TableHeader";
 import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
@@ -29,6 +29,9 @@ function WarehousesList({ warehousesData }) {
     setClickWarehouseid(id);
     setClickWarehouseName(name);
   }
+  const pathToAddNewWarehouse = "/api/warehouses/add";
+  const nav = useNavigate();
+  const handleClick = () => nav(pathToAddNewWarehouse);
 
   return (
     <section className="warehouses-list">
@@ -36,12 +39,15 @@ function WarehousesList({ warehousesData }) {
         <h1 className="warehouses-list__title">Warehouses</h1>
         <SearchBar />
         <div className="warehouses-list__button-container">
-          <button className="warehouses-list__button">
+          <button className="warehouses-list__button" onClick={handleClick}>
             + Add New Warehouse
           </button>
         </div>
       </div>
-      <TableHeader headerItems={headerItems} />
+      <TableHeader
+        headerItems={headerItems}
+        itemName="table-header__item table-header__item--warehouses-list"
+      />
       <ul className="warehouses-list__items">
         {warehousesData.map(
           ({

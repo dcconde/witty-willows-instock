@@ -5,7 +5,9 @@
 
 .warehouses-list {
   width: 90%;
-  margin: 0 auto;
+  margin: 2rem auto;
+  margin-top: 2.5rem;
+  background-color: $primary-background-colour;
   box-shadow: 0 0.125rem 0.3125rem #13182c1a;
   border-radius: 0.1875rem;
 
@@ -16,10 +18,16 @@
   }
 
   &__title {
-    padding: 2rem 1.5rem 1.375rem;
+    padding: 2rem 1.5rem 1rem;
 
     @include tablet {
-      flex-grow: 3;
+      padding: 2rem 2rem 1.125rem;
+      flex-grow: 2;
+    }
+
+    @include desktop {
+      padding: 2rem 2.5rem 1.25rem;
+      flex-grow: 2.6;
     }
   }
 
@@ -35,11 +43,16 @@
     cursor: pointer;
 
     &-container {
-      padding: 1rem 1.5rem 1.5rem;
+      padding: 0.875rem 1.5rem 1.5rem;
 
       @include tablet {
         flex-grow: 1;
-        padding: 2rem 1rem 1.375rem;
+        padding: 2rem 2rem 1.375rem 1rem;
+      }
+
+      @include desktop {
+        width: 12%;
+        padding-right: 2.5rem;
       }
     }
 
@@ -54,7 +67,7 @@
 
   &__item {
     border-top: 0.0625rem solid $secondary-accent-colour;
-    padding: 0.625rem 1rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem;
     list-style-type: none;
 
     &:hover {
@@ -65,11 +78,15 @@
       display: flex;
       border: none;
       border-bottom: 0.0625rem solid $secondary-accent-colour;
-      padding: 1.125rem 2rem;
+      padding: 1rem 2rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
     @include desktop {
-      padding: 1.125rem 3rem;
+      padding: 1rem 2.5rem;
     }
   }
 
@@ -91,6 +108,7 @@
 
     &-title {
       color: $secondary-text-colour;
+      font-weight: $font-weight-bold;
       text-transform: uppercase;
       padding-bottom: 0.25rem;
 
@@ -105,7 +123,7 @@
 
       &:nth-child(1) {
         order: 0;
-        flex-grow: 1.4;
+        flex-grow: 1.25;
       }
 
       &:nth-child(2) {
@@ -123,9 +141,30 @@
     }
 
     @include desktop {
-      &:nth-child(3) {
-        flex-grow: 1.2;
+      &:nth-child(1) {
+        flex-grow: 1.55;
       }
+
+      &:nth-child(2) {
+        flex-grow: 1.25;
+      }
+
+      &:nth-child(3) {
+        flex-grow: 1.85;
+      }
+
+      &:nth-child(4) {
+        flex-grow: 1.5;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-accent-colour;
+      text-decoration: underline;
     }
   }
 
@@ -154,11 +193,9 @@
   }
 
   &__address {
-    @include tablet {
-      width: 76%;
-    }
+    width: 74%;
 
-    @include desktop {
+    @include tablet {
       width: 90%;
     }
   }
@@ -170,7 +207,7 @@
     cursor: pointer;
 
     @include tablet {
-      width: 10%;
+      width: 11%;
     }
 
     @include desktop {
@@ -178,7 +215,57 @@
     }
   }
 
+  @include tablet {
+    width: 92%;
+  }
+
   @include desktop {
     width: 80%;
+  }
+}
+
+.table-header__item--warehouses-list {
+  display: flex;
+  flex-basis: 1.5rem;
+  gap: 0.375rem;
+
+  &:nth-child(1) {
+    @include tablet {
+      flex-grow: 1.35;
+    }
+
+    @include desktop {
+      flex-grow: 1.25;
+    }
+  }
+
+  &:nth-child(2) {
+    @include tablet {
+      flex-grow: 1;
+    }
+
+    @include desktop {
+      flex-grow: 1.5;
+    }
+  }
+
+  &:nth-child(3) {
+    @include tablet {
+      flex-grow: 1;
+    }
+
+    @include desktop {
+      flex-grow: 1;
+    }
+  }
+
+  &:nth-child(4) {
+    @include tablet {
+      flex-grow: 1.8;
+    }
+
+    @include desktop {
+      flex-grow: 1.35;
+    }
   }
 }
