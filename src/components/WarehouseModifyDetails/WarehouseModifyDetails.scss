@@ -6,7 +6,11 @@
 	width: 100%;
 	border-top: 0.09rem solid $secondary-accent-colour;
 	padding: 1.5rem;
-	// padding-bottom: 2rem;
+	@include tablet {
+		padding: 0 2.5rem 0 2.5rem;
+		border-top: none;
+		border-right: 0.09rem solid $secondary-accent-colour;
+	}
 
 	&__wrapper {
 		display: flex;

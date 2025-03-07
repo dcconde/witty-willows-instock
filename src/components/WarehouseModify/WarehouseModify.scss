@@ -19,14 +19,21 @@
 		@include tablet {
 			flex-direction: row;
 			justify-content: space-between;
+			padding-top: 1.6rem;
+			padding-bottom: 2rem;
 		}
 	}
 	&__header {
 		padding: 1.5rem;
 		padding-top: 2.2rem;
 		display: flex;
-		gap: 0.2rem;
-		//border-bottom: 0.09rem solid $secondary-accent-colour;
+		gap: 0.4rem;
+		border-bottom: none;
+		@include tablet {
+			border-bottom: 0.09rem solid $secondary-accent-colour;
+			padding-left: 2.5rem;
+			padding-right: 2.5rem;
+		}
 	}
 	&__arrow-back-icon {
 		cursor: pointer;
