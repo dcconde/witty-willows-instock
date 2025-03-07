@@ -12,7 +12,7 @@ const DeleteWarehouse = ({ warehouseName, warehouseId, setShowModule }) => {
       const response = await axios.delete(
         `${backendUrl}/api/warehouses/${warehouseId}`
       );
-      if (response.status === 200) {
+      if (response.status === 204) {
         alert("Warehouse deleted successfully.");
         setShowModule(false);
       } else {
