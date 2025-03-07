@@ -4,30 +4,25 @@
 .table-header {
   display: none;
 
+  &__title {
+    color: $secondary-text-colour;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+
+  &__sort-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
   @include tablet {
     display: flex;
     justify-content: space-between;
     padding: 0.625rem 2rem;
     background-color: $light-background-colour;
-
-    &__item {
-      display: flex;
-      gap: 0.375rem;
-    }
-
-    &__title {
-      color: $secondary-text-colour;
-      font-weight: $font-weight-bold;
-      text-transform: uppercase;
-    }
-
-    &__sort-icon {
-      width: 1rem;
-      height: 1rem;
-    }
   }
 
   @include desktop {
-    padding: 1rem 3rem;
+    padding: 0.625rem 2.5rem;
   }
 }
