@@ -3,6 +3,9 @@
 @use "../../styles/partials/fonts" as *;
 
 .inventories-list {
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 0.125rem 0.3125rem #13182c1a;
   border-radius: 0.1875rem;
 
   &__top-container {
@@ -96,6 +99,14 @@
       &-item {
         display: flex;
         gap: 0.375rem;
+
+        @include tablet {
+          width: 15%;
+        }
+
+        @include desktop {
+          width: 10%;
+        }
       }
 
       &-title {
@@ -117,6 +128,11 @@
   &__item {
     border-top: 0.0625rem solid $secondary-accent-colour;
     padding: 0.625rem 1.5rem 1.5rem;
+    list-style-type: none;
+
+    &:hover {
+      background-color: rgba($primary-accent-colour, 0.07);
+    }
 
     @include tablet {
       display: flex;
@@ -134,7 +150,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
 
     @include tablet {
@@ -145,8 +160,15 @@
   &__section {
     @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
     margin-bottom: 1rem;
-    width: 10%;
-    flex-shrink: 0;
+    width: 50%;
+
+    @include tablet {
+      width: 15%;
+    }
+
+    @include desktop {
+      width: 10%;
+    }
 
     &-title {
       color: $secondary-text-colour;
