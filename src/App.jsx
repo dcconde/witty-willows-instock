@@ -9,6 +9,9 @@ import Header from "./components/Header/header";
 import WarehouseAddPage from "./pages/WarehouseAddPage/WarehouseAddPage";
 import WarehouseEditPage from "./pages/WarehouseEditPage/WarehouseEditPage";
 import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
+
+import InventoryAddPage from "./pages/InventoryAddPage/InventoryAddPage";
+
 import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
 import footer from "./components/footer/footer";
@@ -16,6 +19,7 @@ import footer from "./components/footer/footer";
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Header />
       <Routes>
         <Route path="/" element={<WarehousesPage />} />
@@ -27,10 +31,8 @@ function App() {
         <Route path="/inventory/:id/delete" element={<DeleteInventory />} />
         <Route path="/inventory/:id" element={<InventoryItemDetailsPage />} />
         <Route path="/inventory/:id/edit" element={<EditInventoryItemPage />} />
-        <Route
-          path="/api/warehouses/:warehouseId/add"
-          element={<WarehouseAddPage />}
-        ></Route>
+        <Route path="/api/warehouses" element={<WarehouseAddPage />}></Route>
+        <Route path="/addinventoryitem" element={<InventoryAddPage />} />
         <Route
           path="/api/warehouses/:warehouseId/edit"
           element={<WarehouseEditPage />}
