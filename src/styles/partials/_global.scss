@@ -1,15 +1,15 @@
 @use "./variables" as *;
 
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: linear-gradient(
-        $dark-background-colour 200px,
-        $light-background-colour 200px
-    );
-    min-height: 100vh;
+  background: linear-gradient(
+    $dark-background-colour 12.5rem,
+    $light-background-colour 12.5rem
+  );
+  min-height: 100vh;
 }

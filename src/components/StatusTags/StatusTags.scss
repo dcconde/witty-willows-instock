@@ -2,13 +2,13 @@
 @use "../../styles/partials/mixins" as *;
 
 .status-tag {
+  @include text-style(0.6875rem, 1rem, $font-weight-bold);
   height: 1.5rem;
   padding: 0 0.5rem;
   border-radius: 1.25rem;
   display: inline-flex;
   align-items: center;
   text-transform: uppercase;
-  font-weight: $font-weight-bold;
 
   &.in-stock {
     background-color: rgba($available-label-colour, 0.07);
@@ -21,6 +21,7 @@
   }
 
   @include tablet {
+    @include text-style(0.75rem, 1.125rem, $font-weight-bold);
     height: 1.625rem;
   }
 }
