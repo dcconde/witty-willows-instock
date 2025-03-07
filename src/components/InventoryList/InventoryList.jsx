@@ -6,8 +6,18 @@ import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import StatusTags from "../StatusTags/StatusTags";
+import TableHeader from "../TableHeader/TableHeader";
 
 function InventoryList({ inventoriesData }) {
+  const headerItems = [
+    "Inventory item",
+    "Category",
+    "Status",
+    "Qty",
+    "Warehouse",
+    "Actions",
+  ];
+
   return (
     <section className="inventories-list">
       <div className="inventories-list__top-container">
@@ -107,20 +117,22 @@ function InventoryList({ inventoriesData }) {
                 </div>
                 <div className="inventories-list__section">
                   <h4 className="inventories-list__section-title">Actions</h4>
-                  <Link to={`/inventory/${id}/delete`}>
-                    <img
-                      src={deleteIcon}
-                      alt="delete icon"
-                      className="inventories-list__delete-icon"
-                    />
-                  </Link>
-                  <Link to={`/inventory/${id}/edit`}>
-                    <img
-                      src={editIcon}
-                      alt="edit icon"
-                      className="inventories-list__edit-icon"
-                    />
-                  </Link>
+                  <div className="inventories-list__actions">
+                    <Link to={`/inventory/${id}/delete`}>
+                      <img
+                        src={deleteIcon}
+                        alt="delete icon"
+                        className="inventories-list__delete-icon"
+                      />
+                    </Link>
+                    <Link to={`/inventory/${id}/edit`}>
+                      <img
+                        src={editIcon}
+                        alt="edit icon"
+                        className="inventories-list__edit-icon"
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </li>

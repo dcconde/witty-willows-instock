@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./DeleteInventory.scss";
 import Close from "../../assets/icons/close-24px.svg";
+
 function DeleteInventory() {
   const navigate = useNavigate();
   const { id } = useParams();
