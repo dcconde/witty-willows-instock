@@ -2,6 +2,10 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
+Link {
+  text-decoration: none;
+}
+
 .inventories-list {
   width: 90%;
   margin: 0 auto;
@@ -240,6 +244,10 @@
         display: none;
       }
     }
+  }
+
+  &__link {
+    text-decoration: none;
   }
 
   &__inventory {

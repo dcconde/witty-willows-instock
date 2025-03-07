@@ -45,7 +45,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: 0;
     border-bottom: 1px solid $secondary-accent-colour;
 
     &-title {
@@ -62,8 +62,8 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    &--radio-group {
-    }
+    // &--radio-group {
+    // }
   }
 
   &__label {
@@ -101,15 +101,23 @@
   }
 
   &__buttons {
+    background-color: $light-background-colour;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
     gap: 1rem;
     margin-top: 2rem;
+
+    @include tablet {
+    }
+    @include desktop {
+    }
   }
 
   &__button {
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
+    width: 45%;
     padding: 0.75rem 2.5rem;
     font-size: 0.9rem;
     cursor: pointer;

@@ -69,7 +69,6 @@ function EditInventoryItem({
       <form className="edit-inventory__form" onSubmit={handleSubmit}>
         <div className="edit-inventory__section">
           <h2 className="edit-inventory__section-title">Item Details</h2>
-
           <div className="edit-inventory__field">
             <label htmlFor="itemName" className="edit-inventory__label">
               Item Name
@@ -84,7 +83,6 @@ function EditInventoryItem({
               onChange={handleChange}
             />
           </div>
-
           <div className="edit-inventory__field">
             <label htmlFor="description" className="edit-inventory__label">
               Description
@@ -99,7 +97,6 @@ function EditInventoryItem({
               onChange={handleChange}
             />
           </div>
-
           <div className="edit-inventory__field">
             <label htmlFor="category" className="edit-inventory__label">
               Category
@@ -119,10 +116,8 @@ function EditInventoryItem({
             </select>
           </div>
         </div>
-
         <div className="edit-inventory__section">
           <h2 className="edit-inventory__section-title">Item Availability</h2>
-
           <div className="edit-inventory__field edit-inventory__field--radio-group">
             <label className="edit-inventory__label">Status</label>
             <div className="edit-inventory__radios">
@@ -148,7 +143,6 @@ function EditInventoryItem({
               </label>
             </div>
           </div>
-
           <div className="edit-inventory__field">
             <label htmlFor="warehouse" className="edit-inventory__label">
               Warehouse
@@ -166,21 +160,21 @@ function EditInventoryItem({
                 </option>
               ))}
             </select>
+            <div className="edit-inventory__buttons">
+              <button
+                type="button"
+                className="edit-inventory__button edit-inventory__button--cancel"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="edit-inventory__button edit-inventory__button--save"
+              >
+                Save
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="edit-inventory__buttons">
-          <button
-            type="button"
-            className="edit-inventory__button edit-inventory__button--cancel"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="edit-inventory__button edit-inventory__button--save"
-          >
-            Save
-          </button>
         </div>
       </form>
     </section>
