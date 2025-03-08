@@ -3,8 +3,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/global" as *;
 
-
-
 .deletewarehouse {
   position: fixed;
   top: 0;
@@ -15,15 +13,15 @@
   flex-direction: column;
   z-index: 1;
   background-color: $primary-background-colour;
-  padding: 1rem;
+  padding: 16px;
 
   @include tablet {
     width: 85%;
-    top: 150px;
-    left: 80px;
-    right: 80px;
+    top: 9.375rem;
+    left: 5rem;
+    right: 5rem;
     height: auto;
-    box-shadow: 200px 200px 200px #13182c1a;
+    box-shadow: 12.5rem 12.5rem 12.5rem #13182c1a;
   }
 
   &__img {
@@ -36,40 +34,44 @@
   }
 
   &__title {
-    margin: 15px 0px;
+    margin: .9375rem 0rem;
   }
 
   &__description {
-    font-size: 13px;
+    font-size: .8125rem;
 
     @include tablet {
-        font-size: 16px;
+      font-size: 1rem;
+      margin-bottom: 1.875rem;
     }
   }
 
   &__buttons {
-   margin-top :250px;
-   display: flex;
-   justify-content: space-evenly;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-evenly;
 
-   @include tablet {
-    justify-content: flex-end;
-   }
+    @include tablet {
+      justify-content: flex-end;
+      gap: 2rem;
+      margin-bottom: 1.25rem;
+    }
   }
 
   &__btn {
-    padding: 5px 40px;
-    border: 1px solid $secondary-accent-colour;
-    border-radius: 40px;
+    padding: .3125rem 2.5rem;
+    border: .0625rem solid $secondary-accent-colour;
+    border-radius: 2.5rem;
+    background-color: $primary-background-colour;
 
     @include tablet {
-        padding: 10px 20px;
-        gap: 90px;
+      padding: .625rem 1.25rem;
+      gap: 5.625rem;
     }
   }
 
   &__btn--delete {
     background-color: $unavailable-label-colour;
+    color: $primary-background-colour;
   }
 }
-

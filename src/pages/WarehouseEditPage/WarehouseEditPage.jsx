@@ -14,11 +14,13 @@ const WarehouseEditPage = () => {
 		<main>
 			<WarehouseModify
 				pageTitle="Edit Warehouse"
+				sectionLeftTitle="Warehouse Details"
+				sectionRightTitle="Contact Details"
 				exitPath={pathToWarehouseInventoriesPage}
 				formSubmitBtnText="Save"
 				requestType="put"
 				requestUrl={requestUrl}
-				warehouseByIdUrl={warehouseByIdUrl}
+				initialFetchDataUrl={warehouseByIdUrl}
 			/>
 		</main>
 	);
