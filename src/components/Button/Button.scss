@@ -6,7 +6,7 @@
 	border: none;
 	border-radius: 5rem;
 	height: 2.4rem;
-	width: 50%;
+	width: 100%;
 	cursor: pointer;
 	@include tablet {
 		width: auto;
@@ -15,7 +15,7 @@
 	}
 	&__text {
 		font-family: "Titillium Web", monospace;
-		font-weight: $font-weight-regular;
+		font-weight: $font-weight-bold;
 		margin-left: 0.5rem;
 		margin-right: 0.8rem;
 	}
@@ -30,10 +30,10 @@
 	&--cancel {
 		color: $secondary-text-colour;
 		background-color: $primary-background-colour;
-		border: 0.08rem solid $secondary-accent-colour;
+		border: 0.09rem solid $secondary-accent-colour;
 		&:hover {
 			color: $primary-accent-colour;
-			border: 0.08rem solid $primary-accent-colour;
+			border: 0.09rem solid $primary-accent-colour;
 		}
 	}
 }
