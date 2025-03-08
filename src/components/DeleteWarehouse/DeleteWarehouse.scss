@@ -13,7 +13,7 @@
   flex-direction: column;
   z-index: 1;
   background-color: $primary-background-colour;
-  padding: 16px;
+  padding: 1rem;
 
   @include tablet {
     width: 85%;
@@ -34,11 +34,11 @@
   }
 
   &__title {
-    margin: .9375rem 0rem;
+    margin: 0.9375rem 0;
   }
 
   &__description {
-    font-size: .8125rem;
+    font-size: 0.8125rem;
 
     @include tablet {
       font-size: 1rem;
@@ -59,13 +59,13 @@
   }
 
   &__btn {
-    padding: .3125rem 2.5rem;
-    border: .0625rem solid $secondary-accent-colour;
+    padding: 0.3125rem 2.5rem;
+    border: 0.0625rem solid $secondary-accent-colour;
     border-radius: 2.5rem;
     background-color: $primary-background-colour;
 
     @include tablet {
-      padding: .625rem 1.25rem;
+      padding: 0.625rem 1.25rem;
       gap: 5.625rem;
     }
   }

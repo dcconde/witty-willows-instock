@@ -8,21 +8,21 @@
   margin-top: 2.5rem;
   padding: 1rem;
   background-color: $primary-background-colour;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-family: "Titillium Web";
-  box-shadow: 0px 2px 5px #13182c1a;
+  box-shadow: 0 0.125rem 0.3125rem #13182c1a;
 
   &__header {
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $secondary-accent-colour;
+    border-bottom: 0.0625rem solid $secondary-accent-colour;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
 
     &-back {
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
       margin-right: 1rem;
       cursor: pointer;
     }
@@ -46,7 +46,7 @@
     flex-direction: column;
     gap: 1.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid $secondary-accent-colour;
+    border-bottom: 0.0625rem solid $secondary-accent-colour;
 
     &-title {
       margin: 0;
@@ -61,9 +61,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
-    &--radio-group {
-    }
   }
 
   &__label {
@@ -75,8 +72,8 @@
   &__input {
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid $secondary-accent-colour;
-    border-radius: 20px;
+    border: 0.0625rem solid $secondary-accent-colour;
+    border-radius: 1.25rem;
     color: $primary-text-colour;
     font-family: inherit;
 
@@ -109,16 +106,16 @@
 
   &__button {
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 0.75rem 2.5rem;
-    font-size: .75rem;
+    font-size: 0.75rem;
     cursor: pointer;
     font-family: inherit;
 
     &--cancel {
       background-color: $primary-background-colour;
       color: $primary-text-colour;
-      border: 1px solid $secondary-accent-colour;
+      border: 0.0625rem solid $secondary-accent-colour;
     }
 
     &--save {
@@ -137,7 +134,7 @@
       flex: 1;
       border-bottom: 0;
       &:first-child {
-        border-right: 1px solid $secondary-accent-colour;
+        border-right: 0.0625rem solid $secondary-accent-colour;
         padding-right: 2rem;
       }
       &:last-child {

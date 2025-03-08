@@ -11,7 +11,7 @@
 	background-color: $primary-background-colour;
 	border-radius: 0.18rem;
 	font-family: "Titillium Web";
-	box-shadow: 0px 0.15rem 0.35rem #13182c1a;
+	box-shadow: 0 0.15rem 0.35rem #13182c1a;
 
 	&__fields-wrapper {
 		display: flex;
@@ -38,8 +38,7 @@
 	&__arrow-back-icon {
 		cursor: pointer;
 	}
-	&__form-wrapper {
-	}
+
 	&__button-wrapper {
 		display: flex;
 		justify-content: space-between;
