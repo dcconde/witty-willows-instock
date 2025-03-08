@@ -156,9 +156,11 @@
   &__link {
     text-decoration: none;
 
-    &:hover {
-      color: $primary-accent-colour;
-      text-decoration: underline;
+    @include tablet {
+      &:hover {
+        color: $primary-accent-colour;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -198,7 +200,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
 
     @include tablet {
       width: 11%;
@@ -212,6 +213,7 @@
   &__delete-button {
     background-color: $primary-background-colour;
     border: none;
+    cursor: pointer;
   }
 
   @include tablet {
