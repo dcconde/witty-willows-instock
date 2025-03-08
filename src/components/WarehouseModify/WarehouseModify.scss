@@ -3,50 +3,50 @@
 @use "../../styles/partials/fonts" as *;
 
 .warehouse-modify {
-	width: 90%;
-	margin: auto;
-	margin-top: 2.5rem;
-	margin-bottom: 2.5rem;
+  width: 90%;
+  margin: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 
-	background-color: $primary-background-colour;
-	border-radius: 0.18rem;
-	font-family: "Titillium Web";
-	box-shadow: 0 0.15rem 0.35rem #13182c1a;
+  background-color: $primary-background-colour;
+  border-radius: 0.18rem;
+  font-family: "Titillium Web";
+  box-shadow: 0 0.15rem 0.35rem #13182c1a;
 
-	&__fields-wrapper {
-		display: flex;
-		flex-direction: column;
-		@include tablet {
-			flex-direction: row;
-			justify-content: space-between;
-			padding-top: 1.6rem;
-			padding-bottom: 2rem;
-		}
-	}
-	&__header {
-		padding: 1.5rem;
-		padding-top: 2.2rem;
-		display: flex;
-		gap: 0.4rem;
-		border-bottom: none;
-		@include tablet {
-			border-bottom: 0.09rem solid $secondary-accent-colour;
-			padding-left: 2.5rem;
-			padding-right: 2.5rem;
-		}
-	}
-	&__arrow-back-icon {
-		cursor: pointer;
-	}
+  &__fields-wrapper {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 1.6rem;
+      padding-bottom: 2rem;
+    }
+  }
+  &__header {
+    padding: 1.5rem;
+    padding-top: 2.2rem;
+    display: flex;
+    gap: 0.4rem;
+    border-bottom: none;
+    @include tablet {
+      border-bottom: 0.09rem solid $secondary-accent-colour;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+  &__arrow-back-icon {
+    cursor: pointer;
+  }
 
-	&__button-wrapper {
-		display: flex;
-		justify-content: space-between;
-		gap: 1rem;
-		background-color: $light-background-colour;
-		padding: 1.25rem;
-		@include tablet {
-			justify-content: flex-end;
-		}
-	}
+  &__button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: $light-background-colour;
+    padding: 1.25rem;
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
 }
