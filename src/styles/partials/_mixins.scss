@@ -17,3 +17,31 @@
   line-height: $line-height;
   font-weight: $font-weight;
 }
+
+@mixin button-style($background-color) {
+  font-family: "Titillium Web", monospace;
+  color: $primary-background-colour;
+  font-weight: $font-weight-regular;
+  border-radius: 1.25rem;
+  border: none;
+  cursor: pointer;
+  background-color: $background-color;
+
+  &:hover {
+    background-color: $dark-background-colour;
+  }
+}
+
+@mixin button-hover {
+  font-family: "Titillium Web", monospace;
+  background-color: $primary-background-colour;
+  color: $secondary-text-colour;
+  border: 0.0625rem solid $secondary-accent-colour;
+  border-radius: 1.25rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $primary-accent-colour;
+    color: $primary-accent-colour;
+  }
+}

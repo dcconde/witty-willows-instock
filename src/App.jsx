@@ -9,12 +9,10 @@ import Header from "./components/Header/header";
 import WarehouseAddPage from "./pages/WarehouseAddPage/WarehouseAddPage";
 import WarehouseEditPage from "./pages/WarehouseEditPage/WarehouseEditPage";
 import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
-
 import InventoryAddPage from "./pages/InventoryAddPage/InventoryAddPage";
-
 import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
-import footer from "./components/footer/footer";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
@@ -38,7 +36,7 @@ function App() {
           element={<WarehouseEditPage />}
         ></Route>
       </Routes>
-      <footer />
+      <Footer />
     </BrowserRouter>
   );
 }

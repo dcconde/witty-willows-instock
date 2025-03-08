@@ -111,6 +111,7 @@ function WarehousesList({ warehousesData }) {
                     handleDeleteClickWarehouse(warehouse_name, id);
                     setShowModule(true);
                   }}
+                  className="warehouses-list__delete-button"
                 >
                   <img
                     className="warehouses-list__delete-icon"
