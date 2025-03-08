@@ -215,6 +215,11 @@
     }
   }
 
+  &__delete-button {
+    background-color: $primary-background-colour;
+    border: none;
+  }
+
   @include tablet {
     width: 92%;
   }
