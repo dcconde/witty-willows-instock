@@ -72,6 +72,10 @@
 
     &:hover {
       background-color: rgba($primary-accent-colour, 0.07);
+
+      .warehouses-list__delete-button {
+        background-color: rgba($primary-accent-colour, 0.005);
+      }
     }
 
     @include tablet {
