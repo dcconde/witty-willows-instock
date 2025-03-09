@@ -2,186 +2,140 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
- .add-inventory {
+.add-inventory {
+  font-family: "Titillium Web";
   width: 90%;
   margin: 2rem auto;
-  margin-top: 2.5rem;
-  // padding: 1rem;
   background-color: $primary-background-colour;
-  border-radius: 0.5rem;
-  font-family: "Titillium Web";
+  border-radius: 0.1875rem;
   box-shadow: 0 0.125rem 0.3125rem #13182c1a;
 
   &__header {
     width: 100%;
     display: flex;
-    align-items: center;
     border-bottom: 0.0625rem solid $secondary-accent-colour;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
+    padding: 2rem 1.5rem 1.625rem;
 
     &-back {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin-right: 1rem;
+      margin-right: 0.5rem;
       cursor: pointer;
     }
-  }
 
-  &__title {
-    margin: 0;
-    font-size: 1.5rem;
-    color: $primary-text-colour;
+    @include tablet {
+      padding: 2rem 1.5rem 1.375rem;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 
     &-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 0 1.5rem;
-
       @include tablet {
-        flex-direction: row;
-      }
-
-      @include desktop {
-        flex-direction: row;
+        display: flex;
+        padding: 1.5rem 0rem;
       }
     }
   }
 
   &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 0.0625rem solid $secondary-accent-colour;
+    padding: 1rem 1.5rem 0.5rem;
+
+    &:first-of-type {
+      border-bottom: 0.0625rem solid $secondary-accent-colour;
+
+      @include tablet {
+        border-bottom: none;
+        border-right: 0.0625rem solid $secondary-accent-colour;
+      }
+    }
 
     &-title {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: $primary-text-colour;
-      padding-bottom: 0.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    @include tablet {
+      width: 50%;
+      padding: 0 2rem;
     }
   }
 
   &__field {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  &__label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: $primary-text-colour;
+    gap: 0.375rem;
   }
 
   &__input {
+    @include text-style(0.8125rem, 1.25rem, $font-weight-regular);
     padding: 0.5rem;
-    font-size: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
     border: 0.0625rem solid $secondary-accent-colour;
     border-radius: 1.25rem;
-    color: $primary-text-colour;
+    color: $secondary-text-colour;
     font-family: inherit;
 
     &--textarea {
-      resize: vertical;
+      height: 7.5rem;
+      resize: none;
     }
   }
 
   &__radios {
     display: flex;
-    gap: 1rem;
+    gap: 6rem;
+    padding-bottom: 1rem;
   }
 
   &__radio-label {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
+    font-weight: $font-weight-regular;
 
     input[type="radio"] {
       accent-color: $primary-accent-colour;
     }
   }
 
-  &__button-container {
-    background-color: $light-background-colour;
+  &__buttons {
     display: flex;
-    justify-content: space-between;
     gap: 1rem;
+    background-color: $light-background-colour;
+    padding: 1rem 1.5rem;
 
     @include tablet {
       justify-content: flex-end;
     }
-
-    @include desktop {
-      justify-content: flex-end;
-    }
-  }
-
-  &__buttons {
-    display: flex;
-    gap: 2rem;
   }
 
   &__button {
-    flex: 1;
-    border: none;
-    border-radius: 1.25rem;
+    margin: 0 auto;
     width: 45%;
-    padding: 0.75rem;
-    font-size: 14px;
-    cursor: pointer;
-    font-family: inherit;
-
-    @include tablet {
-      width: 4rem;
-      height: 2.5rem;
-      padding: 0.5rem 1rem;
-    }
+    padding: 0.5rem;
 
     &--cancel {
-      background-color: $primary-background-colour;
-      color: $primary-text-colour;
-      border: 0.0625rem solid $secondary-accent-colour;
+      @include button-hover;
+      @include tablet {
+        width: 12%;
+      }
     }
 
     &--save {
-      background-color: $primary-accent-colour;
-      color: $primary-background-colour;
+      @include button-style($primary-accent-colour);
 
       @include tablet {
-        width: 6.125rem;
-        height: 2.5rem;
-        padding: 0.5rem 1rem;
+        width: 15%;
       }
+    }
+
+    @include tablet {
+      margin: 0;
     }
   }
 
-  @include tablet {
-    .add-inventory__section {
-      flex: 1;
-      border-bottom: 0;
-      &:first-child {
-        border-right: 0.0625rem solid $secondary-accent-colour;
-        padding-right: 2rem;
-      }
-      &:last-child {
-        padding-left: 2rem;
-      }
-    }
-  }
-
-  @include desktop {
-    .add-inventory {
-      width: 80%;
-    }
+   @include desktop {
+    width: 80%;
   }
 }
