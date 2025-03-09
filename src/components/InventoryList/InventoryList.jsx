@@ -9,6 +9,7 @@ import StatusTags from "../StatusTags/StatusTags";
 import TableHeader from "../TableHeader/TableHeader";
 import DeleteInventory from "../DeleteInventory/DeleteInventory";
 
+
 function InventoryList({ inventoriesData }) {
   const headerItems = [
     "Inventory item",
@@ -18,6 +19,12 @@ function InventoryList({ inventoriesData }) {
     "Warehouse",
     "Actions",
   ];
+
+/*   const [showModule, setShowModule] = useState(false);
+
+  function handleShowModule() {
+    setShowModule(true);
+  } */
 
   return (
     <section className="inventories-list">

@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.add-inventory {
+ .add-inventory {
   width: 90%;
   margin: 2rem auto;
   margin-top: 2.5rem;
@@ -124,6 +124,11 @@
     @include desktop {
       justify-content: flex-end;
     }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 2rem;
   }
 
   &__button {
