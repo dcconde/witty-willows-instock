@@ -2,7 +2,6 @@ import "./WarehousesPage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehousesList from "../../components/WarehousesList/WarehousesList";
-import DeleteWarehouse from "../../components/DeleteWarehouse/DeleteWarehouse";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
