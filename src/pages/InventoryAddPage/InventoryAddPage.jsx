@@ -116,8 +116,9 @@ function InventoryAddPage() {
       </div>
 
       <form className="add-inventory__form" onSubmit={handleSubmit}>
-        <div className="add-inventory__section">
-          <h2 className="add-inventory__section-title">Item Details</h2>
+        <div className="add-inventory__form-container">
+          <div className="add-inventory__section">
+            <h2 className="add-inventory__section-title">Item Details</h2>
 
           <div className="add-inventory__field">
             <label htmlFor="itemName" className="add-inventory__label">

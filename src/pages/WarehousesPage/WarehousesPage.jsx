@@ -9,7 +9,6 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 function WarehousesPage() {
   const [warehousesData, setWarehousesData] = useState([]);
 
-
   const getWarehouses = async () => {
     try {
       const response = await axios.get(`${backendUrl}/api/warehouses`);
