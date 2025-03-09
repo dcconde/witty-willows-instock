@@ -9,19 +9,22 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const DeleteInventory = ({ setShowModule }) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [warehouseName, setWarehouseName] = useState("");
+  
 
-  useEffect(() => {
-    const fetchWarehouse = async () => {
-      try {
-        const response = await axios.get(`${backendUrl}/api/warehouses/${id}`);
-        setWarehouseName(response.data.warehouse_name);
-      } catch (error) {
-        console.error("Error fetching warehouse details:", error);
-      }
-    };
-    fetchWarehouse();
-  }, [id]);
+  const [inventoryItem, setInventoryItem] = useState("");
+
+useEffect(() => {
+  const fetchInventoryItem = async () => {
+    try {
+      const response = await axios.get(`${backendUrl}/api/inventories/${id}`);
+      setInventoryItem(response.data.item_name); // Ensure "item_name" exists in your API response
+    } catch (error) {
+      console.error("Error fetching inventory item details:", error);
+    }
+  };
+
+  fetchInventoryItem();
+}, [id]);
 
   const handleDelete = async () => {
     const numericId = Number(id);
@@ -57,11 +60,12 @@ const DeleteInventory = ({ setShowModule }) => {
         />
         <section className="deleteinventory__content">
           <h1 className="deleteinventory__title">
-            Delete {warehouseName || "this"} warehouse?
+            Delete {inventoryItem} inventory item?
           </h1>
           <p className="deleteinventory__description">
-            Please confirm that you’d like to delete {warehouseName || "this warehouse"} from
-            the warehouse list. You won’t be able to undo this action.
+            Please confirm that you’d like to delete{" "}
+            {inventoryItem} from the warehouse list. You
+            won’t be able to undo this action.
           </p>
         </section>
 
