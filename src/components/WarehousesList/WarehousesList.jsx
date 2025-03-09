@@ -119,11 +119,16 @@ function WarehousesList({ warehousesData }) {
                     alt="delete icon"
                   />
                 </button>
-                <img
-                  className="warehouses-list__edit-icon"
-                  src={editIcon}
-                  alt="edit icon"
-                />
+                <Link
+                  to={`/api/warehouses/${id}/edit`}
+                  className="warehouse-details__link"
+                >
+                  <img
+                    className="warehouses-list__edit-icon"
+                    src={editIcon}
+                    alt="edit icon"
+                  />
+                </Link>
               </div>
             </li>
           )
