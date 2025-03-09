@@ -27,7 +27,7 @@ const DeleteWarehouse = ({ warehouseName, warehouseId, setShowModule }) => {
   };
 
   return (
-    <section className="card">
+    <section className="deletewarehouse-overlay">
       <section className="deletewarehouse">
         <img
           src={Close}

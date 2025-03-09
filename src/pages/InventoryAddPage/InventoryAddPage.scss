@@ -114,11 +114,8 @@
   &__button-container {
     background-color: $light-background-colour;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
-    margin-top: 1rem;
-    padding: 2rem;
 
     @include tablet {
       justify-content: flex-end;
@@ -130,10 +127,12 @@
   }
 
   &__button {
+    flex: 1;
     border: none;
     border-radius: 1.25rem;
-    padding: 0.75rem 2.5rem;
-    font-size: 0.75rem;
+    width: 45%;
+    padding: 0.75rem;
+    font-size: 14px;
     cursor: pointer;
     font-family: inherit;
 
@@ -162,10 +161,6 @@
   }
 
   @include tablet {
-    // .add-inventory__form {
-    //   flex-direction: row;
-    //   gap: 2rem;
-
     .add-inventory__section {
       flex: 1;
       border-bottom: 0;

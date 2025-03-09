@@ -4,7 +4,9 @@ import axios from "axios";
 import "./DeleteInventory.scss";
 import Close from "../../assets/icons/close-24px.svg";
 
-function DeleteInventory() {
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+const DeleteInventory = ({ warehouseName, warehouseId, setShowModule }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   console.log("DeleteInventory component received id:", id);
@@ -16,8 +18,20 @@ function DeleteInventory() {
       return;
     }
     try {
-      const getResponse = await axios.get(
-        `http://localhost:8080/api/inventories/${numericId}`
+      const record = await fetch(
+        `${backendUrl}/api/inventories/${numericId}`
+      ).then((res) => {
+        if (!res.ok) {
+          throw new Error("Record not found before deletion.");
+        }
+        return res.json();
+      });
+      console.log("Record before deletion:", record);
+      const response = await fetch(
+        `http://localhost:8080/api/inventories/${numericId}`,
+        {
+          method: "DELETE",
+        }
       );
       console.log("Record before deletion:", getResponse.data);
       const deleteResponse = await axios.delete(
@@ -46,24 +60,41 @@ function DeleteInventory() {
   };
 
   return (
-    <div className="card">
+    <section className="deleteinventory-overlay">
       <section className="deleteinventory">
-        <img src={Close} alt="Close Icon" className="deleteinventory__img" />
-        <h1 className="deleteinventory__h1">Delete Inventory Item?</h1>
-        <p className="deleteinventory__p">
-          Please confirm that you'd like to delete this inventory item. You
-          won't be able to undo this action.
-        </p>
-        <div className="deleteinventory__btn">
-          <button className="deleteinventory__btn1" onClick={handleCancel}>
+        <img
+          src={Close}
+          alt="Close Icon"
+          className="deleteinventory__img"
+          onClick={handleCancel}
+        />
+        <section className="deleteinventory__content">
+          <h1 className="deleteinventory__title">
+            Delete {warehouseName} warehouse?
+          </h1>
+          <p className="deleteinventory__description">
+            Please confirm that you’d like to delete the {warehouseName} from
+            the warehouse list. You won’t be able to undo this action.
+          </p>
+        </section>
+
+        <section className="deleteinventory__buttons">
+          <button
+            className="deleteinventory__btn deleteinventory__btn--cancel"
+            onClick={handleCancel}
+          >
             Cancel
           </button>
-          <button className="deleteinventory__btn2" onClick={handleDelete}>
+          <button
+            className="deleteinventory__btn deleteinventory__btn--delete"
+            onClick={handleDelete}
+          >
             Delete
           </button>
-        </div>
+        </section>
       </section>
-    </div>
+    </section>
   );
-}
+};
+
 export default DeleteInventory;
