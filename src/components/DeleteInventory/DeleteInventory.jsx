@@ -62,7 +62,6 @@ const DeleteInventory = ({ warehouseName, warehouseId, setShowModule }) => {
   return (
     <section className="deleteinventory-overlay">
       <section className="deleteinventory">
-<<<<<<< HEAD
         <img
           src={Close}
           alt="Close Icon"
@@ -84,16 +83,6 @@ const DeleteInventory = ({ warehouseName, warehouseId, setShowModule }) => {
             className="deleteinventory__btn deleteinventory__btn--cancel"
             onClick={handleCancel}
           >
-=======
-        <img src={Close} alt="Close Icon" className="deleteinventory__img" />
-        <h1 className="deleteinventory__h1">Delete Inventory Item?</h1>
-        <p className="deleteinventory__p">
-          Please confirm that you'd like to delete this inventory item. You
-          won't be able to undo this action.
-        </p>
-        <div className="deleteinventory__btn">
-          <button className="deleteinventory__btn1" onClick={handleCancel}>
->>>>>>> develop
             Cancel
           </button>
           <button

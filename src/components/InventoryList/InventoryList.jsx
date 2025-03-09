@@ -7,6 +7,7 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import StatusTags from "../StatusTags/StatusTags";
 import TableHeader from "../TableHeader/TableHeader";
+import DeleteInventory from "../DeleteInventory/DeleteInventory";
 
 function InventoryList({ inventoriesData }) {
   const headerItems = [
