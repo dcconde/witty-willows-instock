@@ -15,13 +15,13 @@
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $secondary-accent-colour;
+    border-bottom: 0.0625rem solid $secondary-accent-colour;
     padding: 1rem;
     margin-bottom: 2rem;
 
     &-back {
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
       margin-right: 1rem;
       cursor: pointer;
     }
@@ -59,7 +59,7 @@
     flex-direction: column;
     gap: 1.5rem;
     padding-bottom: 0;
-    border-bottom: 1px solid $secondary-accent-colour;
+    border-bottom: 0.0625rem solid $secondary-accent-colour;
 
     &-title {
       margin: 0;
@@ -95,8 +95,8 @@
   &__input {
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid $secondary-accent-colour;
-    border-radius: 20px;
+    border: 0.0625rem solid $secondary-accent-colour;
+    border-radius: 1.25rem;
     color: $primary-text-colour;
     font-family: inherit;
     margin-bottom: 2rem;
@@ -157,7 +157,7 @@
     &--cancel {
       background-color: $primary-background-colour;
       color: $primary-text-colour;
-      border: 1px solid $secondary-accent-colour;
+      border: 0.0625rem solid $secondary-accent-colour;
     }
 
     &--save {
@@ -175,7 +175,7 @@
       flex: 1;
       border-bottom: 0;
       &:first-child {
-        border-right: 1px solid $secondary-accent-colour;
+        border-right: 0.0625rem solid $secondary-accent-colour;
         padding-right: 2rem;
       }
       &:last-child {
