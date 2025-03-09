@@ -74,101 +74,103 @@ function InventoryAddPage() {
       </div>
 
       <form className="add-inventory__form" onSubmit={handleSubmit}>
-        <div className="add-inventory__section">
-          <h2 className="add-inventory__section-title">Item Details</h2>
+        <div className="add-inventory__form-container">
+          <div className="add-inventory__section">
+            <h2 className="add-inventory__section-title">Item Details</h2>
 
-          <div className="add-inventory__field">
-            <label htmlFor="itemName" className="add-inventory__label">
-              Item Name
-            </label>
-            <input
-              type="text"
-              id="itemName"
-              className="add-inventory__input"
-              placeholder="Item Name"
-              value={itemName}
-              onChange={handleChangeItemName}
-            />
-          </div>
-
-          <div className="add-inventory__field">
-            <label htmlFor="description" className="add-inventory__label">
-              Description
-            </label>
-            <textarea
-              id="description"
-              className="add-inventory__input add-inventory__input--textarea"
-              rows="4"
-              placeholder="Enter item description"
-              value={description}
-              onChange={handleChangeDescription}
-            />
-          </div>
-
-          <div className="add-inventory__field">
-            <label htmlFor="category" className="add-inventory__label">
-              Category
-            </label>
-            <select
-              id="category"
-              className="add-inventory__input"
-              value={category}
-              onChange={handleChangeCategory}
-            >
-              <option value="Electronics">Electronics</option>
-              <option value="Appliances">Appliances</option>
-              <option value="Furniture">Furniture</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="add-inventory__section">
-          <h2 className="add-inventory__section-title">Item Availability</h2>
-
-          <div className="add-inventory__field add-inventory__field--radio-group">
-            <label className="add-inventory__label">Status</label>
-            <div className="add-inventory__radios">
-              <label className="add-inventory__radio-label">
-                <input
-                  type="radio"
-                  name="status"
-                  value="inStock"
-                  checked={status === "inStock"}
-                  onChange={handleChangeStatus}
-                />
-                <span>In stock</span>
+            <div className="add-inventory__field">
+              <label htmlFor="itemName" className="add-inventory__label">
+                Item Name
               </label>
-              <label className="add-inventory__radio-label">
-                <input
-                  type="radio"
-                  name="status"
-                  value="outOfStock"
-                  checked={status === "outOfStock"}
-                  onChange={handleChangeStatus}
-                />
-                <span>Out of stock</span>
+              <input
+                type="text"
+                id="itemName"
+                className="add-inventory__input"
+                placeholder="Item Name"
+                value={itemName}
+                onChange={handleChangeItemName}
+              />
+            </div>
+
+            <div className="add-inventory__field">
+              <label htmlFor="description" className="add-inventory__label">
+                Description
               </label>
+              <textarea
+                id="description"
+                className="add-inventory__input add-inventory__input--textarea"
+                rows="4"
+                placeholder="Enter item description"
+                value={description}
+                onChange={handleChangeDescription}
+              />
+            </div>
+
+            <div className="add-inventory__field">
+              <label htmlFor="category" className="add-inventory__label">
+                Category
+              </label>
+              <select
+                id="category"
+                className="add-inventory__input"
+                value={category}
+                onChange={handleChangeCategory}
+              >
+                <option value="Electronics">Electronics</option>
+                <option value="Appliances">Appliances</option>
+                <option value="Furniture">Furniture</option>
+              </select>
             </div>
           </div>
 
-          <div className="add-inventory__field">
-            <label htmlFor="warehouse" className="add-inventory__label">
-              Warehouse
-            </label>
-            <select
-              id="warehouse"
-              className="add-inventory__input"
-              value={warehouse}
-              onChange={handleChangeWarehouse}
-            >
-              <option value="Manhattan">Manhattan</option>
-              <option value="Brooklyn">Brooklyn</option>
-              <option value="Queens">Queens</option>
-            </select>
+          <div className="add-inventory__section">
+            <h2 className="add-inventory__section-title">Item Availability</h2>
+
+            <div className="add-inventory__field add-inventory__field--radio-group">
+              <label className="add-inventory__label">Status</label>
+              <div className="add-inventory__radios">
+                <label className="add-inventory__radio-label">
+                  <input
+                    type="radio"
+                    name="status"
+                    value="inStock"
+                    checked={status === "inStock"}
+                    onChange={handleChangeStatus}
+                  />
+                  <span>In stock</span>
+                </label>
+                <label className="add-inventory__radio-label">
+                  <input
+                    type="radio"
+                    name="status"
+                    value="outOfStock"
+                    checked={status === "outOfStock"}
+                    onChange={handleChangeStatus}
+                  />
+                  <span>Out of stock</span>
+                </label>
+              </div>
+            </div>
+
+            <div className="add-inventory__field">
+              <label htmlFor="warehouse" className="add-inventory__label">
+                Warehouse
+              </label>
+              <select
+                id="warehouse"
+                className="add-inventory__input"
+                value={warehouse}
+                onChange={handleChangeWarehouse}
+              >
+                <option value="Manhattan">Manhattan</option>
+                <option value="Brooklyn">Brooklyn</option>
+                <option value="Queens">Queens</option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <div className="add-inventory__buttons">
+        <div className="add-inventory__button-container">
           <button
             type="button"
             className="add-inventory__button add-inventory__button--cancel"
