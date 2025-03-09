@@ -62,8 +62,8 @@ function WarehousesList({ warehousesData }) {
           }) => (
             <li key={id} className="warehouses-list__item">
               <div className="warehouses-list__info">
-                <div className="warehouses-list__section">
-                  <h4 className="warehouses-list__section-title">Warehouse</h4>
+                <div className="warehouses-list__type">
+                  <h4 className="warehouses-list__type-title">Warehouse</h4>
                   <div className="warehouses-list__warehouse-container">
                     <Link
                       to={`/api/warehouses/${id}/inventories`}
@@ -80,20 +80,18 @@ function WarehousesList({ warehousesData }) {
                     />
                   </div>
                 </div>
-                <div className="warehouses-list__section">
-                  <h4 className="warehouses-list__section-title">
-                    Contact Name
-                  </h4>
+                <div className="warehouses-list__type">
+                  <h4 className="warehouses-list__type-title">Contact Name</h4>
                   <p className="warehouses-list__contact-name">
                     {contact_name}
                   </p>
                 </div>
-                <div className="warehouses-list__section">
-                  <h4 className="warehouses-list__section-title">Address</h4>
+                <div className="warehouses-list__type">
+                  <h4 className="warehouses-list__type-title">Address</h4>
                   <p className="warehouses-list__address">{`${address}, ${city}, ${country}`}</p>
                 </div>
-                <div className="warehouses-list__section">
-                  <h4 className="warehouses-list__section-title">
+                <div className="warehouses-list__type">
+                  <h4 className="warehouses-list__type-title">
                     Contact Information
                   </h4>
                   <p className="warehouses-list__contact-phone">
