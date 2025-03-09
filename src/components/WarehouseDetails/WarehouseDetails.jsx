@@ -88,33 +88,38 @@ function WarehouseDetails({
           ({ id, item_name, category, status, quantity }) => (
             <li key={id} className="warehouse-details__item">
               <div className="warehouse-details__info">
-                <div className="warehouse-details__section">
-                  <h4 className="warehouse-details__section-title">
+                <div className="warehouse-details__type">
+                  <h4 className="warehouse-details__type-title">
                     Inventory Item
                   </h4>
-                  <div className="warehouse-details__inventory-container">
-                    <h3 className="warehouse-details__inventory-name">
-                      {item_name}
-                    </h3>
-                    <img
-                      className="warehouse-details__inventory-icon"
-                      src={chevronIcon}
-                      alt="chevron icon"
-                    />
-                  </div>
+                  <Link
+                    to={`/inventory/${id}`}
+                    className="inventories-list__link"
+                  >
+                    <div className="warehouse-details__inventory-container">
+                      <h3 className="warehouse-details__inventory-name">
+                        {item_name}
+                      </h3>
+                      <img
+                        className="warehouse-details__inventory-icon"
+                        src={chevronIcon}
+                        alt="chevron icon"
+                      />
+                    </div>
+                  </Link>
                 </div>
-                <div className="warehouse-details__section">
-                  <h4 className="warehouse-details__section-title">Status</h4>
+                <div className="warehouse-details__type">
+                  <h4 className="warehouse-details__type-title">Status</h4>
                   <StatusTags status={status} />
                 </div>
-                <div className="warehouse-details__section">
-                  <h4 className="warehouse-details__section-title">Category</h4>
+                <div className="warehouse-details__type">
+                  <h4 className="warehouse-details__type-title">Category</h4>
                   <p className="warehouse-details__inventory-category">
                     {category}
                   </p>
                 </div>
-                <div className="warehouse-details__section">
-                  <h4 className="warehouse-details__section-title">Qty</h4>
+                <div className="warehouse-details__type">
+                  <h4 className="warehouse-details__type-title">Qty</h4>
                   <p className="warehouse-details__inventory-quantity">
                     {quantity}
                   </p>
@@ -126,11 +131,13 @@ function WarehouseDetails({
                   src={deleteIcon}
                   alt="delete icon"
                 />
-                <img
-                  className="warehouse-details__edit-icon"
-                  src={editIcon}
-                  alt="edit icon"
-                />
+                <Link to={`/inventory/${id}/edit`}>
+                  <img
+                    className="warehouse-details__edit-icon"
+                    src={editIcon}
+                    alt="edit icon"
+                  />
+                </Link>
               </div>
             </li>
           )
