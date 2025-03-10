@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./WarehouseDetails.scss";
 import { Link } from "react-router-dom";
 import arrowBackIcon from "../../assets/icons/arrow-back-24px.svg";
@@ -7,6 +8,7 @@ import chevronIcon from "../../assets/icons/chevron-right-24px.svg";
 import StatusTags from "../StatusTags/StatusTags";
 import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import DeleteInventory from "../DeleteInventory/DeleteInventory";
 
 function WarehouseDetails({
   warehouseDetails: {
@@ -22,6 +24,9 @@ function WarehouseDetails({
   },
   inventoriesData,
 }) {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [inventoryIdToDelete, setInventoryIdToDelete] = useState(null);
+
   const headerItems = [
     "Inventory Item",
     "Category",
@@ -29,6 +34,16 @@ function WarehouseDetails({
     "Quantity",
     "Actions",
   ];
+
+  const handleDeleteClick = (id) => {
+    setInventoryIdToDelete(id);
+    setShowDeleteModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowDeleteModal(false);
+    setInventoryIdToDelete(null);
+  };
 
   return (
     <section className="warehouse-details">
@@ -130,6 +145,7 @@ function WarehouseDetails({
                   className="warehouse-details__delete-icon"
                   src={deleteIcon}
                   alt="delete icon"
+                  onClick={() => handleDeleteClick(id)}
                 />
                 <Link to={`/inventory/${id}/edit`}>
                   <img
@@ -143,6 +159,13 @@ function WarehouseDetails({
           )
         )}
       </ul>
+
+      {showDeleteModal && (
+        <DeleteInventory
+          id={inventoryIdToDelete}
+          setShowModule={handleCloseModal}
+        />
+      )}
     </section>
   );
 }

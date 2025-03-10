@@ -41,7 +41,9 @@ const DeleteWarehouse = ({ warehouseName, warehouseId, setShowModule }) => {
           </h1>
           <p className="deletewarehouse__description">
             Please confirm that you’d like to delete the {warehouseName} from
-            the warehouse list. You won’t be able to undo this action.
+            the warehouse list.
+            <br />
+            You won’t be able to undo this action.
           </p>
         </section>
 
