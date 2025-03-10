@@ -2,12 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import Close from "../../assets/icons/close-24px.svg";
 import "./DeleteWarehouse.scss";
-import { useNavigate } from "react-router-dom";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const DeleteWarehouse = ({ warehouseName, warehouseId, setShowModule }) => {
-	const nav = useNavigate();
 	const deleteWarehouse = async (warehouseId) => {
 		console.log("deleteWarehouse");
 		try {
@@ -15,7 +13,7 @@ const DeleteWarehouse = ({ warehouseName, warehouseId, setShowModule }) => {
 				`${backendUrl}/api/warehouses/${warehouseId}`
 			);
 			setShowModule(false);
-			nav(`/`);
+			window.location.href = "/";
 		} catch (error) {
 			alert(
 				error.response?.data?.message ||
