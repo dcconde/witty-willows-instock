@@ -11,7 +11,7 @@ function InventoryAddPage() {
 
 	const [itemName, setItemName] = useState("");
 	const [description, setDescription] = useState("");
-	const [category, setCategory] = useState("null");
+	const [category, setCategory] = useState("");
 	const [status, setStatus] = useState("In Stock");
 	const [warehouse, setWarehouse] = useState("");
 	const [quantity, setQuantity] = useState(0);
