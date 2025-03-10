@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 import SearchBar from "../SearchBar/SearchBar";
@@ -6,18 +7,21 @@ import deleteIcon from "../../assets/icons/delete-outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import StatusTags from "../StatusTags/StatusTags";
-import TableHeader from "../TableHeader/TableHeader";
 import DeleteInventory from "../DeleteInventory/DeleteInventory";
 
 function InventoryList({ inventoriesData }) {
-  const headerItems = [
-    "Inventory item",
-    "Category",
-    "Status",
-    "Qty",
-    "Warehouse",
-    "Actions",
-  ];
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [inventoryIdToDelete, setInventoryIdToDelete] = useState(null);
+
+  const handleDeleteClick = (id) => {
+    setInventoryIdToDelete(id);
+    setShowDeleteModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowDeleteModal(false);
+    setInventoryIdToDelete(null);
+  };
 
   return (
     <section className="inventories-list">
@@ -122,13 +126,12 @@ function InventoryList({ inventoriesData }) {
                 <div className="inventories-list__section">
                   <h4 className="inventories-list__section-title">Actions</h4>
                   <div className="inventories-list__actions">
-                    <Link to={`/inventory/${id}/delete`}>
-                      <img
-                        src={deleteIcon}
-                        alt="delete icon"
-                        className="inventories-list__delete-icon"
-                      />
-                    </Link>
+                    <img
+                      src={deleteIcon}
+                      alt="delete icon"
+                      className="inventories-list__delete-icon"
+                      onClick={() => handleDeleteClick(id)}
+                    />
                     <Link to={`/inventory/${id}/edit`}>
                       <img
                         src={editIcon}
@@ -143,6 +146,13 @@ function InventoryList({ inventoriesData }) {
           )
         )}
       </ul>
+
+      {showDeleteModal && (
+        <DeleteInventory
+          id={inventoryIdToDelete}
+          setShowModule={handleCloseModal}
+        />
+      )}
     </section>
   );
 }

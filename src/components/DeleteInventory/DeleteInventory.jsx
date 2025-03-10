@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./DeleteInventory.scss";
 import Close from "../../assets/icons/close-24px.svg";
+import { useNavigate } from "react-router-dom";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-function DeleteInventory() {
-  const navigate = useNavigate();
-  const { id } = useParams();
-
+const DeleteInventory = ({ id, setShowModule }) => {
   const [inventoryItem, setInventoryItem] = useState("");
+  const [loading, setLoading] = useState(true);
+  const nav = useNavigate();
+
+  const fetchInventoryItem = async () => {
+    try {
+      const response = await axios.get(`${backendUrl}/api/inventories/${id}`);
+      setInventoryItem(response.data.item_name);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching inventory item details:", error);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchInventoryItem = async () => {
-      try {
-        const response = await axios.get(`${backendUrl}/api/inventories/${id}`);
-        setInventoryItem(response.data.item_name);
-      } catch (error) {
-        console.error("Error fetching inventory item details:", error);
-      }
-    };
-
     fetchInventoryItem();
   }, [id]);
 
@@ -34,7 +35,8 @@ function DeleteInventory() {
     try {
       await axios.delete(`${backendUrl}/api/inventories/${numericId}`);
       console.log("Successfully deleted inventory item with id:", numericId);
-      navigate("/inventory");
+      setShowModule(false);
+      nav(`/`);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         console.error("Inventory item not found on DELETE");
@@ -45,7 +47,7 @@ function DeleteInventory() {
   };
 
   const handleCancel = () => {
-    navigate(-1);
+    setShowModule(false);
   };
 
   return (
@@ -59,11 +61,19 @@ function DeleteInventory() {
         />
         <section className="deleteinventory__content">
           <h1 className="deleteinventory__title">
-            Delete {inventoryItem} inventory item?
+            {loading ? "Loading..." : `Delete ${inventoryItem} inventory item?`}
           </h1>
           <p className="deleteinventory__description">
-            Please confirm that you’d like to delete {inventoryItem} from the
-            warehouse list. You won’t be able to undo this action.
+            {loading ? (
+              "Loading..."
+            ) : (
+              <>
+                Please confirm that you’d like to delete {inventoryItem} from
+                the inventory list.
+                <br />
+                You won’t be able to undo this action.
+              </>
+            )}
           </p>
         </section>
 
@@ -77,6 +87,7 @@ function DeleteInventory() {
           <button
             className="deleteinventory__btn deleteinventory__btn--delete"
             onClick={handleDelete}
+            disabled={loading}
           >
             Delete
           </button>
@@ -84,6 +95,6 @@ function DeleteInventory() {
       </section>
     </section>
   );
-}
+};
 
 export default DeleteInventory;

@@ -12,9 +12,9 @@ function InventoryAddPage() {
 	const [itemName, setItemName] = useState("");
 	const [description, setDescription] = useState("");
 	const [category, setCategory] = useState("null");
-	const [status, setStatus] = useState("inStock");
+	const [status, setStatus] = useState("In Stock");
 	const [warehouse, setWarehouse] = useState("Manhattan");
-	const [quantity, setQuantity] = useState(0); // New state for quantity
+	const [quantity, setQuantity] = useState(0);
 	const [warehouseId, setWarehouseId] = useState(3);
 	const [warehouseDropdown, setWarehouseDropdown] = useState([]);
 	const [inventoriesDropdown, setInventoriesDropdown] = useState([]);
@@ -87,7 +87,7 @@ function InventoryAddPage() {
 			description: description,
 			category: category,
 			status: status,
-			quantity: status === "inStock" ? quantity : 0,
+			quantity: status === "In Stock" ? quantity : 0,
 		};
 
 		try {
@@ -185,8 +185,8 @@ function InventoryAddPage() {
 									<input
 										type="radio"
 										name="status"
-										value="inStock"
-										checked={status === "inStock"}
+										value="In Stock"
+										checked={status === "In Stock"}
 										onChange={handleChangeStatus}
 									/>
 									<span>In stock</span>
@@ -195,8 +195,8 @@ function InventoryAddPage() {
 									<input
 										type="radio"
 										name="status"
-										value="outOfStock"
-										checked={status === "outOfStock"}
+										value="Out of Stock"
+										checked={status === "Out of Stock"}
 										onChange={handleChangeStatus}
 									/>
 									<span>Out of stock</span>
@@ -204,7 +204,7 @@ function InventoryAddPage() {
 							</div>
 						</div>
 
-						{status === "inStock" && (
+						{status === "In Stock" && (
 							<div className="add-inventory__field">
 								<label htmlFor="quantity" className="add-inventory__label">
 									Quantity
