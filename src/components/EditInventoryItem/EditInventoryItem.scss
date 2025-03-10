@@ -6,7 +6,6 @@
   width: 90%;
   margin: 2rem auto;
   margin-top: 2.5rem;
-  // padding: 1rem;
   background-color: $primary-background-colour;
   border-radius: 0.1875rem;
   box-shadow: 0 0.125rem 0.3125rem #13182c1a;
@@ -167,10 +166,6 @@
   }
 
   @include tablet {
-    // .edit-inventory__form {
-    //   flex-direction: row;
-    //   gap: 2rem;
-
     .edit-inventory__section {
       flex: 1;
       border-bottom: 0;
