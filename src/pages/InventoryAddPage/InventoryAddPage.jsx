@@ -13,9 +13,9 @@ function InventoryAddPage() {
 	const [description, setDescription] = useState("");
 	const [category, setCategory] = useState("null");
 	const [status, setStatus] = useState("In Stock");
-	const [warehouse, setWarehouse] = useState("Manhattan");
+	const [warehouse, setWarehouse] = useState("");
 	const [quantity, setQuantity] = useState(0);
-	const [warehouseId, setWarehouseId] = useState(3);
+	const [warehouseId, setWarehouseId] = useState("");
 	const [warehouseDropdown, setWarehouseDropdown] = useState([]);
 	const [inventoriesDropdown, setInventoriesDropdown] = useState([]);
 
@@ -23,6 +23,10 @@ function InventoryAddPage() {
 		try {
 			const response = await axios.get(`${backendUrl}/api/warehouses`);
 			setWarehouseDropdown(response.data);
+			if (response.data.length > 0) {
+				setWarehouse(response.data[0].warehouse_name);
+				setWarehouseId(response.data[0].id);
+			}
 		} catch (err) {
 			console.error("Error getting warehouses", err);
 		}
@@ -62,11 +66,12 @@ function InventoryAddPage() {
 	}
 
 	function handleChangeWarehouse(event) {
-		setWarehouse(event.target.value);
-		setWarehouseId(
-			warehouseDropdown.find((w) => w.warehouse_name === event.target.value)
-				?.id || ""
-		);
+		const selectedWarehouse = event.target.value;
+		setWarehouse(selectedWarehouse);
+		const selectedWarehouseId =
+			warehouseDropdown.find((w) => w.warehouse_name === selectedWarehouse)
+				?.id || "";
+		setWarehouseId(selectedWarehouseId);
 	}
 
 	function handleChangeQuantity(event) {
@@ -232,15 +237,9 @@ function InventoryAddPage() {
 								value={warehouse}
 								onChange={handleChangeWarehouse}
 							>
-								{[
-									...new Set(
-										warehouseDropdown?.map(
-											(warehouse) => warehouse.warehouse_name
-										)
-									),
-								].map((warehouse, index) => (
-									<option key={index} value={warehouse}>
-										{warehouse}
+								{warehouseDropdown?.map((warehouse, index) => (
+									<option key={index} value={warehouse.warehouse_name}>
+										{warehouse.warehouse_name}
 									</option>
 								))}
 							</select>
