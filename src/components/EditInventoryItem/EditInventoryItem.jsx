@@ -36,13 +36,20 @@ function EditInventoryItem({
 		description: description || "",
 		category: category || "",
 		status: status || "",
-		quantity: quantity || "",
+		quantity: quantity || 0,
 		warehouse_name: warehouse_name || "",
 	});
 
 	const nav = useNavigate();
 	const handleChange = (event) => {
-		setFormData({ ...formData, [event.target.name]: event.target.value });
+		console.log(formData);
+		setFormData({
+			...formData,
+			[event.target.name]: event.target.value,
+			...(event.target.value === "Out Of Stock" && { quantity: 0 }),
+			...(event.target.name = "quantity" &&
+				event.target.value == "0" && { status: "Out Of Stock" }),
+		});
 	};
 
 	const handleSubmit = async (event) => {
@@ -98,7 +105,7 @@ function EditInventoryItem({
 								id="itemName"
 								className="edit-inventory__input"
 								placeholder="Item Name"
-								defaultValue={formData.item_name}
+								value={formData.item_name}
 								onChange={handleChange}
 							/>
 						</div>
@@ -112,7 +119,7 @@ function EditInventoryItem({
 								className="edit-inventory__input edit-inventory__input--textarea"
 								rows="4"
 								placeholder="Enter item description"
-								defaultValue={formData.description}
+								value={formData.description}
 								onChange={handleChange}
 							/>
 						</div>
@@ -124,7 +131,7 @@ function EditInventoryItem({
 								name="category"
 								id="category"
 								className="edit-inventory__input"
-								defaultValue={formData.category}
+								value={formData.category}
 								onChange={handleChange}
 							>
 								{categories.map((category) => (
@@ -176,8 +183,9 @@ function EditInventoryItem({
 								id="quantity"
 								className="edit-inventory__input"
 								placeholder="QTY"
-								defaultValue={formData.quantity}
+								value={formData.quantity}
 								onChange={handleChange}
+								min="0"
 							/>
 						</div>
 						<div className="edit-inventory__field">
@@ -188,7 +196,7 @@ function EditInventoryItem({
 								name="warehouse"
 								id="warehouse"
 								className="edit-inventory__input"
-								defaultValue={formData.warehouse_name}
+								value={formData.warehouse_name}
 								onChange={handleChange}
 							>
 								{warehouses.map((warehouse) => (
