@@ -166,7 +166,7 @@ const WarehouseModify = ({
 		//axios request to server
 		try {
 			const res = await httpRequest(requestType, requestUrl, warehouse);
-
+			console.log("res: ", res);
 			//check status code see if POST was successful
 			if (res.status >= 200 && res.status < 300) {
 				//show success toast
@@ -181,7 +181,7 @@ const WarehouseModify = ({
 				);
 				console.log("Post successful");
 			} else {
-				console.log("Unexpected response. Status");
+				console.log("Unexpected response.");
 			}
 		} catch (err) {
 			//show error toast
@@ -194,7 +194,7 @@ const WarehouseModify = ({
 					autoClose: 3000,
 				}
 			);
-			console.error("Post request failed:", err.message);
+			console.error("Post request failed:", err.response.data);
 		} finally {
 			navigate(exitPath);
 		}

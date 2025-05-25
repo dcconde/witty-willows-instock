@@ -3,185 +3,185 @@
 @use "../../styles/partials/variables" as *;
 
 .edit-inventory {
-  width: 90%;
-  margin: 2rem auto;
-  margin-top: 2.5rem;
-  background-color: $primary-background-colour;
-  border-radius: 0.1875rem;
-  box-shadow: 0 0.125rem 0.3125rem #13182c1a;
+	width: 90%;
+	margin: 2rem auto;
+	margin-top: 2.5rem;
+	background-color: $primary-background-colour;
+	border-radius: 0.1875rem;
+	box-shadow: 0 0.125rem 0.3125rem #13182c1a;
 
-  &__header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-bottom: 0.0625rem solid $secondary-accent-colour;
-    padding: 1rem;
-    margin-bottom: 2rem;
+	&__header {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		border-bottom: 0.0625rem solid $secondary-accent-colour;
+		padding: 1rem;
+		margin-bottom: 2rem;
 
-    &-back {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
-  }
+		&-back {
+			width: 1.5rem;
+			height: 1.5rem;
+			margin-right: 1rem;
+			cursor: pointer;
+		}
+	}
 
-  &__title {
-    margin: 0;
-    font-size: 1.5rem;
-    color: $primary-text-colour;
-  }
+	&__title {
+		margin: 0;
+		font-size: 1.5rem;
+		color: $primary-text-colour;
+	}
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
 
-    &-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 0 1.5rem;
+		&-container {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			padding: 0 1.5rem;
 
-      @include tablet {
-        flex-direction: row;
-      }
+			@include tablet {
+				flex-direction: row;
+			}
 
-      @include desktop {
-        flex-direction: row;
-      }
-    }
-  }
+			@include desktop {
+				flex-direction: row;
+			}
+		}
+	}
 
-  &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-bottom: 0;
-    border-bottom: 0.0625rem solid $secondary-accent-colour;
+	&__section {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		padding-bottom: 0;
+		border-bottom: 0.0625rem solid $secondary-accent-colour;
 
-    &-title {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: $primary-text-colour;
-      padding-bottom: 0.5rem;
-    }
-  }
+		&-title {
+			margin: 0;
+			font-size: 1.1rem;
+			font-weight: bold;
+			color: $primary-text-colour;
+			padding-bottom: 0.5rem;
+		}
+	}
 
-  &__field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 
-    &--qty.display {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+		&--qty.display {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
 
-    &--qty.none {
-      display: none;
-    }
-  }
+		&--qty.none {
+			display: none;
+		}
+	}
 
-  &__label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: $primary-text-colour;
-  }
+	&__label {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: $primary-text-colour;
+	}
 
-  &__input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 0.0625rem solid $secondary-accent-colour;
-    border-radius: 1.25rem;
-    color: $primary-text-colour;
-    font-family: inherit;
-    margin-bottom: 2rem;
+	&__input {
+		padding: 0.5rem;
+		font-size: 1rem;
+		border: 0.0625rem solid $secondary-accent-colour;
+		border-radius: 1.25rem;
+		color: $primary-text-colour;
+		font-family: inherit;
+		margin-bottom: 2rem;
 
-    &--textarea {
-      resize: vertical;
-    }
-  }
+		&--textarea {
+			resize: vertical;
+		}
+	}
 
-  &__radios {
-    display: flex;
-    gap: 1rem;
-  }
+	&__radios {
+		display: flex;
+		gap: 1rem;
+	}
 
-  &__radio-label {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+	&__radio-label {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
 
-    input[type="radio"] {
-      accent-color: $primary-accent-colour;
-    }
-  }
+		input[type="radio"] {
+			accent-color: $primary-accent-colour;
+		}
+	}
 
-  &__button-container {
-    background-color: $light-background-colour;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    padding: 2rem;
+	&__button-container {
+		background-color: $light-background-colour;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		gap: 1rem;
+		margin-top: 1rem;
+		padding: 2rem;
 
-    @include tablet {
-      justify-content: flex-end;
-    }
+		@include tablet {
+			justify-content: flex-end;
+		}
 
-    @include desktop {
-      justify-content: flex-end;
-    }
-  }
+		@include desktop {
+			justify-content: flex-end;
+		}
+	}
 
-  &__button {
-    border: none;
-    border-radius: 1.25rem;
-    width: 45%;
-    padding: 0.75rem 2.5rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-family: inherit;
+	&__button {
+		border: none;
+		border-radius: 1.25rem;
+		width: 45%;
+		padding: 0.75rem 2.5rem;
+		font-size: 0.9rem;
+		cursor: pointer;
+		font-family: inherit;
 
-    @include tablet {
-      width: 4rem;
-      height: 2.5rem;
-      padding: 0.5rem 1rem;
-    }
+		@include tablet {
+			width: 6rem;
+			height: 2.5rem;
+			padding: 0.5rem 1rem;
+		}
 
-    &--cancel {
-      background-color: $primary-background-colour;
-      color: $primary-text-colour;
-      border: 0.0625rem solid $secondary-accent-colour;
-    }
+		&--cancel {
+			background-color: $primary-background-colour;
+			color: $primary-text-colour;
+			border: 0.0625rem solid $secondary-accent-colour;
+		}
 
-    &--save {
-      background-color: $primary-accent-colour;
-      color: $primary-background-colour;
-    }
-  }
+		&--save {
+			background-color: $primary-accent-colour;
+			color: $primary-background-colour;
+		}
+	}
 
-  @include tablet {
-    .edit-inventory__section {
-      flex: 1;
-      border-bottom: 0;
-      &:first-child {
-        border-right: 0.0625rem solid $secondary-accent-colour;
-        padding-right: 2rem;
-      }
-      &:last-child {
-        padding-left: 2rem;
-      }
-    }
-  }
+	@include tablet {
+		.edit-inventory__section {
+			flex: 1;
+			border-bottom: 0;
+			&:first-child {
+				border-right: 0.0625rem solid $secondary-accent-colour;
+				padding-right: 2rem;
+			}
+			&:last-child {
+				padding-left: 2rem;
+			}
+		}
+	}
 
-  @include desktop {
-    .edit-inventory {
-      width: 80%;
-    }
-  }
+	@include desktop {
+		.edit-inventory {
+			width: 80%;
+		}
+	}
 }
